@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>pretend</i> to analyze data</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>pretend</i> to analyze data (unstyled)</font>
 
 importCustomStyles()
 
@@ -164,22 +164,26 @@ lightcurve: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_
 
 import time
 print(log_10)
-time.sleep(3)
+showProgress(3)
 print(log_20)
-time.sleep(5)
+showProgress(2)
 print(log_30)
-time.sleep(9)
+showProgress(5)
 print(log_40)
-time.sleep(1)
+showProgress(1)
 print(log_50)
-time.sleep(7)
+showProgress(4)
 print(log_60)
 
 display(HTML('<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'))
-display(HTML('<p>Downloading now...'))
+display(HTML('<p>Downloading now...</p>'))
 
-from google.colab import files
-files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+showProgress(1)
+
+if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
+  files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+else: 
+  display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
 
 
 display(HTML('<p class="bookend">DONE: Pretending to analyze sample data. <b>You may move on to the next step.</b></p>'))

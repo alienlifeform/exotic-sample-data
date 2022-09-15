@@ -4,6 +4,8 @@
 %%capture step_capture --no-display
 import random
 from IPython.display import display, HTML
+
+
 def importCustomStyles():
   custom_stylesheet_url = 'https://exoplanets.nasa.gov/system/exotic/colab.css?i=' + str(random.random())
   display(HTML('<link rel="stylesheet" href="' + custom_stylesheet_url + '">'))
@@ -13,6 +15,17 @@ importCustomStyles()
 
 display(HTML('<p class="bookend">START: Importing libraries</p>'))
 display(HTML('<ul class="step1">'))
+display(HTML('<li class="step1">Time, ProgressBar</li>'))
+import time
+import progressbar
+
+def showProgress(seconds):
+  with progressbar.ProgressBar(max_value=100) as bar:
+    for idx, val in enumerate(range(100)):
+      time.sleep(seconds/100)
+      bar.update(idx)
+
+
 
 display(HTML('<li class="step1">IPython.display</li>'))
 
@@ -44,7 +57,6 @@ from pprint import pprint
 from IPython.display import Image
 from ipywidgets import widgets, HBox
 from skimage.transform import rescale, resize, downscale_local_mean
-
 import copy
 
 display(HTML('<li class="step1">Matlab</li>'))
@@ -59,8 +71,8 @@ import re
 import json
 import subprocess
 
-display(HTML('<li class="step1">GoogleDrive</li>'))
-from google.colab import drive
+display(HTML('<li class="step1">Google Utils</li>'))
+from google.colab import drive, files
 
 display(HTML('</ul>'))
 

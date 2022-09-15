@@ -1,13 +1,13 @@
 # sshexo_cms
 # vi /mnt/efs/production/public/system/exotic/colab.css
 
-body {
+body, td {
   font-family:Helvetica,sans-serif;
-  color:#907070;
+  color:#434343;
 }
 
 p.step {
-  font-family:Helvetica,sans-serif; color:#702020;
+  font-family:Helvetica,sans-serif; color:#434343;
   margin-top:3px;
   margin-bottom:3px;
   margin-left:30px;
@@ -18,7 +18,7 @@ p.bookend {
   border: 1px dotted #333;
 }
 li.step, li.step1, li.step2, li.step3, li.step4, li.step5  {
-  font-family:Helvetica,sans-serif; color:#702020;
+  font-family:Helvetica,sans-serif; color:#864343;
   margin-top:3px;
   margin-bottom:3px;
   margin-left:30px;
@@ -64,7 +64,9 @@ pre.output, div.output_text pre, div#output-area span pre {
 
 .log {
   height:100px;
-  width:80%;
+  width:70%;
   border:1px solid #4e4e4e;
   overflow:auto;
+  margin-left: 80px;
+  margin-right: 80px;
 }

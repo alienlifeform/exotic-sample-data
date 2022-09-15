@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run the data reduction for Hat-p-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC on the images for Hat-p-32 b</font> { vertical-output: true }
 
 importCustomStyles()
 
@@ -18,7 +18,7 @@ importCustomStyles()
 
 # p is the name of the folder entered by the user.  Decide what to do based on what
 # is found in the folder.
-display(HTML('<p class="bookend">START: Analyzing sample data</p>'))
+display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
 #display(HTML("<p class='warning'>NOTE: At this point in EXOTIC, you would have the opportunity choose where to temporarily save the sample data. For this exercise, we're downloading to /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"))
 display(HTML('<ul class="step5">'))
 
@@ -74,6 +74,6 @@ for inits_file in inits:
 
 display(HTML('</ul>'))
 
-display(HTML('<p class="bookend">DONE: Analyzing sample data. <b>You may move on to the next step.</b></p>'))
+display(HTML('<p class="bookend">DONE: Analyzing telescope images. <b>You may move on to the next step.</b></p>'))
 
     

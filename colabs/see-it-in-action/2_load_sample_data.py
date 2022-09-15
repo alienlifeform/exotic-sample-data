@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to load sample data for Hat-p-32 b</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to load telescope images</font>
 #%%capture step_capture --no-display
 
 importCustomStyles()
@@ -6,13 +6,13 @@ importCustomStyles()
 display(HTML('<p class="bookend">START: Loading sample data</p>'))
 
 display(HTML('<ul class="step2">'))
-display(HTML('<li class="step2">Ensuring sample data is loaded into ' + sample_data_target_folder + ''))
+display(HTML('<li class="step2">Ensuring sample data is loaded...'))
 
 
 #
 # Delete existing sample data by changing to `rebuild = "true"`
 #
-rebuild = "false"  
+rebuild = "true"  
 if rebuild == "true":
   if os.path.isdir("/content/EXOTIC/exotic-in-action"):
     %rm -rf /content/EXOTIC/exotic-in-action
@@ -21,7 +21,8 @@ if rebuild == "true":
 #
 # Download sample files if necessary
 #
-sample_data_source = "https://github.com/rzellem/EXOTIC_sampledata.git"
+#sample_data_source = "https://github.com/rzellem/EXOTIC_sampledata.git" # goes into sample_data_target_folder
+sample_data_source = "https://github.com/alienlifeform/exotic.git" # goes into sample_data_target_parent
 sample_data_target_parent = "/content/EXOTIC/exotic-in-action"
 sample_data_target_folder = "/content/EXOTIC/exotic-in-action/sample-data"
 sample_data_target_child = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"
@@ -30,9 +31,8 @@ if os.path.isdir(sample_data_target_child):
 
 else:
   display(HTML('<li class="step2">Downloading data from ' + sample_data_source + '</li>'))
-  git_rv = !git clone {sample_data_source} {sample_data_target_folder}
-  #!git clone {https://github.com/rzellem/EXOTIC_sampledata.git /content/EXOTIC/exotic-in-action/sample-data
-  #!git clone https://github.com/alienlifeform/exotic.git /content/EXOTIC/exotic-in-action
+  #git_rv = !git clone {sample_data_source} {sample_data_target_folder}
+  git_rv = !git clone {sample_data_source} {sample_data_target_parent}
   display(HTML('<li class="step2">Sample data successfully loaded for Hat-p-32 b</li>'))
 
 #

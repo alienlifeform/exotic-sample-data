@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to match up target and comparison stars with star chart</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to identify target and comparison stars yourself</font>
 
 importCustomStyles()
 
@@ -320,9 +320,10 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
        aavso_obs_code, sec_obs_code, obs_date, latitude, longitude, height, filter, 
        obs_notes, targ_coords, comp_coords, min, max))
 
-  print("\nWithin your folder of images, there is now a new folder called EXOTIC_output.")
-  print("This folder contains an initialization file for EXOTIC called inits.json.")
-  print("The same folder will contain the output files and images when EXOTIC finishes running.")
+
+  # print("\nWithin your folder of images, there is now a new folder called EXOTIC_output.")
+  # print("This folder contains an initialization file for EXOTIC called inits.json.")
+  # print("The same folder will contain the output files and images when EXOTIC finishes running.")
 
   if not mobs_data:  
     print(f"\nThe inits.json file currently says that your observatory latitude was {latitude} deg,")
@@ -337,21 +338,18 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
   #print("When you are done, press enter to continue.")
   #okay = input()
 
+  time.sleep(1)
+  #print("Your coordinates have been saved in the initialization file here: " + inits_file_path)
+  
   return(inits_file_path)
 
 #########################################################
 
 
 
-display(HTML('<p class="bookend">START: Matching image with starchart</p>'))
+display(HTML('<p class="bookend">START: Compare telescope image and star chart</p>'))
 
 display(HTML('<ul class="step4">'))
-display(HTML('<li class="step5">Ensuring we have sample data</li>'))
-  
-if os.path.isdir("/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"):
-  print("It looks like you already have sample data, no need to download it again.")
-else:
-  !git clone https://github.com/rzellem/EXOTIC_sampledata.git /content/EXOTIC/exotic-in-action/sample-data
 
 bokeh.io.output_notebook()
 sample_data = False
@@ -359,8 +357,6 @@ sample_data = False
 p = "sample-data/HatP32Dec202017"
 p = check_dir(os.path.join("/content/EXOTIC/exotic-in-action/", p))
 output_dir = os.path.join(p, "EXOTIC_output/")      
-
-#output_dir = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/"
                                          
 inits = []    # array of paths to any inits files found in the directory
 files = [f for f in sorted(os.listdir(p)) if os.path.isfile(os.path.join(p, f))]
@@ -373,10 +369,10 @@ for f in files:
   if re.search(r"\.json$", f, re.IGNORECASE):
     inits.append(os.path.join(p, f))
 
-display(HTML('<li class="step5">Found ' + str(fits_count) + ' image files and ' + str(len(inits)) + ' initialization files in the directory</li>'))
+#print('Found ' + str(fits_count) + ' image files and ' + str(len(inits)) + ' initialization files in the directory')
 
 #if fits_count >= 19:                  # more than 20 images in the folder --> run EXOTIC on these images
-if fits_count >= 2:                  # more than 3 images in the folder --> run EXOTIC on these images
+if fits_count >= 2:                  # more than 3 images in the folder --> run EXOTIC on these images -bm
   if len(inits) == 1:                 # one inits file exists
     inits_path = os.path.join(p, inits[0])
     with open(inits_path) as i_file:
@@ -394,8 +390,9 @@ if fits_count >= 2:                  # more than 3 images in the folder --> run 
   else:                               # no inits file: display image and prompt for target, comp coords;
                                       # then make an inits file and put it into the output directory (with the plots)
     #print("There are either 0 or > 1 inits files in your image directory, so we'll make a new one.")
-    print("Displaying first image:")
+    #print("Displaying first image:")
 
+    display(HTML('<br clear="all"/>'))
     display(HTML('<hr />'))
     display(HTML('<div class="plots">'))
     display(HTML('<img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>'))
@@ -403,21 +400,29 @@ if fits_count >= 2:                  # more than 3 images in the folder --> run 
     display(HTML('</div>'))
 
     obs = ""
-    display(HTML('<hr /><br /><li class="step5"><b>STEP 1: Identify the target star</b></li>'))
-    display(HTML('<ol class="step"><li class="step4">In the right image, find the <i>crosshairs</i> in the center that represent the target star.</li><li class="step4">On the left image, <i>find and roll over the target star with your mouse</i> and note the coordinates.</li><li class="step4">Put them in the box below as follows (including brackets!) <code>[425,286]</code> and press return.</li></ol>')) 
+    display(HTML('<br /><br /><hr /><br /><h3>Enter coordinates for the target star</h3>'))
+    display(HTML('<p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>'))
+    display(HTML('<ol class="step"><li class="step4">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li><li class="step4">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li></ol>')) 
     
-    targ_coords = input("")  
-    if targ_coords != "[425,286]":
-      display(HTML('<p class="step">You entered ' + targ_coords + '<br /><br /><br /><br /></p>'))
-      targ_coords = "[425,286]"
+    targ_coords = input("Enter coordinates for target star - in this case [424,286] - and press return:  ")  
+    # if targ_coords != "[424,286]":
+    #   display(HTML('<p class="output">You entered ' + targ_coords + '</p>'))
+    targ_coords = "[424,286]"
 
-    display(HTML('<hr /><br /><li class="step5"><b>STEP 2: Identify the comparison star(s).</b></li>'))
-    display(HTML('<ol class="step"><li class="step4">In the right image, find the stars <i>with numbers</i> that represent suggested comparison stars.</li><li class="step4">On the left image, <i>find and roll over each comparison star with your mouse</i> and note the coordinates.</li><li class="step4">Put them in the box below as follows (including brackets!) <code>[[493,304],[415,343]]</code> and press return.</li></ol>'))
+
+    showProgress(1)
+    display(HTML('<li class="step4">Target star coordinates logged</li>'))
     
-    comp_coords = input("")
-    if comp_coords != "[[493,304],[415,343]]":
-      display(HTML('<p class="step">You entered ' + comp_coords + '<br /><br /></p>'))
-      comp_coords = "[[493,304],[415,343]]"
+    display(HTML('<h3>Enter coordinates for at least two comparison stars.</h3>'))
+    display(HTML('<ol class="step"><li class="step4">In the right image, find the stars <i>with numbers</i> that represent suggested comparison stars.</li><li class="step4">On the left image, <i>find and roll over each comparison star with your mouse</i> and note the coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[[x1,y1][x2,y2]]</code> and press return.</li></ol>'))
+    
+    comp_coords = input("Enter coordinates for the comparison stars - you can use [[326,365],[416,343],[491,303]] - and press return:  ")  
+    # if comp_coords != "[[326,365],[416,343],[491,303]]":
+    #   display(HTML('<p class="step">You entered ' + comp_coords + '<br /><br /></p>'))
+    comp_coords = "[[326,365],[416,343],[491,303]]"
+
+    showProgress(1)
+    display(HTML('<li class="step4">Comparison star coordinates logged</li>'))
 
     aavso_obs_code = ""
 
@@ -430,13 +435,14 @@ if fits_count >= 2:                  # more than 3 images in the folder --> run 
     os.mkdir(output_dir)
   output_dir_for_shell = output_dir.replace(" ", "\ ")
 
-print("Path to the inits file(s) that will be used:")
+#print("Path to the inits file(s) that will be used:")
 
-for inits_file in inits:
-  print(inits_file)
+#for inits_file in inits:
+#  print(inits_file)
 
 num_inits = len(inits)
 
-display(HTML('<p class="bookend">DONE: Matching image with starchart. <b>You may move on to the next step.</b></p>'))
+
+display(HTML('<p class="bookend">DONE: Compare telescope image and star chart. <b>You may move on to the next step.</b></p>'))
 
 

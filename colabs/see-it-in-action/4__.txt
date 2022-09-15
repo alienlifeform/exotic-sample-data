@@ -1,7 +1,11 @@
-# **Step 4: Match up telescope images with AAVSO Star Chart**
+# **Step 4: Identify target star and comparison stars**
 
 ---
-> Estimated time: < 1 minute
+> Estimated time: 5 minutes
 ---
 
-OK, here's the tricky part. You need to identify *where in the known sky* your 1st telescope image is by matching up known stars.
+In this multi-part step, you will use your stargazing skills to identify *where in the sky* the target star (Hat-p-32) is. For you to do:
+
+1. **View the Animation:** How to identify stars (1 minute)
+1. **Watch the Video:** How to determine a star's coordinates (2 minutes)
+1. **Try it yourself:** Enter the coordinates for the target and comparison stars (5 minutes)

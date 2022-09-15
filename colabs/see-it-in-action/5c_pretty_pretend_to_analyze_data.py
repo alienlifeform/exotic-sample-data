@@ -1,6 +1,5 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>pretend</i> to analyze data</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>pretend</i> to analyze data (styled)</font>
 
-import time
 importCustomStyles()
 
 display(HTML('<p class="bookend">START: Pretending to analyze sample data</p>'))
@@ -175,22 +174,43 @@ display(HTML('<li class="step">Checking ephemerides database...</li>'))
 display(HTML('<li class="step">Checking photometry database...</li>'))
 display(HTML('<li class="step">Checking catalogues database...</li>'))
 
-time.sleep(3)
-display(HTML('<div class="log">' + log_05 ' </div>'))
-time.sleep(3)
+showProgress(2)
+display(HTML('<pre class="log">' + log_10 + ' </pre>'))
+showProgress(1)
 display(HTML('<li class="step">Starting Reduction Process</li>'))
-time.sleep(3)
 
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
-# display(HTML('<li class="step"></li>'))
+display(HTML('<li class="step">Getting the plate solution for your imaging file to translate pixel coordinates on the sky.</li>'))
+showProgress(2)
+
+display(HTML('<pre class="log">' + log_20 + ' </pre>'))
+
+display(HTML('<li class="step">WCS file creation successful.</li>'))
+display(HTML('<li class="step">Checking for variability in Comparison Star #1:</li>'))
+showProgress(1)
+display(HTML('<li class="step">Checking for variability in Comparison Star #2:</li>'))
+showProgress(1)
+
+display(HTML('<pre class="log">' + log_30 + ' </pre>'))
+
+display(HTML('<li class="step">Computing best comparison star, aperture, and sky annulus. Please wait.</li>'))
+showProgress(2)
+
+display(HTML('<pre class="log">' + log_40 + ' </pre>'))
+
+display(HTML('<li class="step">Converting all JDs to BJD_TDBs.</li>'))
+showProgress(1)
+
+
+display(HTML('<li class="step">Output File Saved</li>'))
+
+display(HTML('<pre class="log">' + log_50 + ' </pre>'))
+
+display(HTML('<li class="step">Fitting a Light Curve Model to Your Data</li>'))
+showProgress(3)
+
+display(HTML('<li class="step">Lightcurve Output Files Saved</li>'))
+
+display(HTML('<pre class="log">' + log_60 + ' </pre>'))
 
 display(HTML('</ul>'))
 
@@ -208,13 +228,17 @@ display(HTML('</ul>'))
 # time.sleep(7)
 # print(log_60)
 
-display(HTML('<img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>'))
+display(HTML('<br /><img src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png" width=380><br />'))
+
 
 display(HTML('<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'))
-display(HTML('<p>Downloading now...'))
+display(HTML('<p>Downloading now...</p>'))
 
-from google.colab import files
-files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+showProgress(1)
 
+if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
+  files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+else: 
+  display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
 
 display(HTML('<p class="bookend">DONE: Pretending to analyze sample data. <b>You may move on to the next step.</b></p>'))

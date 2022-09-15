@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to download Planetary parameters for Hat-p-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to download Planetary data for Hat-p-32 b</font> { vertical-output: true }
 
 ##############################################################
 
@@ -40,13 +40,14 @@ importCustomStyles()
 
 display(HTML('<p class="bookend">START: Download planetary parameters</p>'))
 
+display(HTML('<ul class="step3">'))
+display(HTML('<li class="step3">Connecting with NASA Exoplanet Archive</li>'))
 
 #target=input("Please enter the name of your exoplanet target: ")
 target="Hat-p-32 b"
 targ = NASAExoplanetArchive(planet=target)
 target = targ.planet_info()[0]
 
-display(HTML('<ul class="step3">'))
 display(HTML('<li class="step3">Found target ' + target + ' in the NASA Exoplanet Archive</li>'))
 
 planetary_params = ""
@@ -61,7 +62,7 @@ else:
   planetary_params = "\"planetary_parameters\": "+p_param_string
   p_param_dict = json.loads(p_param_string)
   planetary_params = fix_planetary_params(p_param_dict)
-  display(HTML('<li class="step3">Loading NASA Exoplanet Archive planetary parameters for ' + target + ':</li><br />'))
+  display(HTML('<li class="step3">Loading NASA Exoplanet Archive planetary parameters for ' + target + '</li><br />'))
   print(planetary_params)
 
   display(HTML('<li class="step3">Planetary parameters saved to memory</li>'))
