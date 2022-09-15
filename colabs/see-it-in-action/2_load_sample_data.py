@@ -12,7 +12,7 @@ display(HTML('<li class="step2">Ensuring sample data is loaded...'))
 #
 # Delete existing sample data by changing to `rebuild = "true"`
 #
-rebuild = "true"  
+rebuild = "false"  
 if rebuild == "true":
   if os.path.isdir("/content/EXOTIC/exotic-in-action"):
     %rm -rf /content/EXOTIC/exotic-in-action

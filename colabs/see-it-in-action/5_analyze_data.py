@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC on the images for Hat-p-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>actually</i> run EXOTIC on the images for Hat-p-32 b</font> { vertical-output: true }
 
 importCustomStyles()
 
@@ -71,6 +71,17 @@ for inits_file in inits:
     display(imageA)
     #display(hbox)
     #display(Image(filename=triangle))
+
+display(HTML('<p>The data for the lightcurve you see here is downloading now in a format suitable to submit to AAVSO.'))
+
+# /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt
+
+showProgress(2)
+
+if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
+  files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+else: 
+  display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
 
 display(HTML('</ul>'))
 

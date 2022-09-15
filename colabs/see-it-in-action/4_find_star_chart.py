@@ -359,9 +359,9 @@ p = check_dir(os.path.join("/content/EXOTIC/exotic-in-action/", p))
 output_dir = os.path.join(p, "EXOTIC_output/")      
                                          
 inits = []    # array of paths to any inits files found in the directory
-files = [f for f in sorted(os.listdir(p)) if os.path.isfile(os.path.join(p, f))]
+all_files = [f for f in sorted(os.listdir(p)) if os.path.isfile(os.path.join(p, f))]
 fits_count, first_image = 0, ""
-for f in files:
+for f in all_files:
   if re.search(r"\.f[itz]+s?\.?g?z?$", f, re.IGNORECASE):
     if first_image == "":
       first_image = os.path.join(p, f)

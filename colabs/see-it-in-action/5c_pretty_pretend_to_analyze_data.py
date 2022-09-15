@@ -1,8 +1,8 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>pretend</i> to analyze data (styled)</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze sample data (developer's note: styled, simulated)</font>
 
 importCustomStyles()
 
-display(HTML('<p class="bookend">START: Pretending to analyze sample data</p>'))
+display(HTML('<p class="bookend">START: Analyzing sample data</p>'))
 
 
 
@@ -231,14 +231,15 @@ display(HTML('</ul>'))
 display(HTML('<br /><img src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png" width=380><br />'))
 
 
-display(HTML('<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'))
-display(HTML('<p>Downloading now...</p>'))
+display(HTML('<p>The data for the lightcurve you see here is downloading now in a format suitable to submit to AAVSO.'))
 
-showProgress(1)
+# /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt
+
+showProgress(2)
 
 if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
   files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
 else: 
   display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
 
-display(HTML('<p class="bookend">DONE: Pretending to analyze sample data. <b>You may move on to the next step.</b></p>'))
+display(HTML('<p class="bookend">DONE: Analyzing sample data. <b>You may move on to the next step.</b></p>'))
