@@ -1,9 +1,11 @@
 
 ---
 
+---
+
 # **DONE: Next Steps** 
 
-You have successfully generated a lightcurve showing the transit of Hat-p-32b around Hat-p-32 and downloaded the data to your hard drive, ready for submission to AAVSO. 
+You have successfully generated a lightcurve showing the transit of Hat-p-32b around Hat-p-32 and downloaded the data to your hard drive as "AAVSO_HAT-P-32 b_2017-12-19.txt", in a format suitable for submission to AAVSO. 
 
 This exoplanet was actually discovered in 2011, and you can [explore it in 3D here](https://exoplanets.nasa.gov/exoplanet-catalog/1434/hat-p-32-b/).
 
@@ -13,8 +15,4 @@ Ready for the next step?  [Use EXOTIC to upload your own data!](https://exoplane
 
 ---
 
-APPENDIX: BONUS SEGMENTS (below)
-
----
-
----
+# **APPENDIX: BONUS SEGMENTS**

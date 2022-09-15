@@ -400,29 +400,29 @@ if fits_count >= 2:                  # more than 3 images in the folder --> run 
     display(HTML('</div>'))
 
     obs = ""
-    display(HTML('<br /><br /><hr /><br /><h3>Enter coordinates for the target star</h3>'))
+    display(HTML('<br /><br /><hr /><br /><h3>Data Entry 1 of 2: Enter coordinates for the target star</h3>'))
     display(HTML('<p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>'))
     display(HTML('<ol class="step"><li class="step4">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li><li class="step4">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li></ol>')) 
     
-    targ_coords = input("Enter coordinates for target star - in this case [424,286] - and press return:  ")  
+    targ_coords = input("Enter coordinates for target star - [424,286] - and press return:  ")  
     # if targ_coords != "[424,286]":
     #   display(HTML('<p class="output">You entered ' + targ_coords + '</p>'))
     targ_coords = "[424,286]"
 
 
     showProgress(1)
-    display(HTML('<li class="step4">Target star coordinates logged</li>'))
+    display(HTML('<p class="output">Target star coordinates logged</p>'))
     
-    display(HTML('<h3>Enter coordinates for at least two comparison stars.</h3>'))
+    display(HTML('<h3>Data Entry 2 of 2: Enter coordinates for at least two comparison stars.</h3>'))
     display(HTML('<ol class="step"><li class="step4">In the right image, find the stars <i>with numbers</i> that represent suggested comparison stars.</li><li class="step4">On the left image, <i>find and roll over each comparison star with your mouse</i> and note the coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[[x1,y1][x2,y2]]</code> and press return.</li></ol>'))
     
-    comp_coords = input("Enter coordinates for the comparison stars - you can use [[326,365],[416,343],[491,303]] - and press return:  ")  
+    comp_coords = input("Enter coordinates for the comparison stars - [[326,365],[416,343],[491,303]] - and press return:  ")  
     # if comp_coords != "[[326,365],[416,343],[491,303]]":
     #   display(HTML('<p class="step">You entered ' + comp_coords + '<br /><br /></p>'))
     comp_coords = "[[326,365],[416,343],[491,303]]"
 
     showProgress(1)
-    display(HTML('<li class="step4">Comparison star coordinates logged</li>'))
+    display(HTML('<p class="output">Comparison star coordinates logged</p>'))
 
     aavso_obs_code = ""
 

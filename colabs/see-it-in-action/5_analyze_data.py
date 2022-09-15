@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>actually</i> run EXOTIC on the images for Hat-p-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze telescope images (developer's note, unstyled, real)</font>
 
 importCustomStyles()
 

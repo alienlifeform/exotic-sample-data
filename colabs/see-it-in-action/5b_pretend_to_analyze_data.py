@@ -1,9 +1,9 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to <i>pretend</i> to analyze data (unstyled)</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze telescope images (unstyled, simulated)</font>
 
 importCustomStyles()
 
 
-display(HTML('<p class="bookend">START: Pretending to analyze sample data</p>'))
+display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
 
 log_10 = """
 Path to the inits file(s) that will be used:
@@ -186,4 +186,4 @@ else:
   display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
 
 
-display(HTML('<p class="bookend">DONE: Pretending to analyze sample data. <b>You may move on to the next step.</b></p>'))
+display(HTML('<p class="bookend">DONE: Analyzing telescope images. <b>You may move on to the next step.</b></p>'))

@@ -2,7 +2,7 @@
 
 importCustomStyles()
 
-display(HTML('<p class="bookend">START: Analyzing sample data</p>'))
+display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
 
 
 
@@ -228,7 +228,7 @@ display(HTML('</ul>'))
 # time.sleep(7)
 # print(log_60)
 
-display(HTML('<br /><img src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png" width=380><br />'))
+display(HTML('<br /><img src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png" width=500><br />'))
 
 
 display(HTML('<p>The data for the lightcurve you see here is downloading now in a format suitable to submit to AAVSO.'))
@@ -242,4 +242,4 @@ if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/
 else: 
   display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
 
-display(HTML('<p class="bookend">DONE: Analyzing sample data. <b>You may move on to the next step.</b></p>'))
+display(HTML('<p class="bookend">DONE: Analyzing telescope images. <b>You may move on to the next step.</b></p>'))
