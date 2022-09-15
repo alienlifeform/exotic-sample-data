@@ -1,0 +1,7 @@
+# **Step 4: Match up telescope images with AAVSO Star Chart**
+
+---
+> Estimated time: < 1 minute
+---
+
+OK, here's the tricky part. You need to identify *where in the known sky* your 1st telescope image is by matching up known stars.

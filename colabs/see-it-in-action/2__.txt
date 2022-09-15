@@ -1,0 +1,5 @@
+# **Step 2: Load Sample Data**
+
+---
+> Estimated time: 1 minute
+---

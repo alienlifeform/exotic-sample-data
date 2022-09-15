@@ -1,0 +1,8 @@
+# **Step 3:  Download planetary info from the Exoplanets Archive**
+
+Wait until the cell above is finished running before proceeding.
+
+---
+> Estimated time: < 1 minute
+---
+
