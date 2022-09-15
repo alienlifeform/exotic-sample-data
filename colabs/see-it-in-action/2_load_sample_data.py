@@ -6,7 +6,7 @@ importCustomStyles()
 display(HTML('<p class="bookend">START: Loading sample data</p>'))
 
 display(HTML('<ul class="step2">'))
-display(HTML('<li class="step2">Ensuring sample data is loaded'))
+display(HTML('<li class="step2">Ensuring sample data is loaded into ' + sample_data_target_folder + ''))
 
 
 #
@@ -26,11 +26,11 @@ sample_data_target_parent = "/content/EXOTIC/exotic-in-action"
 sample_data_target_folder = "/content/EXOTIC/exotic-in-action/sample-data"
 sample_data_target_child = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"
 if os.path.isdir(sample_data_target_child):
-  display(HTML('<li class="step2">Skipping... Sample data already loaded for Hat-p-32 b</li>'))
+  display(HTML('<li class="step2">Skipping... Sample data already loaded</li>'))
 
 else:
-  display(HTML('Downloading data from ' + sample_data_source + '</li>'))
-  !git clone {sample_data_source} {sample_data_target_folder}
+  display(HTML('<li class="step2">Downloading data from ' + sample_data_source + '</li>'))
+  git_rv = !git clone {sample_data_source} {sample_data_target_folder}
   #!git clone {https://github.com/rzellem/EXOTIC_sampledata.git /content/EXOTIC/exotic-in-action/sample-data
   #!git clone https://github.com/alienlifeform/exotic.git /content/EXOTIC/exotic-in-action
   display(HTML('<li class="step2">Sample data successfully loaded for Hat-p-32 b</li>'))

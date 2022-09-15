@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" color='#702020'>&lt;- Click to import required Python libraries</font> { vertical-output: true }
+#@title <font face="Helvetica" color='#702020'>&lt;- Click to import the EXOTIC code libraries</font> { vertical-output: true }
 
 ##############################################################
 %%capture step_capture --no-display
