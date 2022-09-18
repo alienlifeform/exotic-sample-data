@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to identify target and comparison stars yourself</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to identify the target and comparison stars in a telescope image</font>
 
 importCustomStyles()
 
@@ -392,18 +392,19 @@ if fits_count >= 2:                  # more than 3 images in the folder --> run 
     #print("There are either 0 or > 1 inits files in your image directory, so we'll make a new one.")
     #print("Displaying first image:")
 
-    display(HTML('<br clear="all"/>'))
+    obs = ""
+    display(HTML('<h3>Data Entry 1 of 2: Enter coordinates for the target star</h3>'))
+    display(HTML('<p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>'))
+    display(HTML('<ol class="step"><li class="step4">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li><li class="step4">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li></ol>')) 
+    
     display(HTML('<hr />'))
     display(HTML('<div class="plots">'))
     display(HTML('<img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>'))
     display_image(first_image)
     display(HTML('</div>'))
+    display(HTML('<br clear="all"/>'))
 
-    obs = ""
-    display(HTML('<br /><br /><hr /><br /><h3>Data Entry 1 of 2: Enter coordinates for the target star</h3>'))
-    display(HTML('<p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>'))
-    display(HTML('<ol class="step"><li class="step4">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li><li class="step4">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li></ol>')) 
-    
+
     targ_coords = input("Enter coordinates for target star - [424,286] - and press return:  ")  
     # if targ_coords != "[424,286]":
     #   display(HTML('<p class="output">You entered ' + targ_coords + '</p>'))
@@ -429,7 +430,8 @@ if fits_count >= 2:                  # more than 3 images in the folder --> run 
     if not os.path.isdir(output_dir):
       os.mkdir(output_dir)
 
-    inits = [make_inits_file(planetary_params, p, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
+    #inits = [make_inits_file(planetary_params, p, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
+    inits = [output_dir+"inits.json"]
 
   if not os.path.isdir(output_dir):    # Make the output directory if it does not exist already.
     os.mkdir(output_dir)

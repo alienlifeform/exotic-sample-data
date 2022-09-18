@@ -1,4 +1,5 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze telescope images (unstyled, simulated)</font>
+#@title <font face="Helvetica" color='#702020'>&lt;- Run EXOTIC to generate a lightcurve</font>
+# This generation is a simulation only using unstyled logging from a HAT-P-32 b EXOTIC run
 
 importCustomStyles()
 
@@ -180,6 +181,7 @@ display(HTML('<p>Downloading now...</p>'))
 
 showProgress(1)
 
+input("Download lightcurve data? (Y/n) ")
 if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
   files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
 else: 

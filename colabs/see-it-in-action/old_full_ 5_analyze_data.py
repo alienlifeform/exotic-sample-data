@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run the data reduction for Hat-p-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run the data reduction for HAT-P-32 b</font> { vertical-output: true }
 
 importCustomStyles()
 
@@ -351,7 +351,7 @@ display(HTML('<ul class="step5">'))
 bokeh.io.output_notebook()
 sample_data = False
 
-#p = input("Press enter to run the Hat-p-32b sample data, or enter a path as described above.")
+#p = input("Press enter to run the HAT-P-32 b sample data, or enter a path as described above.")
 
 # Is there a way to download this without a google drive? like a public but self-deleting google drive?
 p = ""

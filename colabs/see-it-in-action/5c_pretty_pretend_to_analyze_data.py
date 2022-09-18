@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze sample data (developer's note: styled, simulated)</font>
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Run EXOTIC to generate a lightcurve (developer's note: styled, simulated)</font>
 
 importCustomStyles()
 

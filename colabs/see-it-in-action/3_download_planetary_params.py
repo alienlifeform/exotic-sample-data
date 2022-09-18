@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to download Planetary data for Hat-p-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to download Planetary data for HAT-P-32 b</font> { vertical-output: true }
 
 ##############################################################
 
@@ -44,7 +44,7 @@ display(HTML('<ul class="step3">'))
 display(HTML('<li class="step3">Connecting with NASA Exoplanet Archive</li>'))
 
 #target=input("Please enter the name of your exoplanet target: ")
-target="Hat-p-32 b"
+target="HAT-P-32 b"
 targ = NASAExoplanetArchive(planet=target)
 target = targ.planet_info()[0]
 
