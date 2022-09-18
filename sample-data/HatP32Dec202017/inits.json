@@ -1,0 +1,60 @@
+
+{
+  "planetary_parameters": {
+    "Target Star RA": "02:04:10.262736",
+    "Target Star Dec": "+46:41:16.26432",
+    "Planet Name": "HAT-P-32 b",
+    "Host Star Name": "HAT-P-32",
+    "Orbital Period (days)": 2.15000825,
+    "Orbital Period Uncertainty": 1e-07,
+    "Published Mid-Transit Time (BJD-UTC)": 2456209.25393,
+    "Mid-Transit Time Uncertainty": 5e-05,
+    "Ratio of Planet to Stellar Radius (Rp/Rs)": 0.14886235252742716,
+    "Ratio of Planet to Stellar Radius (Rp/Rs) Uncertainty": 0.0005539487393037134,
+    "Ratio of Distance to Stellar Radius (a/Rs)": 5.344,
+    "Ratio of Distance to Stellar Radius (a/Rs) Uncertainty": 0.039496835316262996,
+    "Orbital Inclination (deg)": 88.98,
+    "Orbital Inclination (deg) Uncertainty": 0.7602631123499285,
+    "Orbital Eccentricity (0 if null)": 0.159,
+    "Argument of Periastron (deg)": 50.0,
+    "Star Effective Temperature (K)": 6207.0,
+    "Star Effective Temperature (+) Uncertainty": 88.0,
+    "Star Effective Temperature (-) Uncertainty": -88.0,
+    "Star Metallicity ([FE/H])": -0.16,
+    "Star Metallicity (+) Uncertainty": 0.08,
+    "Star Metallicity (-) Uncertainty": -0.08,
+    "Star Surface Gravity (log(g))": 4.22,
+    "Star Surface Gravity (+) Uncertainty": 0.04,
+    "Star Surface Gravity (-) Uncertainty": -0.04
+},
+    "user_info": {
+            "Directory with FITS files": "/content/drive/My Drive/sample-data/HatP32Dec202017",
+            "Directory to Save Plots": "/content/drive/My Drive/sample-data/HatP32Dec202017/EXOTIC_output/",
+            "Directory of Flats": null,
+            "Directory of Darks": null,
+            "Directory of Biases": null,
+
+            "AAVSO Observer Code (N/A if none)": "N/A",
+            "Secondary Observer Codes (N/A if none)": "MOBS",
+
+            "Observation date": "2017-12-19",
+            "Obs. Latitude": "+37.04",
+            "Obs. Longitude": "-110.73",
+            "Obs. Elevation (meters)": 2606,
+            "Camera Type (CCD or DSLR)": "CCD",
+            "Pixel Binning": "1x1",
+            "Filter Name (aavso.org/filters)": "V",
+            "Observing Notes": "First image seeing 99 (0: poor, 100: excellent), Teltemp - Camtemp 16.0.  These observations were conducted with MicroObservatory, a robotic telescope network managed by the Harvard-Smithsonian Center for Astrophysics on behalf of NASA's Universe of Learning. This work is supported by NASA under award number NNX16AC65A to the Space Telescope Science Institute.",
+
+            "Plate Solution? (y/n)": "y",
+            "Align Images? (y/n)": "y",
+
+            "Target Star X & Y Pixel": [426,287],
+            "Comparison Star(s) X & Y Pixel": [[418,345],[327,366],[494,304],[407,210],[347,214]]
+    },    
+    "optional_info": {
+            "Pixel Scale (Ex: 5.21 arcsecs/pixel)": null,
+            "Filter Minimum Wavelength (nm)": null,
+            "Filter Maximum Wavelength (nm)": null
+    }
+}
