@@ -28,8 +28,8 @@
     "Star Surface Gravity (-) Uncertainty": -0.04
 },
     "user_info": {
-            "Directory with FITS files": "/content/drive/My Drive/sample-data/HatP32Dec202017",
-            "Directory to Save Plots": "/content/drive/My Drive/sample-data/HatP32Dec202017/EXOTIC_output/",
+            "Directory with FITS files": "/content/EXOTIC/sample-data/HatP32Dec202017",
+            "Directory to Save Plots": "/content/EXOTIC/sample-data/HatP32Dec202017/EXOTIC_output/",
             "Directory of Flats": null,
             "Directory of Darks": null,
             "Directory of Biases": null,
