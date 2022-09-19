@@ -359,6 +359,9 @@ p = check_dir(os.path.join("/content/EXOTIC/exotic-in-action/", p))
 output_dir = os.path.join(p, "EXOTIC_output/")      
                                          
 inits = []    # array of paths to any inits files found in the directory
+print('p = ' + p)
+
+all_files_print = [f for f in sorted(os.listdir(p))]
 all_files = [f for f in sorted(os.listdir(p)) if os.path.isfile(os.path.join(p, f))]
 fits_count, first_image = 0, ""
 for f in all_files:
@@ -373,7 +376,8 @@ for f in all_files:
 
 #if fits_count >= 19:                  # more than 20 images in the folder --> run EXOTIC on these images
 if fits_count >= 2:                  # more than 3 images in the folder --> run EXOTIC on these images -bm
-  if len(inits) == 1:                 # one inits file exists
+  #if len(inits) == 1:                 # one inits file exists
+  if len(inits) == 2:                 # one inits file exists
     inits_path = os.path.join(p, inits[0])
     with open(inits_path) as i_file:
       inits_data = i_file.read()
@@ -424,7 +428,7 @@ if fits_count >= 2:                  # more than 3 images in the folder --> run 
 
     showProgress(1)
     display(HTML('<p class="output">Comparison star coordinates logged</p>'))
-
+    display(HTML('<li class="step">Coordinates save to inits.json</li>'))
     aavso_obs_code = ""
 
     if not os.path.isdir(output_dir):
