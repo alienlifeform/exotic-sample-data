@@ -1,0 +1,87 @@
+#@title <font face="Helvetica" color='#702020'>&lt;- Click to import the EXOTIC code libraries</font> { vertical-output: true }
+
+##############################################################
+%%capture step_capture --no-display
+print("Starting application...")
+
+from IPython.display import display, HTML, Javascript
+import random
+
+# Grabs a stylesheet, call this before any html output in cell
+def importCustomStyles():
+  custom_stylesheet_url = 'https://exoplanets.nasa.gov/system/exotic/colab.css?i=' + str(random.random())
+  display(HTML('<link rel="stylesheet" href="' + custom_stylesheet_url + '">'))
+  #display(HTML('Getting stylesheet from ' + custom_stylesheet_url))
+
+importCustomStyles()
+
+display(HTML('<p class="bookend">START: Importing libraries</p>'))
+display(HTML('<ul class="step1">'))
+display(HTML('<li class="step1">Time, ProgressBar</li>'))
+import time
+import progressbar
+
+# Creates a progress bar that just runs for `seconds` number of seconds
+def showProgress(seconds):
+  with progressbar.ProgressBar(max_value=100) as bar:
+    for idx, val in enumerate(range(100)):
+      time.sleep(seconds/100)
+      bar.update(idx)
+
+# Avoids scroll-in-the-scroll in the entire Notebook
+def resize_colab_cell():
+  display(Javascript('google.colab.output.setIframeHeight(0, true, {maxHeight: 5000})'))
+get_ipython().events.register('pre_run_cell', resize_colab_cell)
+
+
+display(HTML('<li class="step1">IPython.display</li>'))
+
+display(HTML('<li class="step1">Bokeh.io</li>'))
+import bokeh.io
+
+display(HTML('<li class="step1">EXOTIC <span class="comment">(This will take up to a minute, please wait... and ignore any warning that may ask you to "RESTART RUNTIME")</span></li>'))
+!pip install exotic --upgrade
+display(HTML('<br /><br /><p class="step"><span class="comment">Reminder, if there is a "RESTART RUNTIME" warning button above, ignore it!</span></p>'))
+
+# from exotic.api.plotting import plot_image
+display(HTML('<li class="step1">NASAExoplanetArchive</li>'))
+from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
+
+display(HTML('<li class="step1">Astropy</li>'))
+from astropy.time import Time
+
+display(HTML('<li class="step1">Utils</li>'))
+from barycorrpy import utc_tdb
+import numpy as np
+from io import BytesIO
+from astropy.io import fits
+from scipy.ndimage import label
+from bokeh.plotting import figure, output_file, show
+from bokeh.palettes import Viridis256
+from bokeh.models import ColorBar, LinearColorMapper, LogColorMapper, LogTicker
+from bokeh.models import BoxZoomTool,WheelZoomTool,ResetTool,HoverTool,PanTool,FreehandDrawTool
+from bokeh.io import output_notebook
+from pprint import pprint
+from IPython.display import Image
+from ipywidgets import widgets, HBox
+from skimage.transform import rescale, resize, downscale_local_mean
+import copy
+
+display(HTML('<li class="step1">Matlab</li>'))
+import matplotlib.pyplot as plt
+
+display(HTML('<li class="step1">Scipy</li>'))
+from scipy.stats import gaussian_kde
+
+display(HTML('<li class="step1">OS/RE/JSON</li>'))
+import os
+import re
+import json
+import subprocess
+
+display(HTML('<li class="step1">Google Utils</li>'))
+from google.colab import drive, files
+
+display(HTML('</ul>'))
+
+display(HTML('<p class="bookend">DONE: Importing libraries. <b>You may move on to the next step.</b></p>'))

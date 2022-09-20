@@ -1,0 +1,7 @@
+# **Step 3:  Download planetary data from the Exoplanets Archive**
+
+---
+> Estimated time: 10 seconds
+---
+
+This temporary step allows us to accurately identify the planet for the next step. Rob will help Bergen remove this step in the future.
