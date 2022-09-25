@@ -1,0 +1,11 @@
+---
+
+# Tutorial Complete
+
+What would you like to do next?
+
+[Try using EXOTIC with your own observation data](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/)
+
+[Learn how to observe exoplanets](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/how-to-contribute/how-to-observe/)
+
+[Provide feedback for this tutorial](https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/)

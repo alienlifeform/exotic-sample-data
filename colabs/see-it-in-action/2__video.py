@@ -2,7 +2,9 @@
 
 importCustomStyles()
 
-display(HTML('<h3>VIDEO: How to determine a star\'s coordinates</h3>'));
-display(HTML('<p>Be sure your audio is on.</p>'))
+display(HTML('''
+<h3>VIDEO: How to determine a star\'s coordinates</h3>
+<p>Be sure your audio is on.</p>
 
-display(HTML('<video width="840" controls="true" autoplay src="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.mov"/>'))
+<video width="840" controls="true" autoplay src="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.mov"/>
+'''))

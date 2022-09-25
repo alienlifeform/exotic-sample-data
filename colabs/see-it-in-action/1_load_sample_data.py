@@ -14,7 +14,7 @@ from exoticcolab.display import testImplementation, importCustomStyles, setupDis
 #testImplementation()
 
 # Set up custom Colab styles and interactions
-importCustomStyles()
+#importCustomStyles()
 setupDisplay()
 get_ipython().events.register('pre_run_cell', resize_colab_cell)
 

@@ -2,12 +2,16 @@
 
 ## Step 1: Load Telescope Images
 
+<font size=2>
 🕔 Estimated time: 2 minutes
 
 For this tutorial, we are using sample images from a known transit. When you run it yourself, you will upload your own images.
+</font>
 
-```
-🚩 Important:
-  • A popup will appear titled "Warning: This notebook was not authored by Google.". Read it, then click "Run Anyway".
-  • Ignore any warning that may ask you to "RESTART RUNTIME"
-```
+<br />
+<table><tr><td bgcolor="#fee9e9">
+  <font size=2 color="#c02020">Important:</font>
+  <ul><li><font size=2>A popup will appear titled "Warning: This notebook was not authored by Google.". Read it, then click "Run Anyway".</font></li>
+  <li><font size=2>Ignore any warning that may ask you to "RESTART RUNTIME"</font></li></ul>
+</td></tr></table>
+<br />

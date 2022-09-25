@@ -3,7 +3,6 @@
 
 importCustomStyles()
 
-
 display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
 
 log_10 = """

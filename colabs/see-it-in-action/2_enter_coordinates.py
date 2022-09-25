@@ -1,6 +1,6 @@
 #@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8>2b. Identify the target and comparison stars in a telescope image</font>
 
-importCustomStyles()
+setupDisplay()
 
 #########################################################
 #from exotic.api.colab import *
