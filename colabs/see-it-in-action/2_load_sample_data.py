@@ -105,7 +105,7 @@ if rebuild == "true":
 # Download sample files if necessary
 #
 #sample_data_source = "https://github.com/rzellem/EXOTIC_sampledata.git" # goes into sample_data_target_folder
-sample_data_source = "https://github.com/alienlifeform/exotic.git" # goes into sample_data_target_parent
+sample_data_source = "https://github.com/alienlifeform/exotic-sample-data.git" # goes into sample_data_target_parent
 sample_data_target_parent = "/content/EXOTIC/exotic-in-action"
 sample_data_target_folder = "/content/EXOTIC/exotic-in-action/sample-data"
 sample_data_target_child = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"
