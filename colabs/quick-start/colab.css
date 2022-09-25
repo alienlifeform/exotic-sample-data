@@ -1,6 +1,5 @@
 # sshexo_cms
 # vi /mnt/efs/production/public/system/exotic/colab.css
-
 body, td {
   font-family:Helvetica,sans-serif;
   color:#434343;
@@ -35,10 +34,16 @@ pre.output, div.output_text pre, div#output-area span pre {
   margin:8px 80px 8px 80px;
 }
 
+.output {
+  color:  #666;
+}
+.error {
+  color:  #c00;
+}
 .comment {
-	font-weight:  700;
-	font-size:  12px;
-	color:  #000;
+        font-weight:  700;
+        font-size:  12px;
+        color:  #000;
 }
 
 .buttonset {
@@ -73,4 +78,52 @@ pre.output, div.output_text pre, div#output-area span pre {
   overflow:auto;
   margin: 10px 80px;
   padding: 10px;
+}
+
+.css_indicator {
+  color: #fca864;
+}
+
+.hidden {
+  display: none;
+  border: 1px solid rgba(0,0,0,0.3);
+  padding: 0.8em;
+  margin: 1em 0;
+}
+
+.expand_text {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.big_button {
+  background-color: #027;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin: 3px 0;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.has_tooltip {
+  position: relative;
+}
+
+.has_tooltip:hover .tooltip {
+  display: block;
+}
+
+.tooltip {
+  display: none;
+  background: #eee;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 6px;
+  position: absolute;
+  z-index: 1000;
+  width: 200px;
+  bottom: 20px;
 }
