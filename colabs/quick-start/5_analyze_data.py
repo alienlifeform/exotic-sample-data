@@ -19,7 +19,7 @@ importCustomStyles()
 # p is the name of the folder entered by the user.  Decide what to do based on what
 # is found in the folder.
 display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
-#display(HTML("<p class='warning'>NOTE: At this point in EXOTIC, you would have the opportunity choose where to temporarily save the sample data. For this exercise, we're downloading to /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"))
+#display(HTML("<p class='warning'>NOTE: At this point in EXOTIC, you would have the opportunity choose where to temporarily save the sample data. For this exercise, we're downloading to /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017"))
 display(HTML('<ul class="step5">'))
 
 
@@ -74,12 +74,12 @@ for inits_file in inits:
 
 display(HTML('<p>The data for the lightcurve you see here is downloading now in a format suitable to submit to AAVSO.'))
 
-# /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt
+# /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt
 
 showProgress(2)
 
-if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
-  files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+if os.path.isfile('/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
+  files.download('/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
 else: 
   display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
 

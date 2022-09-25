@@ -1,5 +1,7 @@
 ---
 
-Any issues with this tutorial? <a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Let us know!</a>
+# Tutorial Complete
 
-Ready for the next step?  [Use EXOTIC to upload your own data!](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/)
+Ready for the next step?  [**Use EXOTIC to upload your own images!**](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/)
+
+Any issues with this tutorial? <a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Let us know!</a>

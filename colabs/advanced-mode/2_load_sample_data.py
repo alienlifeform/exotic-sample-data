@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to load telescope images</font>
+#@title <font face="Helvetica" class="button" color='#702020'><b>&lt;- Click to load telescope images</b></font>
 #%%capture step_capture --no-display
 
 ##############################################################
@@ -17,7 +17,7 @@ def importCustomStyles():
 importCustomStyles()
 
 display(HTML('''
-<p class="bookend">START: Importing libraries</p>
+<p class="bookend">START: Importing necessary software libraries</p>
 <li class="step">Time, ProgressBar</li>
 '''))
 
@@ -84,7 +84,7 @@ import subprocess
 display(HTML('<li class="step">Google Utils</li>'))
 from google.colab import drive, files
 
-display(HTML('<p class="bookend">DONE: Importing libraries.</p>'))
+display(HTML('<p class="bookend">DONE: Importing necessary software libraries</p>'))
 
 ##############################################################
 

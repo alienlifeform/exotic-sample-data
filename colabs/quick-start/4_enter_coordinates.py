@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to identify the target and comparison stars in a telescope image</font>
+#@title <font face="Helvetica" class="button" color='#702020'><b>&lt;- Click to identify the target and comparison stars in a telescope image</b></font>
 
 importCustomStyles()
 
@@ -355,7 +355,7 @@ bokeh.io.output_notebook()
 sample_data = False
 
 p = "sample-data/HatP32Dec202017"
-p = check_dir(os.path.join("/content/EXOTIC/exotic-in-action/", p))
+p = check_dir(os.path.join("/content/EXOTIC/exotic-quick-start/", p))
 output_dir = os.path.join(p, "EXOTIC_output/")      
                                          
 inits = []    # array of paths to any inits files found in the directory

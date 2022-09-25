@@ -1,7 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run the data reduction for HAT-P-32 b</font> { vertical-output: true }
-
-importCustomStyles()
-
+#@title <font color='red'>Click "run"</font> to start the data reduction.
 # If the user presses enter to run the sample data, download sample data if needed and
 # put it into a sample-data directory at the top level of the user's Gdrive.  Count
 # the .fits files (images) and .json files (inits files) in the directory entered 
@@ -17,7 +14,7 @@ importCustomStyles()
 #########################################################
 
 def display_image(filename):
-    #print(f"{filename}")
+    print(f"{filename}")
     hdu = fits.open(filename)
 
 # replace 0's with extension      # Stuff to put in if the hdul ever becomes a problem.    
@@ -193,9 +190,7 @@ def find (hdr, ks, obs):
   print("be used for the value associated with this field.\n")
   if ks[0] == "HEIGHT":
     print("The units of elevation are meters.")
-  
   value = input("")
-
   return(value)
 
 ###############################################
@@ -259,8 +254,8 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
     
   date_obs = find(hdr,["DATE", "DATE_OBS", "DATE-OBS"], obs)
   date_obs = date_obs.replace("/", "_")
-  longitude = find(hdr,['LONGITUD', 'LONG', 'LONGITUDE', 'SITELONG'],obs)
-  latitude = find(hdr,['LATITUDE', 'LAT', 'SITELAT'],obs)
+  longitude = find(hdr,['SITELONG', 'LONGITUD', 'LONG', 'LONGITUDE'],obs)
+  latitude = find(hdr,['SITELAT', 'LATITUDE', 'LAT'],obs)
   height = int(find(hdr, ['HEIGHT', 'ELEVATION', 'ELE', 'EL', 'OBSGEO-H', 'ALT-OBS', 'SITEELEV'], obs))
   obs_notes = "N/A"
   sec_obs_code = "N/A"
@@ -331,11 +326,9 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
     print("*** (Please make sure that Western longitudes have a negative sign! ***")
     print("*** TheSkyX sometimes stamps Western longitudes as positive; this needs to be switched! ***\n")
 
-  #print("\nNOTE: At this point in EXOTIC, you would have the opportunity change parameters in the inits file.")
-
-  #print("\nIf you want to change anything in the inits file, please do that now.")
-  #print("When you are done, press enter to continue.")
-  #okay = input()
+  print("\nIf you want to change anything in the inits file, please do that now.")
+  print("When you are done, press enter to continue.")
+  okay = input()
 
   return(inits_file_path)
 
@@ -343,31 +336,20 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
 
 # p is the name of the folder entered by the user.  Decide what to do based on what
 # is found in the folder.
-display(HTML('<p class="bookend">START: Analyzing sample data</p>'))
-#display(HTML("<p class='warning'>NOTE: At this point in EXOTIC, you would have the opportunity choose where to temporarily save the sample data. For this exercise, we're downloading to /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017"))
-display(HTML('<ul class="step5">'))
-
 
 bokeh.io.output_notebook()
 sample_data = False
 
-#p = input("Press enter to run the HAT-P-32 b sample data, or enter a path as described above.")
-
-# Is there a way to download this without a google drive? like a public but self-deleting google drive?
-p = ""
-
-display(HTML('<li class="step5">Ensuring we have sample data</li>'))
-
+p = input("Press enter to run the Hat-p-32b sample data, or enter a path as described above.")
 if p == "":
   sample_data = True
-  if os.path.isdir("/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017"):
-    print("It looks like you already have sample data, no need to download it again.")
+  if os.path.isdir("/content/drive/My Drive/sample-data/HatP32Dec202017"):
+    print("Actually, it looks like you already have sample data, no need to download it again.")
   else:
-    !git clone https://github.com/rzellem/EXOTIC_sampledata.git /content/EXOTIC/exotic-quick-start/sample-data
-
+    !git clone https://github.com/rzellem/EXOTIC_sampledata.git /content/drive/My\ Drive/sample-data
   p = "sample-data/HatP32Dec202017"
 
-p = check_dir(os.path.join("/content/EXOTIC/exotic-quick-start/", p))
+p = check_dir(os.path.join("/content/drive/My Drive/", p))
 output_dir = os.path.join(p, "EXOTIC_output/")      
                                          
 inits = []    # array of paths to any inits files found in the directory
@@ -380,8 +362,7 @@ for f in files:
     fits_count += 1
   if re.search(r"\.json$", f, re.IGNORECASE):
     inits.append(os.path.join(p, f))
-
-display(HTML('<li class="step5">Found ' + str(fits_count) + ' image files and ' + str(len(inits)) + ' initialization files in the directory</li>'))
+print(f"Found {fits_count} image files and {len(inits)} initialization files in the directory.")
 
 if fits_count >= 19:                  # more than 20 images in the folder --> run EXOTIC on these images
   if len(inits) == 1:                 # one inits file exists
@@ -400,30 +381,21 @@ if fits_count >= 19:                  # more than 20 images in the folder --> ru
       
   else:                               # no inits file: display image and prompt for target, comp coords;
                                       # then make an inits file and put it into the output directory (with the plots)
-    #print("There are either 0 or > 1 inits files in your image directory, so we'll make a new one.")
-    print("Displaying first image:")
-
-    display(HTML('<hr />'))
-    display(HTML('<div class="plots">'))
-    display(HTML('<img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>'))
+    print("There are either 0 or > 1 inits files in your image directory, so we'll make a new one.")
+    print("Displaying first image (this can take a minute).")
     display_image(first_image)
-    display(HTML('</div>'))
-
     obs = ""
-    display(HTML('<hr /><br /><li class="step5"><b>STEP 1: Identify the target star</b></li>'))
-    display(HTML('<p class="step">In the right image, find the <i>crosshairs</i> in the center that represent the target star. On the left image, roll over the target star with your mouse and note the coordinates. Put them in the box below as follows <code>[425,286]</code>.</p>'))
-    targ_coords = input("")  
-    if targ_coords != "[425,286]":
-      display(HTML('<p class="step">You entered ' + targ_coords))
-      targ_coords = "[425,286]"
-
-    display(HTML('<hr /><br /><li class="step5"><b>STEP 2: Identify the comparison star(s).</b></li>'))
-    display(HTML('<p>In the right image, find the stars <i>with numbers</i> that represent suggested comparison stars. On the left image, roll over each comparison star with your mouse and note the coordinates. Put them in the box below as follows <code>[[493,304],[415,343]]</code>.</p>'))
-    comp_coords = input("")
-    if comp_coords != "[[493,304],[415,343]]":
-      display(HTML('<p class="step">You entered ' + comp_coords))
-      comp_coords = "[[493,304],[415,343]]"
-
+    print("Enter the coordinates of the target in the format [x, y]")
+    print("Do NOT include decimals in the coordinates.")
+    print("Be sure to include the square brackets and comma.")
+    print("Target Coordinates: [x, y]")
+    targ_coords = input()  
+    print("\nEnter the coordinates of your comparison stars in the format [[x1, y1], [x2, y2]]")
+    print("Be sure to include all square brackets and commas.")
+    print("Do NOT include decimals in the coordinates.")    
+    print("(E.g. if you only have one comp, you would enter [[x, y]])")
+    print("Comparison Star Coordinates: [[x1, y1], [x2, y2]]")
+    comp_coords = input()
     aavso_obs_code = ""
     if not sample_data:
       print("If you have an AAVSO Observer code, enter it here.")
@@ -473,7 +445,6 @@ for inits_file in inits:
     print(f"{debug_exotic_run}")
     !eval "$run_exotic"
 
-    # Only show lightcurve for beginner - bm
     lightcurve = os.path.join(output_dir,"FinalLightCurve_"+planet+"_"+date_obs+".png")
     fov = os.path.join(output_dir,"temp/FOV_"+planet+"_"+date_obs+"_LinearStretch.png")
     triangle = os.path.join(output_dir,"temp/Triangle_"+planet+"_"+date_obs+".png")
@@ -486,12 +457,6 @@ for inits_file in inits:
     imageA = widgets.Image(value=open(lightcurve, 'rb').read())
     imageB = widgets.Image(value=open(fov, 'rb').read())
     hbox = HBox([imageB, imageA])
-    # removing for "see it in action" - bm
-    #display(hbox)
-    #display(Image(filename=triangle))
-
-display(HTML('</ul>'))
-
-display(HTML('<p class="bookend">DONE: Analyzing sample data. <b>You may move on to the next step.</b></p>'))
-
+    display(hbox)
+    display(Image(filename=triangle))
     

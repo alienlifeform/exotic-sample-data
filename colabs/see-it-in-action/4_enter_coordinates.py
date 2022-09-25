@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run the data reduction for HAT-P-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'><b>&lt;- Click to enter the coordinates for the target and comparison stars</b></font>
 
 importCustomStyles()
 
@@ -320,9 +320,10 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
        aavso_obs_code, sec_obs_code, obs_date, latitude, longitude, height, filter, 
        obs_notes, targ_coords, comp_coords, min, max))
 
-  print("\nWithin your folder of images, there is now a new folder called EXOTIC_output.")
-  print("This folder contains an initialization file for EXOTIC called inits.json.")
-  print("The same folder will contain the output files and images when EXOTIC finishes running.")
+
+  # print("\nWithin your folder of images, there is now a new folder called EXOTIC_output.")
+  # print("This folder contains an initialization file for EXOTIC called inits.json.")
+  # print("The same folder will contain the output files and images when EXOTIC finishes running.")
 
   if not mobs_data:  
     print(f"\nThe inits.json file currently says that your observatory latitude was {latitude} deg,")
@@ -337,43 +338,32 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
   #print("When you are done, press enter to continue.")
   #okay = input()
 
+  time.sleep(1)
+  #print("Your coordinates have been saved in the initialization file here: " + inits_file_path)
+  
   return(inits_file_path)
 
 #########################################################
 
-# p is the name of the folder entered by the user.  Decide what to do based on what
-# is found in the folder.
-display(HTML('<p class="bookend">START: Analyzing sample data</p>'))
-#display(HTML("<p class='warning'>NOTE: At this point in EXOTIC, you would have the opportunity choose where to temporarily save the sample data. For this exercise, we're downloading to /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017"))
-display(HTML('<ul class="step5">'))
 
+
+display(HTML('<p class="bookend">START: Compare telescope image and star chart</p>'))
+
+display(HTML('<ul class="step4">'))
 
 bokeh.io.output_notebook()
 sample_data = False
 
-#p = input("Press enter to run the HAT-P-32 b sample data, or enter a path as described above.")
-
-# Is there a way to download this without a google drive? like a public but self-deleting google drive?
-p = ""
-
-display(HTML('<li class="step5">Ensuring we have sample data</li>'))
-
-if p == "":
-  sample_data = True
-  if os.path.isdir("/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017"):
-    print("It looks like you already have sample data, no need to download it again.")
-  else:
-    !git clone https://github.com/rzellem/EXOTIC_sampledata.git /content/EXOTIC/exotic-quick-start/sample-data
-
-  p = "sample-data/HatP32Dec202017"
-
-p = check_dir(os.path.join("/content/EXOTIC/exotic-quick-start/", p))
+p = "sample-data/HatP32Dec202017"
+p = check_dir(os.path.join("/content/EXOTIC/exotic-in-action/", p))
 output_dir = os.path.join(p, "EXOTIC_output/")      
                                          
 inits = []    # array of paths to any inits files found in the directory
-files = [f for f in sorted(os.listdir(p)) if os.path.isfile(os.path.join(p, f))]
+
+all_files_print = [f for f in sorted(os.listdir(p))]
+all_files = [f for f in sorted(os.listdir(p)) if os.path.isfile(os.path.join(p, f))]
 fits_count, first_image = 0, ""
-for f in files:
+for f in all_files:
   if re.search(r"\.f[itz]+s?\.?g?z?$", f, re.IGNORECASE):
     if first_image == "":
       first_image = os.path.join(p, f)
@@ -381,10 +371,10 @@ for f in files:
   if re.search(r"\.json$", f, re.IGNORECASE):
     inits.append(os.path.join(p, f))
 
-display(HTML('<li class="step5">Found ' + str(fits_count) + ' image files and ' + str(len(inits)) + ' initialization files in the directory</li>'))
+#print('Found ' + str(fits_count) + ' image files and ' + str(len(inits)) + ' initialization files in the directory')
 
-if fits_count >= 19:                  # more than 20 images in the folder --> run EXOTIC on these images
-  if len(inits) == 1:                 # one inits file exists
+if fits_count >= 2:                  # more than 3 images in the folder --> run EXOTIC on these images -bm
+  if True:                 # we don't actually want to pre-emptively use the inits.json, we still want them to find the stars
     inits_path = os.path.join(p, inits[0])
     with open(inits_path) as i_file:
       inits_data = i_file.read()
@@ -401,97 +391,89 @@ if fits_count >= 19:                  # more than 20 images in the folder --> ru
   else:                               # no inits file: display image and prompt for target, comp coords;
                                       # then make an inits file and put it into the output directory (with the plots)
     #print("There are either 0 or > 1 inits files in your image directory, so we'll make a new one.")
-    print("Displaying first image:")
+    #print("Displaying first image:")
 
+    obs = ""
+    display(HTML('<h3>Data Entry 1 of 2: Enter coordinates for the target star</h3>'))
+    display(HTML('<p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>'))
+    display(HTML('<ol class="step"><li class="step4">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li><li class="step4">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li></ol>')) 
+    
     display(HTML('<hr />'))
     display(HTML('<div class="plots">'))
     display(HTML('<img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>'))
     display_image(first_image)
     display(HTML('</div>'))
+    display(HTML('<br clear="all"/>'))
 
-    obs = ""
-    display(HTML('<hr /><br /><li class="step5"><b>STEP 1: Identify the target star</b></li>'))
-    display(HTML('<p class="step">In the right image, find the <i>crosshairs</i> in the center that represent the target star. On the left image, roll over the target star with your mouse and note the coordinates. Put them in the box below as follows <code>[425,286]</code>.</p>'))
-    targ_coords = input("")  
-    if targ_coords != "[425,286]":
-      display(HTML('<p class="step">You entered ' + targ_coords))
-      targ_coords = "[425,286]"
+    # verify the entry is good enough
+    success = False
+    while not success:
+      targ_coords = input("Enter coordinates for target star - [424,286] - and press return:  ")  
 
-    display(HTML('<hr /><br /><li class="step5"><b>STEP 2: Identify the comparison star(s).</b></li>'))
-    display(HTML('<p>In the right image, find the stars <i>with numbers</i> that represent suggested comparison stars. On the left image, roll over each comparison star with your mouse and note the coordinates. Put them in the box below as follows <code>[[493,304],[415,343]]</code>.</p>'))
-    comp_coords = input("")
-    if comp_coords != "[[493,304],[415,343]]":
-      display(HTML('<p class="step">You entered ' + comp_coords))
-      comp_coords = "[[493,304],[415,343]]"
+      # check syntax and coords
+      tc_syntax = re.search(r"\[\d+,\d+\]$", targ_coords)
+      if tc_syntax:
+        display(HTML('<p class="output">Syntax OK: [x,y] e.g. ' + targ_coords + '</p>'))
+        tc_coords = re.findall("\d+", targ_coords)
+        if 422 <= int(tc_coords[0]) <= 426 and 284 <= int(tc_coords[1]) <= 288:
+          display(HTML('<p class="output">Coordinates OK: ' + targ_coords + ' are close to [424,286]</p>'))
+          success = True
+        else:
+          display(HTML('<p class="error">Try again, your coordinates are a bit off: ' + targ_coords + ' should be closer to [424,286]</p>'))
+      else:
+        display(HTML('<p class="error">Try again, your syntax is not quite right: ' + targ_coords + ' needs to look like [424,286]</p>'))
 
+    # if targ_coords != "[424,286]":
+    #   display(HTML('<p class="output">You entered ' + targ_coords + '</p>'))
+    # targ_coords = "[424,286]"
+
+
+    showProgress(1)
+    display(HTML('<p class="output">Target star coordinates saved to inits.json</p>'))
+    
+    display(HTML('<h3>Data Entry 2 of 2: Enter coordinates for at least two comparison stars.</h3>'))
+    display(HTML('<ol class="step"><li class="step4">In the right image, find the stars <i>with numbers</i> that represent suggested comparison stars.</li><li class="step4">On the left image, <i>find and roll over each comparison star with your mouse</i> and note the coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[[x1,y1][x2,y2]]</code> and press return.</li></ol>'))
+    
+    # verify the entry is good enough
+    success = False
+    while not success:
+      comp_coords = input("Enter coordinates for the comparison stars - [[326,365],[416,343]] - and press return:  ")  
+
+      # check syntax
+      tc_syntax = re.search(r"\[(\[\d+,\d+\],?)+\]$", comp_coords)
+      if tc_syntax:
+        display(HTML('<p class="output">Syntax OK:  [[x1,y1],[x2,y2]] e.g. ' + comp_coords + '</p>'))
+        success = True
+      else:
+        display(HTML('<p class="error">Try again, your syntax is not quite right: ' + comp_coords + ' needs to look more like [[326,365],[416,343]] (make sure you have all the brackets!)</p>'))
+
+    # if comp_coords != "[[326,365],[416,343],[491,303]]":
+    #   display(HTML('<p class="step">You entered ' + comp_coords + '<br /><br /></p>'))
+    # comp_coords = "[[326,365],[416,343],[491,303]]"
+
+    showProgress(1)
+    display(HTML('<p class="output">Comparison star coordinates saved to inits.json</p>'))
+    display(HTML('<p class="output">Images and inits.json set up. Ready for EXOTIC data reduction/analysis</p>'))
     aavso_obs_code = ""
-    if not sample_data:
-      print("If you have an AAVSO Observer code, enter it here.")
-      print("If not (or if you are not sure), just press enter.")
-      aavso_obs_code = input()
-#    print("If you want an alternate output directory, type it here.")
-#    alt_out = input()
-#    if (re.search(r"\w", alt_out)):
-#      output_dir = alt_out
+
     if not os.path.isdir(output_dir):
       os.mkdir(output_dir)
-    inits = [make_inits_file(planetary_params, p, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
+
+    #inits = [make_inits_file(planetary_params, p, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
+    inits = [output_dir+"inits.json"]
 
   if not os.path.isdir(output_dir):    # Make the output directory if it does not exist already.
     os.mkdir(output_dir)
   output_dir_for_shell = output_dir.replace(" ", "\ ")
 
-# At this point, we have made an inits file if needed and are ready to run it.
-# Or, if there were < 20 images in the directory (meaning that the directory was 
-# only contained inits files, we'll run those one-by-one.
+#print("Path to the inits file(s) that will be used:")
 
-print("Path to the inits file(s) that will be used:")
-
-for inits_file in inits:
-  print(inits_file)
+#for inits_file in inits:
+#  print(inits_file)
 
 num_inits = len(inits)
 
-commands = []
-for inits_file in inits:
-  with open(inits_file) as i_file:
-    inits_data = i_file.read()
-    d = json.loads(inits_data)
-    date_obs = d["user_info"]["Observation date"]
-    planet = d["planetary_parameters"]["Planet Name"]
-    output_dir = d["user_info"]["Directory to Save Plots"]
-    if not os.path.isdir(output_dir):
-      os.mkdir(output_dir)
-    inits_file_for_shell = inits_file.replace(" ", "\\ ")
-    run_exotic = str(f"exotic -red {inits_file_for_shell} -ov")
-    debug_exotic_run = str(f"!exotic -red \"{inits_file}\" -ov")
 
-    commands.append({"inits_file_for_shell": inits_file_for_shell, "output_dir": output_dir, 
-                      "planet": planet, "date_obs": date_obs, 
-                      "run_exotic": run_exotic, "debug_exotic_run": debug_exotic_run
-                      })
-    print(f"{debug_exotic_run}")
-    !eval "$run_exotic"
+display(HTML('<p class="bookend">DONE: Compare telescope image and star chart. <b>You may move on to the next step.</b></p>'))
 
-    # Only show lightcurve for beginner - bm
-    lightcurve = os.path.join(output_dir,"FinalLightCurve_"+planet+"_"+date_obs+".png")
-    fov = os.path.join(output_dir,"temp/FOV_"+planet+"_"+date_obs+"_LinearStretch.png")
-    triangle = os.path.join(output_dir,"temp/Triangle_"+planet+"_"+date_obs+".png")
-    print(f"lightcurve: {lightcurve}\nfov: {fov}\ntriangle: {triangle}\n")
 
-    if not (os.path.isfile(lightcurve) and os.path.isfile(fov) and os.path.isfile(triangle)):
-      print(f"Something went wrong with {planet} {date_obs}.\nCopy the command below into a new cell and run to find the error:\n{debug_exotic_run}\n")
-      continue
-
-    imageA = widgets.Image(value=open(lightcurve, 'rb').read())
-    imageB = widgets.Image(value=open(fov, 'rb').read())
-    hbox = HBox([imageB, imageA])
-    # removing for "see it in action" - bm
-    #display(hbox)
-    #display(Image(filename=triangle))
-
-display(HTML('</ul>'))
-
-display(HTML('<p class="bookend">DONE: Analyzing sample data. <b>You may move on to the next step.</b></p>'))
-
-    

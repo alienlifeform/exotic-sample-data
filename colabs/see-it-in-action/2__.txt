@@ -5,8 +5,6 @@
 ---
 
 
-For this tutorial, we are using a known transit, that of HAT-P-32 b around the star HAT-P-32, taken on December 20, 2017. 
-
-When you run it yourself, you will do the same steps with images from your own telescope images (taken during the expected transit of an exoplanet).
+For this tutorial, we are using sample images from a known transit. When you run it yourself, you will upload your own images.
 
 **ATTENTION:** A popup will appear titled "**Warning: This notebook was not authored by Google.**". Read it, then click "**Run Anyway**"... we stand behind our code!

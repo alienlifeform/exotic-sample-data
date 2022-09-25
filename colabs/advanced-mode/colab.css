@@ -35,12 +35,6 @@ pre.output, div.output_text pre, div#output-area span pre {
   margin:8px 80px 8px 80px;
 }
 
-.output {
-  color:  #666;
-}
-.error {
-  color:  #c00;
-}
 .comment {
 	font-weight:  700;
 	font-size:  12px;

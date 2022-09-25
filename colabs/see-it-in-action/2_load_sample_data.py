@@ -1,9 +1,8 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to load telescope images</font>
+#@title <font face="Helvetica" class="button" color='#702020'><b>&lt;- Click to load telescope images</b></font>
 #%%capture step_capture --no-display
 
 ##############################################################
 %%capture step_capture --no-display
-print("Starting application...")
 
 from IPython.display import display, HTML, Javascript
 import random
@@ -17,8 +16,8 @@ def importCustomStyles():
 importCustomStyles()
 
 display(HTML('''
-<p class="bookend">START: Importing libraries</p>
-<li class="step">Time, ProgressBar</li>
+<p class="bookend">START: Importing necessary software libraries</p>
+<li class="step">(1/10) Time, ProgressBar</li>
 '''))
 
 import time
@@ -37,23 +36,23 @@ def resize_colab_cell():
 get_ipython().events.register('pre_run_cell', resize_colab_cell)
 
 
-display(HTML('<li class="step">IPython.display</li>'))
+display(HTML('<li class="step">(2/10) IPython.display</li>'))
 
-display(HTML('<li class="step">Bokeh.io</li>'))
+display(HTML('<li class="step">(3/10) Bokeh.io</li>'))
 import bokeh.io
 
-display(HTML('<li class="step">EXOTIC <span class="comment">(This will take up to a minute, please wait... and ignore any warning that may ask you to "RESTART RUNTIME")</span></li>'))
+display(HTML('<li class="step">(4/10) EXOTIC <span class="comment">(This will take up to a minute, please wait... and ignore any warning that may ask you to "RESTART RUNTIME")</span></li>'))
 !pip install exotic --upgrade
 display(HTML('<br /><br /><p class="step"><span class="comment">Reminder, if there is a "RESTART RUNTIME" warning button above, ignore it (or you\'ll have to re-run this step)!</span></p>'))
 
 # from exotic.api.plotting import plot_image
-display(HTML('<li class="step">NASAExoplanetArchive</li>'))
+display(HTML('<li class="step">(5/10) NASAExoplanetArchive</li>'))
 from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
 
-display(HTML('<li class="step">Astropy</li>'))
+display(HTML('<li class="step">(6/10) Astropy</li>'))
 from astropy.time import Time
 
-display(HTML('<li class="step">Utils</li>'))
+display(HTML('<li class="step">(7/10) Utils</li>'))
 from barycorrpy import utc_tdb
 import numpy as np
 from io import BytesIO
@@ -70,10 +69,10 @@ from ipywidgets import widgets, HBox
 from skimage.transform import rescale, resize, downscale_local_mean
 import copy
 
-display(HTML('<li class="step">Matlab</li>'))
+display(HTML('<li class="step">(8/10) Matlab</li>'))
 import matplotlib.pyplot as plt
 
-display(HTML('<li class="step">Scipy</li>'))
+display(HTML('<li class="step">(9/10) Scipy</li>'))
 from scipy.stats import gaussian_kde
 
 import os
@@ -81,10 +80,10 @@ import re
 import json
 import subprocess
 
-display(HTML('<li class="step">Google Utils</li>'))
+display(HTML('<li class="step">(10/10) Google Utils</li>'))
 from google.colab import drive, files
 
-display(HTML('<p class="bookend">DONE: Importing libraries.</p>'))
+display(HTML('<p class="bookend">DONE: Importing necessary software libraries</p>'))
 
 ##############################################################
 

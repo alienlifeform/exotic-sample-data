@@ -1,12 +1,12 @@
 # **Step 1: Load Telescope Images**
 
 ---
-> Estimated time: 2 minutes
+> Estimated time: 5 minutes
 ---
 
+After required libraries load, you will be asked to permit access to your Google Drive to access the telescope images.
 
-For this tutorial, we are using a known transit, that of HAT-P-32 b around the star HAT-P-32, taken on December 20, 2017. 
+**ATTENTION:** 
 
-When you run it yourself, you will do the same steps with images from your own telescope images (taken during the expected transit of an exoplanet).
-
-**ATTENTION:** A popup will appear titled "**Warning: This notebook was not authored by Google.**". Read it, then click "**Run Anyway**"... we stand behind our code!
+* A popup will appear titled "**Warning: This notebook was not authored by Google.**". Read it, then click "**Run Anyway**"... we stand behind our code!
+* Another popup will appear titled "**Permit this notebook to access your Google Drive files?**". Read it, then click "**Connect to Google Drive**" when prompted.

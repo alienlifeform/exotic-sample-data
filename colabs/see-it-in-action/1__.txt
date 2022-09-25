@@ -1,9 +1,0 @@
-# **Step 1: Import the EXOTIC code libraries**
-
----
-> Estimated time: 1 minute
----
-
-*ATTENTION:* A popup will appear titled "**Warning: This notebook was not authored by Google.**"
-
-Read it, then click "**Run Anyway**"... we stand behind our code!

@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to identify the target and comparison stars in a telescope image</font>
+#@title <font face="Helvetica" class="button" color='#702020'><b>&lt;- Click to identify the target and comparison stars in a telescope image</b></font>
 
 importCustomStyles()
 

@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" color='#702020'>&lt;- Run EXOTIC to generate a lightcurve</font>
+#@title <font face="Helvetica" color='#702020'><b>&lt;- Click to run EXOTIC to generate a lightcurve</b></font>
 # This generation is a simulation only using unstyled logging from a HAT-P-32 b EXOTIC run
 
 importCustomStyles()
@@ -44,14 +44,14 @@ Thinking ... DONE!
 Here is the path to your plate solution: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/wcs.fits
 
 Checking for variability in Comparison Star #1:
-	Pixel X: 493 Pixel Y: 304
+    Pixel X: 493 Pixel Y: 304
  Warning: Your comparison star cannot be resolved in the SIMBAD star database; EXOTIC cannot check if it is variable or not. 
 EXOTIC will still include this star in the reduction. 
 Please proceed with caution as we cannot check for stellar variability.
 
 
 Checking for variability in Comparison Star #2:
-	Pixel X: 415 Pixel Y: 343
+    Pixel X: 415 Pixel Y: 343
  Warning: Your comparison star cannot be resolved in the SIMBAD star database; EXOTIC cannot check if it is variable or not. 
 EXOTIC will still include this star in the reduction. 
 Please proceed with caution as we cannot check for stellar variability.
@@ -167,19 +167,26 @@ import time
 print(log_10)
 showProgress(1)
 print(log_20)
-showProgress(1)
+showProgress(2)
 print(log_30)
 showProgress(1)
 print(log_40)
-showProgress(1)
+showProgress(2)
 print(log_50)
 showProgress(1)
 print(log_60)
 
-display(HTML('<h3>CONGRATULATIONS!</h3>'))
-display(HTML('<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'))
+display(HTML('''
+    <img width=800 src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png">
 
-display(HTML('<div class="button">Download lightcurve data</div>'))
+    <p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>
+
+    <h3>CONGRATULATIONS!</h3>
+    <!--<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt. Click the folder icon in the left nav to navigate to it.-->
+
+    <div class="button">Download lightcurve data</div>
+
+'''))
 
 do_download = input("Download lightcurve data? (y/N) ")
 if do_download in ['Y','y']:
@@ -191,7 +198,6 @@ if do_download in ['Y','y']:
     display(HTML('<p>Couldn\'t find output file. Alert the developers to ensure it is in the sample-data repo being used.</p>'))
 
 
-display(HTML('<p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>'))
 
 
 
@@ -199,8 +205,9 @@ display(HTML('''
 <h2>You\'re done!</h2> 
 <h3>You have successfully generated a lightcurve showing the transit of HAT-P-32 b around HAT-P-32</h3>
 
-<p>If you downloaded the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! This exoplanet was actually discovered in 2011, and you can <a href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D om exoplanets.nasa.gov</a>.</p>
+<p>If you downloaded the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! This exoplanet was actually discovered in 2011, and you can <a target="_blank" href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D on exoplanets.nasa.gov</a>.</p>
 
+<h3>Ready for the next step?</h3>
 
-<div class="buttonset"><a href="https://exoplanets.nasa.gov/exoplanet-watch/how-to-contribute/how-to-observe/" target="_parent" class="button" style="font-size:20px">Create your own telescope images</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/" target="_top" class="button" style="font-size:20px">Run EXOTIC on your telescope images</a></div>
+<div class="buttonset"><a href="https://colab.research.google.com/drive/1pi88LBuaDF2HhZfk6-0Y22BHizn3YTO9" target="_blank" class="button" style="font-size:20px">Run EXOTIC on your own images</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://exoplanets.nasa.gov/exoplanet-watch/how-to-contribute/how-to-observe/" target="blank" class="button" style="font-size:20px">Generate your own telescope images</a></div>
 '''))
