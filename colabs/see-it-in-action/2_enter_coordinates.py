@@ -83,8 +83,8 @@ if fits_count >= 2:
     comp_coords = input("Enter coordinates for the comparison stars - [[326,365],[416,343]] - and press return:  ")  
 
     # check syntax
-    tc_syntax = re.search(r"\[(\[\d+,\d+\],?)+\]$", comp_coords)
-    if tc_syntax:
+    cc_syntax = re.search(r"\[(\[\d+,\d+\],?)+\]$", comp_coords)
+    if cc_syntax:
       #display(HTML('<p class="output">Syntax OK:  [[x1,y1],[x2,y2]] e.g. ' + comp_coords + '</p>'))
       success = True
     else:

@@ -1,6 +1,6 @@
 ---
 
-# Tutorial Complete
+## End of Tutorial
 
 What would you like to do next?
 
