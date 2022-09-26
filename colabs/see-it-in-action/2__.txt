@@ -3,11 +3,11 @@
 ## Step 2: Identify target star and comparison stars
 
 <font size=2>
-🕔 Estimated time: 4 minutes
+🕔 Estimated time: 5 minutes
 
 In this multi-part step, you will use your stargazing skills to identify coordinates for your target star (HAT-P-32). You will:
 </font>
 
 
-<ol type="a"><font size=2><li>Watch the Video: "How to determine a star's coordinates" (2 minutes)</li>
-<li>Try it yourself: Enter the coordinates for the target and comparison stars (2 minutes)</li></font></ol>
+<ol type="a"><font size=2><li>Watch the Video: "How to determine a star's coordinates" (3 minutes)</li>
+<li>Try it yourself: Enter the coordinates for the target and comparison stars (5 minutes)</li></font></ol>

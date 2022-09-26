@@ -1,4 +1,5 @@
-#@title <font face="Helvetica" color='#702020'><b>&lt;- Click to run EXOTIC to generate a lightcurve</b></font>
+#@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8>Run EXOTIC to generate a lightcurve</font>
+
 # This generation is a simulation only using unstyled logging from a HAT-P-32 b EXOTIC run
 
 importCustomStyles()
@@ -178,12 +179,13 @@ print(log_60)
 display(HTML('''
     <img width=800 src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png">
 
+    <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.mov">Click for a video to help you understand this lightcurve.</a>
+
     <p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>
 
-    <h3>CONGRATULATIONS!</h3>
     <!--<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt. Click the folder icon in the left nav to navigate to it.-->
 
-    <div class="button">Download lightcurve data</div>
+    <!--<div class="button">Download lightcurve data</div>-->
 
 '''))
 
@@ -202,12 +204,10 @@ if do_download in ['Y','y']:
 
 
 display(HTML('''
-<h2>You\'re done!</h2> 
-<h3>You have successfully generated a lightcurve showing the transit of HAT-P-32 b around HAT-P-32</h3>
+  <h2>Congratulations!</h2> 
+  <h3>You have successfully generated a lightcurve showing the transit of HAT-P-32 b around HAT-P-32</h3>
 
-<p>If you downloaded the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! This exoplanet was actually discovered in 2011, and you can <a target="_blank" href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D on exoplanets.nasa.gov</a>.</p>
+  <p class="step">This exoplanet was actually discovered in 2011, and you can <a target="_blank" href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D on exoplanets.nasa.gov</a>.</p>
 
-<h3>Ready for the next step?</h3>
-
-<div class="buttonset"><a href="https://colab.research.google.com/drive/1pi88LBuaDF2HhZfk6-0Y22BHizn3YTO9" target="_blank" class="button" style="font-size:20px">Run EXOTIC on your own images</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://exoplanets.nasa.gov/exoplanet-watch/how-to-contribute/how-to-observe/" target="blank" class="button" style="font-size:20px">Generate your own telescope images</a></div>
+  <p class="step">If you downloaded the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! </p>
 '''))

@@ -3,8 +3,6 @@
 importCustomStyles()
 
 display(HTML('''
-<h3>VIDEO: How to determine a star\'s coordinates</h3>
-<p>Be sure your audio is on.</p>
-
-<video width="840" controls="true" autoplay src="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.mov"/>
+<br />
+<video width="840" controls="true" poster="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.png" src="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.mov"/>
 '''))

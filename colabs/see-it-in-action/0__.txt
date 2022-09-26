@@ -24,10 +24,8 @@ Click the ![Screen Shot 2022-09-25 at 2.30.43 PM.png](data:image/png;base64,iVBO
 </font>
 
 <br />
-<table>
-<tr>
+<table><tr>
   <td cellpadding=0 cellspacing=0 bgcolor="#fee9e9">
-  <font size=2 color="#c02020">Important:</font> During this tutorial, it is recommended that you do not click the blue "Show code" link.</td>
-</tr>
-</table>
+  <font size=2 color="#c02020">Important:</font> During this tutorial, it is recommended that you do not click the blue "<font color="#5070e0">Show code</font>" links.</td>
+</tr></table>
 <br />

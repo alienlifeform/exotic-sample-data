@@ -33,16 +33,20 @@ for f in all_files:
 
 if fits_count >= 2:
   obs = ""
-  display(HTML('<h3>Data Entry 1 of 2: Enter coordinates for the target star</h3>'))
-  display(HTML('<p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>'))
-  display(HTML('<ol class="step"><li class="step4">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li><li class="step4">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li><li class="step4">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li></ol>')) 
-  
-  display(HTML('<hr />'))
-  display(HTML('<div class="plots">'))
-  display(HTML('<img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>'))
+  display(HTML('''
+  <h3>Data Entry 1 of 2: Enter coordinates for the target star</h3>
+  <ol class="step">
+  <li class="step4">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li>
+  <li class="step4">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li>
+  <li class="step4">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li></ol>
+  <p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>
+
+  <br /><br />
+  <div class="plots">
+  <img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>
+  '''))
   display_image(first_image)
-  display(HTML('</div>'))
-  display(HTML('<br clear="all"/>'))
+  display(HTML('</div><br clear="all"/>'))
 
   # verify the entry is good enough
   success = False
