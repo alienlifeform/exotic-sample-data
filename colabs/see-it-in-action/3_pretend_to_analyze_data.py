@@ -179,7 +179,7 @@ print(log_60)
 display(HTML('''
     <img width=800 src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png">
 
-    <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.mov">Click for a video to help you understand this lightcurve.</a>
+    <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">Click for a video to help you understand this lightcurve.</a>
 
     <p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>
 
