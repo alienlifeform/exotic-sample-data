@@ -10,30 +10,32 @@ display(HTML('<p class="hidden">Loading styles, please wait...</p>'))
 # Install EXOTIC Colab interface code
 !pip install git+https://github.com/alienlifeform/exotic-colab.git --upgrade
 
-from exoticcolab.display import testImplementation, importCustomStyles, setupDisplay, displayStep, makeContainer, appendToContainer, expandableSection, showProgress,resize_colab_cell
-#testImplementation()
+from exoticcolab.display import setupDisplay, testImplementation, displayStep, makeContainer, downloadButton, appendToContainer, appendStepToContainer, expandableSection, hideWarning, showProgress, resize_colab_cell
 
-# Set up custom Colab styles and interactions
-#importCustomStyles()
+ Set up custom Colab styles and interactions
 setupDisplay()
+# Improve how colab handles long code output fields
 get_ipython().events.register('pre_run_cell', resize_colab_cell)
 
-display(HTML('<ul class="step_container"></ul>'))
-displayStep('Styles loaded, importing libraries...')
 
-displayStep('(1/5) Bokeh.io')
+display(HTML('<ul class="step_container_1a"></ul>'))
+appendStepToContainer('.step_container_1a','Styles loaded, importing libraries...')
+
+appendStepToContainer('.step_container_1a','(1/5) Bokeh.io')
 import bokeh.io
 from bokeh.io import output_notebook
 
-displayStep('(2/5) EXOTIC <span class="comment">(This will take up to a minute, please wait...)</span>')
+appendStepToContainer('.step_container_1a','(2/5) EXOTIC <span class="comment">(This will take up to a minute, please wait...)</span>')
 
 #!pip install exotic --upgrade
 !pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
-display(HTML('<br /><p>If there is a "RESTART RUNTIME" warning button above, you can ignore it (or you\'ll have to re-run this step).</p>'))
 from exotic.api.colab import *
-#from exotic.api.plotting import plot_image
+from exotic.api.plotting import plot_image
 
-displayStep('(3/5) NASAExoplanetArchive, Astropy, Utils')
+# This suppresses the "RESTART RUNTIME" button
+hideWarning()
+
+appendStepToContainer('.step_container_1a','(3/5) NASAExoplanetArchive, Astropy, Utils')
 from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
 #from astropy.time import Time
 #from barycorrpy import utc_tdb
@@ -55,11 +57,11 @@ import re
 import json
 #import subprocess
 
-displayStep('(4/5) Matlab, SciPy')
+appendStepToContainer('.step_container_1a','(4/5) Matlab, SciPy')
 #import matplotlib.pyplot as plt
 #from scipy.stats import gaussian_kde
 
-displayStep('(5/5) Google Utils')
+appendStepToContainer('.step_container_1a','(5/5) Google Utils')
 from google.colab import drive, files
 
 #expandableSection('<p>This is some expandable stuff</p>')
@@ -68,14 +70,13 @@ display(HTML('<p class="bookend">DONE: Importing necessary software libraries</p
 
 #########################################################
 
-display(HTML('''
-<p class="bookend">START: Loading telescope images</p>
-<li class="step">Ensuring images are loaded...</li>
-<li class="step">Be sure to "Permit this notebook to access your Google Drive files" when prompted</li>
-'''))
+display(HTML('<p class="bookend">START: Loading telescope images</p>'))
+display(HTML('<ul class="step_container_1b"></ul>'))
+appendStepToContainer('.step_container_1b','Ensuring images are loaded...</li>')
+appendStepToContainer('.step_container_1b','Be sure to "Permit this notebook to access your Google Drive files" when prompted')
 
+# Mount the user's drive so we can access images
 drive.mount('/content/drive', force_remount=True)
-
 
 bokeh.io.output_notebook()
 sample_data = False
@@ -140,7 +141,9 @@ if fits_count >= 19:                  # more than 20 images in the folder --> ru
 numfiles_fits = !ls {sample_data_target_child} | grep -ci FITS
 numfiles_json = !ls {sample_data_target_child} | grep -ci json
 
-display(HTML('<p class="step">You have ' + str(numfiles_fits[0]) + ' telescope image (.FITS) files</p>'))
-display(HTML('<p class="step">You have ' + str(numfiles_json[0]) + ' inits (.json) files</p>'))
+display(HTML('<ul class="step_container_1c"></ul>'))
+
+appendStepToContainer('.step_container_1b','<p class="step">You have ' + str(numfiles_fits[0]) + ' telescope image (.FITS) files</p>')
+appendStepToContainer('.step_container_1b','<p class="step">You have ' + str(numfiles_json[0]) + ' inits (.json) files</p>')
 
 display(HTML('<p class="bookend">DONE: Loading telescope images. <b>You may move on to the next step.</b></p>'))

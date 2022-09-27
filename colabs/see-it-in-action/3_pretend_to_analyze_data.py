@@ -1,8 +1,8 @@
-#@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8>Run EXOTIC to generate a lightcurve</font>
+#@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8><b>Run EXOTIC to generate a lightcurve</b></font>
 
 # This generation is a simulation only using unstyled logging from a HAT-P-32 b EXOTIC run
 
-importCustomStyles()
+setupDisplay()
 
 display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
 
@@ -189,25 +189,28 @@ display(HTML('''
 
 '''))
 
-do_download = input("Download lightcurve data? (y/N) ")
-if do_download in ['Y','y']:
-  if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
-    display(HTML('<p>Downloading now...</p>'))
-    showProgress(2)
-    files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
-  else: 
-    display(HTML('<p>Couldn\'t find output file. Alert the developers to ensure it is in the sample-data repo being used.</p>'))
-
-
-# url for a file    https://drive.google.com/open?id=29PGh8XCts3mlMP6zRphvnIcbv27boawn
-
-
-
 display(HTML('''
   <h2>Congratulations!</h2> 
   <h3>You have successfully generated a lightcurve showing the transit of HAT-P-32 b around HAT-P-32</h3>
 
   <p class="step">This exoplanet was actually discovered in 2011, and you can <a target="_blank" href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D on exoplanets.nasa.gov</a>.</p>
 
-  <p class="step">If you downloaded the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! </p>
+  <p class="step">If you choose to download the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! </p>
+
 '''))
+
+
+# Allow download of lightcurve data
+def on_dl_button_clicked(b):
+  # Display the message within the output widget.
+  if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
+    display(HTML('<p>Downloading lightcurve data...</p>'))
+    showProgress(2)
+    files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+  else: 
+    display(HTML('<p>Couldn\'t find output file. Alert the developers to ensure it is in the sample-data repo being used.</p>'))
+
+dl_button = widgets.Button(description="Download data")
+dl_button.on_click(on_dl_button_clicked)
+display(HTML('<hr />'))
+display(dl_button)

@@ -2,10 +2,15 @@
 
 ## End of Tutorial
 
+<font size=2>
 What would you like to do next?
 
-[Try using EXOTIC with your own observation data](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/)
+<a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/">Try using EXOTIC with your own observation data</a>
+</font>
 
-[Learn how to observe exoplanets](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/how-to-contribute/how-to-observe/)
 
-[Provide feedback for this tutorial](https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/)
+<font size=2>
+<a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/how-to-contribute/how-to-observe/">Learn how to observe exoplanets</a>
+
+<a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Provide feedback for this tutorial</a>
+</font>

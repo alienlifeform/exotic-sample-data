@@ -1,4 +1,4 @@
-#@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8>Load telescope images</font>
+#@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8><b>Load telescope images</b></font>
 
 ##############################################################
 %%capture step_capture --no-display
@@ -10,57 +10,45 @@ display(HTML('<p class="hidden">Loading styles, please wait...</p>'))
 # Install EXOTIC Colab interface code
 !pip install git+https://github.com/alienlifeform/exotic-colab.git --upgrade
 
-from exoticcolab.display import testImplementation, importCustomStyles, setupDisplay, displayStep, makeContainer, appendToContainer, expandableSection, showProgress,resize_colab_cell
-#testImplementation()
+from exoticcolab.display import setupDisplay, testImplementation, displayStep, makeContainer, downloadButton, appendToContainer, appendStepToContainer, expandableSection, hideWarning, showProgress, resize_colab_cell
 
 # Set up custom Colab styles and interactions
-#importCustomStyles()
 setupDisplay()
+# Improve how colab handles long code output fields
 get_ipython().events.register('pre_run_cell', resize_colab_cell)
 
-display(HTML('<ul class="step_container"></ul>'))
-displayStep('Styles loaded, importing libraries...')
 
-displayStep('(1/5) Bokeh.io')
+display(HTML('<ul class="step_container_1a"></ul>'))
+appendStepToContainer('.step_container_1a','Styles loaded, importing libraries...')
+
+appendStepToContainer('.step_container_1a','(1/5) Bokeh.io')
 import bokeh.io
 from bokeh.io import output_notebook
 
-displayStep('(2/5) EXOTIC <span class="comment">(This will take up to a minute, please wait...)</span>')
+appendStepToContainer('.step_container_1a','(2/5) EXOTIC <span class="comment">(This will take up to a minute, please wait...)</span>')
 
 #!pip install exotic --upgrade
 !pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
-display(HTML('<br /><p>If there is a "RESTART RUNTIME" warning button above, you can ignore it (or you\'ll have to re-run this step).</p>'))
 from exotic.api.colab import *
-#from exotic.api.plotting import plot_image
+# plot_image not needed for the simulation
+# from exotic.api.plotting import plot_image 
 
-displayStep('(3/5) NASAExoplanetArchive, Astropy, Utils')
+# This suppresses the "RESTART RUNTIME" button
+hideWarning()
+#display(HTML('<br /><p>If there is a "RESTART RUNTIME" warning button above, you can ignore it (or click it and then re-run this step).</p>'))
+
+appendStepToContainer('.step_container_1a','(3/5) NASAExoplanetArchive, Astropy, Utils')
 from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
-#from astropy.time import Time
-#from barycorrpy import utc_tdb
-#import numpy as np
-#from io import BytesIO
-#from astropy.io import fits
-#from scipy.ndimage import label
-#from bokeh.plotting import figure, output_file, show
-#from bokeh.palettes import Viridis256
-#from bokeh.models import ColorBar, LinearColorMapper, LogColorMapper, LogTicker
-#from bokeh.models import BoxZoomTool,WheelZoomTool,ResetTool,HoverTool,PanTool,FreehandDrawTool
-#from pprint import pprint
 from IPython.display import Image
 from ipywidgets import widgets, HBox
-#from skimage.transform import rescale, resize, downscale_local_mean
-#import copy
 import os
 import re
 import json
-#import subprocess
 
-displayStep('(4/5) Matlab, SciPy')
-#import matplotlib.pyplot as plt
-#from scipy.stats import gaussian_kde
+appendStepToContainer('.step_container_1a','(4/5) Matlab, SciPy')
 
-displayStep('(5/5) Google Utils')
-from google.colab import drive, files
+appendStepToContainer('.step_container_1a','(5/5) Google Utils')
+from google.colab import files
 
 #expandableSection('<p>This is some expandable stuff</p>')
 display(HTML('<p class="bookend">DONE: Importing necessary software libraries</p>'))
@@ -69,9 +57,9 @@ display(HTML('<p class="bookend">DONE: Importing necessary software libraries</p
 #########################################################
 
 display(HTML('<p class="bookend">START: Loading telescope images</p>'))
-display(HTML('<ul class="step_container"></ul>'))
+display(HTML('<ul class="step_container_1b"></ul>'))
 
-display(HTML('<li class="step">Ensuring sample images are loaded...</li>'))
+appendStepToContainer('.step_container_1b','Ensuring sample images are loaded...')
 
 #
 # Delete existing sample data by changing to `rebuild = "true"`
@@ -92,14 +80,14 @@ sample_data_target_folder = "/content/EXOTIC/exotic-in-action/sample-data"
 sample_data_target_child = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"
 sample_data_target_outputs = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output"
 if os.path.isdir(sample_data_target_child):
-  display(HTML('<li class="step">Skipping... Sample images already loaded</li>'))
+  appendStepToContainer('.step_container_1b','Skipping... Sample images already loaded')
 
 else:
-  display(HTML('<li class="step">Downloading images from ' + sample_data_source + '</li>'))
+  appendStepToContainer('.step_container_1b','Downloading images from ' + sample_data_source)
   #git_rv = !git clone {sample_data_source} {sample_data_target_folder}
   git_rv = !git clone {sample_data_source} {sample_data_target_parent}
   git_co_rv = !cd {sample_data_target_parent} && !git checkout beta1
-  display(HTML('<li class="step">Telescope images successfully loaded for HAT-P-32 b</li>'))
+  appendStepToContainer('.step_container_1b','Telescope images successfully loaded for HAT-P-32 b')
 
 #
 # Show files found

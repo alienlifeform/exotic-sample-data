@@ -1,4 +1,4 @@
-# **EXOTIC: See it in Action**
+# EXOTIC: See it in Action
 
 <font size=2>
 Following is a demonstration of how to run EXOTIC's code in your browser on a set of sample telescope images to generate a lightcurve.

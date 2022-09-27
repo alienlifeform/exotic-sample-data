@@ -3,7 +3,7 @@
 ## Step 1: Load Telescope Images
 
 <font size=2>
-🕔 Estimated time: 2 minutes
+🕔&nbsp;&nbsp;<i>Estimated time: 2 minutes</i>
 
 For this tutorial, we are using sample images from a known transit. When you run it yourself, you will upload your own images.
 </font>
