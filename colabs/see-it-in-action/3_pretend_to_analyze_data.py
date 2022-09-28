@@ -179,15 +179,16 @@ print(log_60)
 display(HTML('''
     <img width=800 src="https://exoplanets.nasa.gov/system/exotic/sample_lightcurve.png">
 
+'''))
+
+display(HTML('''
     <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">Click for a video to help you understand this lightcurve.</a>
 
     <p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>
-
-    <!--<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt. Click the folder icon in the left nav to navigate to it.-->
-
-    <!--<div class="button">Download lightcurve data</div>-->
-
 '''))
+
+showProgress(3)
+
 
 display(HTML('''
   

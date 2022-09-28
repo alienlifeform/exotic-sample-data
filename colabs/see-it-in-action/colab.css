@@ -142,3 +142,10 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
 .hidden {
   display: none;
 }
+
+
+.aavso_image {
+  position: absolute;
+  left: 700px;
+  width: 380px;
+}

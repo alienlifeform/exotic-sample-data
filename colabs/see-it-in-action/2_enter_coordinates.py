@@ -94,7 +94,7 @@ if fits_count >= 2:
 
   <br />
   <div class="plots">
-  <img align=right src="https://app.aavso.org/vsp/chart/X28194FDL.png" width=380>
+  <img class="aavso_image" src="https://app.aavso.org/vsp/chart/X28194FDL.png">
   '''))
   display_image(first_image)
   display(HTML('</div><br clear="all"/>'))
@@ -111,9 +111,9 @@ if fits_count >= 2:
       if 422 <= int(tc_coords[0]) <= 426 and 284 <= int(tc_coords[1]) <= 288:
         success = True
       else:
-        display(HTML('<p class="output error">Try again, your coordinates are a bit off: ' + targ_coords + ' should be closer to [424,286]</p>'))
+        display(HTML('<p class="error">Try again, your coordinates are a bit off: ' + targ_coords + ' should be closer to [424,286]</p>'))
     else:
-      display(HTML('<p class="output error">Try again, your syntax is not quite right: ' + targ_coords + ' needs to look like [424,286]</p>'))
+      display(HTML('<p class="error">Try again, your syntax is not quite right: ' + targ_coords + ' needs to look like [424,286]</p>'))
 
 
   showProgress(2)
@@ -134,7 +134,7 @@ if fits_count >= 2:
       #display(HTML('<p class="output">Syntax OK:  [[x1,y1],[x2,y2]] e.g. ' + comp_coords + '</p>'))
       success = True
     else:
-      display(HTML('<p class="output error">Try again, your syntax is not quite right: ' + comp_coords + ' needs to look more like [[326,365],[416,343]]</p>'))
+      display(HTML('<p class="error">Try again, your syntax is not quite right: ' + comp_coords + ' needs to look more like [[326,365],[416,343]]</p>'))
 
   showProgress(1)
   display(HTML('<p class="output">Comparison star coordinates saved to inits.json</p>'))

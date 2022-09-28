@@ -29,15 +29,15 @@ showProgress(.3)
 
 appendStepToContainer('.step_container_1a','(2/5) EXOTIC <span class="comment">(This will take up to a minute, please wait...)</span>')
 #!pip install exotic --upgrade
-## !pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
+!pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
 # This suppresses the "RESTART RUNTIME" button
-## hideWarning()
-## from exotic.api.colab import *
-## from exotic.api.plotting import plot_image
+hideWarning()
+from exotic.api.colab import *
+from exotic.api.plotting import plot_image
 
 
 appendStepToContainer('.step_container_1a','(3/5) NASAExoplanetArchive, Astropy, Utils')
-## from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
+from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
 #from astropy.time import Time
 #from barycorrpy import utc_tdb
 #import numpy as np
@@ -89,20 +89,17 @@ sample_data = False
 
 ################# TEMPORARY #############################
 
-def check_dir(p):
-  p = p.replace("\\", "/")
+# use this if you disable exotic for speed of development
+# def check_dir(p):
+#   p = p.replace("\\", "/")
 
-  if not(os.path.isdir(p)):
-    print(HTML(f'<p class="error">Problem: the directory {p} doesn\'t seem to exist on your Gdrive filesystem.</p>'))
-    return("")
-  return(p)
+#   if not(os.path.isdir(p)):
+#     print(HTML(f'<p class="error">Problem: the directory {p} doesn\'t seem to exist on your Gdrive filesystem.</p>'))
+#     return("")
+#   return(p)
 
 def clean_input_filepath(p):
-  #display(HTML(f'<p class="output">cif.p1={p}'))
-  #p = re.sub('^/drive', '', p)
-  #p = re.sub('^/MyDrive', '', p)
   p = re.sub('^/', '', p)
-  #display(HTML(f'<p class="output">cif.p4={p}</p>'))
   return(p)
 
 ######################################################
