@@ -165,15 +165,15 @@ lightcurve: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_
 
 import time
 print(log_10)
-showProgress(1)
+showProgress(2)
 print(log_20)
-showProgress(2)
+showProgress(3)
 print(log_30)
-showProgress(1)
-print(log_40)
 showProgress(2)
+print(log_40)
+showProgress(4)
 print(log_50)
-showProgress(1)
+showProgress(2)
 print(log_60)
 
 display(HTML('''
@@ -190,12 +190,13 @@ display(HTML('''
 '''))
 
 display(HTML('''
+  
   <h2>Congratulations!</h2> 
   <h3>You have successfully generated a lightcurve showing the transit of HAT-P-32 b around HAT-P-32</h3>
 
-  <p class="step">This exoplanet was actually discovered in 2011, and you can <a target="_blank" href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D on exoplanets.nasa.gov</a>.</p>
+  <li class="step">This exoplanet was actually discovered in 2011, and you can <a target="_blank" href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D on exoplanets.nasa.gov</a>.</li>
 
-  <p class="step">If you choose to download the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! </p>
+  <li class="step">If you choose to download the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! When you use real data, you <i>will</i> be submitting your lightcurve to the AAVSO.  </li>
 
 '''))
 
@@ -212,5 +213,5 @@ def on_dl_button_clicked(b):
 
 dl_button = widgets.Button(description="Download data")
 dl_button.on_click(on_dl_button_clicked)
-display(HTML('<hr />'))
+display(HTML('<br /><hr /><br />'))
 display(dl_button)

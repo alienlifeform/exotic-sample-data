@@ -20,17 +20,30 @@ get_ipython().events.register('pre_run_cell', resize_colab_cell)
 
 display(HTML('<ul class="step_container_1a"></ul>'))
 appendStepToContainer('.step_container_1a','Styles loaded, importing libraries...')
+showProgress(1) # make it feel real
 
 appendStepToContainer('.step_container_1a','(1/5) Bokeh.io')
 import bokeh.io
 from bokeh.io import output_notebook
+showProgress(1) # make it feel real
 
 appendStepToContainer('.step_container_1a','(2/5) EXOTIC <span class="comment">(This will take up to a minute, please wait...)</span>')
+### We need only a subset of methods for the tutorial:
+from astropy.io import fits
+from bokeh.plotting import figure, output_file, show
+from bokeh.models import BoxZoomTool,WheelZoomTool,ResetTool,HoverTool,PanTool,FreehandDrawTool
+from bokeh.models import ColorBar, LinearColorMapper, LogColorMapper, LogTicker
+import numpy as np
+showProgress(5) # make it feel real
 
+## rzellem version
 #!pip install exotic --upgrade
-!pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
-from exotic.api.colab import *
-# plot_image not needed for the simulation
+
+## alienlifeform version
+#!pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
+#from exotic.api.colab import *
+
+## plot_image not needed for the simulation
 # from exotic.api.plotting import plot_image 
 
 # This suppresses the "RESTART RUNTIME" button
@@ -38,17 +51,22 @@ hideWarning()
 #display(HTML('<br /><p>If there is a "RESTART RUNTIME" warning button above, you can ignore it (or click it and then re-run this step).</p>'))
 
 appendStepToContainer('.step_container_1a','(3/5) NASAExoplanetArchive, Astropy, Utils')
-from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
+## Not needed for tutorial:
+#from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
+
 from IPython.display import Image
 from ipywidgets import widgets, HBox
 import os
 import re
 import json
+showProgress(1) # make it feel real
 
 appendStepToContainer('.step_container_1a','(4/5) Matlab, SciPy')
+showProgress(2) # make it feel real
 
 appendStepToContainer('.step_container_1a','(5/5) Google Utils')
 from google.colab import files
+showProgress(1) # make it feel real
 
 #expandableSection('<p>This is some expandable stuff</p>')
 display(HTML('<p class="bookend">DONE: Importing necessary software libraries</p>'))
@@ -64,7 +82,7 @@ appendStepToContainer('.step_container_1b','Ensuring sample images are loaded...
 #
 # Delete existing sample data by changing to `rebuild = "true"`
 #
-rebuild = "true"  
+rebuild = "false"  
 if rebuild == "true":
   if os.path.isdir("/content/EXOTIC/exotic-in-action"):
     %rm -rf /content/EXOTIC/exotic-in-action
