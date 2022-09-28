@@ -27,19 +27,26 @@ li.step, li.step1, li.step2, li.step3, li.step4, li.step5  {
 div.plots {
   margin:40px;
 }
-pre.output, p.output, div.output_text pre, div#output-area span pre {
+
+
+.attention {
+  color:  #c02020;
+  background-color:  #fee9e9;
+  padding: 12px;
+}
+
+pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
   display: block;
   font-family: monospace;
-  color:  #000;
   white-space: pre-wrap;
   margin:8px 80px 8px 80px;
 }
 
+.error {
+  color:  #c02020;
+}
 .output {
   color:  #000;
-}
-p.error {
-  color:  #900;
 }
 .comment {
   color:  #000;

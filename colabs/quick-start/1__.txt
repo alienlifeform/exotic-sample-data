@@ -3,13 +3,13 @@
 ## Step 1: Load Telescope Images
 
 <font size=2>
-🕔 Estimated time: 2 minutes
+🕔&nbsp;&nbsp;<i>Estimated time: 2 minutes</i>
 <br /></font>
 
 <br />
 
 <font size=2>
-This step will prompt you for the path to your files on Google Drive, and your AAVSO Observer code.
+This step will prompt you for the path to your files on Google Drive, and your AAVSO Observer code. To find your files, you can click the folder icon in the left nav.
 <br />
 
 <font size=2>

@@ -1,10 +1,8 @@
-# **EXOTIC: Quick Start**
+# EXOTIC: Quick Start
 
 <font size=2>
 Run EXOTIC on your own telescope images. If have custom planetary parameters or multiple targets, <a href="">try our advanced interface</a>.
 </font>
-
-<font size=2>INSTRUCTIONS</font>
 
 <font size=2>
 
@@ -14,6 +12,6 @@ Click the ![Screen Shot 2022-09-25 at 2.30.43 PM.png](data:image/png;base64,iVBO
 <br />
 <table><tr>
   <td cellpadding=0 cellspacing=0 bgcolor="#fee9e9">
-  <font size=2 color="#c02020">Important:</font> It is recommended that you do not click the blue "<font color="#5070e0">Show code</font>" links.<br /><br />If you choose to, you can click the downward arrow to the left of the code block's title to re-hide it.</td>
+  <font size=2 color="#c02020">Important:</font> It is not recommended to click the blue "<font color="#5070e0">Show code</font>" links.<br /><br />If you choose to, you can click the downward arrow to the left of the code block's title to re-hide it.</td>
 </tr></table>
 <br />
