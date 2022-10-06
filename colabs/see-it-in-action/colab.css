@@ -143,9 +143,15 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
   display: none;
 }
 
-
 .aavso_image {
   position: absolute;
   left: 700px;
   width: 380px;
+}
+
+input.raw_input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
