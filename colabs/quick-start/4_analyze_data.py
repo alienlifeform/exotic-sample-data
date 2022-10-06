@@ -95,7 +95,7 @@ display(HTML('''
 showProgress(3)
 
 
-display(HTML('''
+display(HTML(f'''
   
   <h2>Congratulations!</h2> 
   <h3>You have successfully generated a lightcurve showing the possible transit of {target}</h3>
