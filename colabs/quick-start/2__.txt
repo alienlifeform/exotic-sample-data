@@ -2,6 +2,8 @@
 
 ## Step 2: Load Telescope Images
 
+<font face="Helvetica, Arial, Sans-Serif">
+
 <font size=2>
 🕔&nbsp;&nbsp;<i>Estimated time: 1 minute</i>
 <br /></font>
@@ -24,3 +26,5 @@ For more information:
 <ul><font size=2><li class="step"><a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/quick-start/">How do I upload .FITS images to Google Drive and determine the path?</a></li>
 <li class="step"><a href="https://www.aavso.org/new-observers#:~:text=If%20you%20do%20not%20yet,for%20%22Request%20an%20obscode%22.">How do I request an AAVSO Observer code?</a></li>
 </font></ul>
+
+</font>

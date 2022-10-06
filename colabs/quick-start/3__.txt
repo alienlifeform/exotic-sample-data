@@ -2,6 +2,8 @@
 
 ## Step 3: Identify target star and comparison stars
 
+<font face="Helvetica, Arial, Sans-Serif">
+
 <font size=2>
 🕔&nbsp;&nbsp;Estimated time: 3 minutes
 <br /></font>
@@ -28,3 +30,4 @@ For more information:
 </li>
 </font></ul>
 
+</font>

@@ -2,6 +2,8 @@
 
 ## End of Tutorial
 
+<font face="Helvetica, Arial, Sans-Serif">
+
 <font size=2>
 What would you like to do next?
 
@@ -13,4 +15,6 @@ What would you like to do next?
 <a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/how-to-contribute/how-to-observe/">Learn how to observe exoplanets</a>
 
 <a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Provide feedback for this tutorial</a>
+</font>
+
 </font>

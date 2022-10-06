@@ -2,15 +2,12 @@
 
 ## Step 3: Run EXOTIC to generate a lightcurve
 
+<font face="Helvetica, Arial, Sans-Serif">
+
 <font size=2>
 🕔&nbsp;&nbsp;<i>Estimated time: < 1 minute (this would take longer with a real data set ~5-15 minutes)</i>
 
-EXOTIC will analyze the brightness of the target star in each telescope image to identify if there was a transit. At the end of this step, you will see your lightcurve as an image, and you can download the lightcurve data to your hard drive for submission to AAVSO.
+EXOTIC will analyze the brightness of the target star in each telescope image to identify if there was a transit. At the end of this step, you will see your lightcurve as an image, and you could (if this wasn't just sample data) download the lightcurve data to your hard drive for submission to AAVSO.
 </font>
 
-<br />
-<table><tr>
-  <td cellpadding=0 cellspacing=0 bgcolor="#fee9e9">
-  <font size=2 color="#c02020">Important:</font> <font size=2>Do not actually submit the sample lightcurve from this tutorial to AAVSO.</font></td>
-</tr></table>
-<br />
+</font>

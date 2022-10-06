@@ -94,13 +94,15 @@ display(HTML('''
 
 showProgress(3)
 
+# Identify the lightcurve data file
+file_for_submission = glob.glob(output_dir + "/AAVSO_*")[0]
 
 display(HTML(f'''
   
   <h2>Congratulations!</h2> 
   <h3>You have successfully generated a lightcurve showing the possible transit of {target}</h3>
 
-  <li class="step">If you choose to download the data to your hard drive, it will be in a format suitable for submission to AAVSO.</li>
+  <li class="step">Click to download the data to your hard drive in a format suitable for submission to AAVSO, (or find it by clicking the folder icon in the left nav and navigating to {file_for_submission})</li>
 
 '''))
 
@@ -108,10 +110,10 @@ display(HTML(f'''
 # Allow download of lightcurve data
 def on_dl_button_clicked(b):
   # Display the message within the output widget.
-  if os.path.isfile(output_dir + 'AAVSO_HAT-P-32 b_2017-12-19.txt'):
+  if os.path.isfile(file_for_submission):
     display(HTML('<p>Downloading lightcurve data...</p>'))
     showProgress(2)
-    files.download(output_dir + 'AAVSO_HAT-P-32 b_2017-12-19.txt')
+    files.download(file_for_submission)
   else: 
     display(HTML('<p>Couldn\'t find output file.</p>'))
 
