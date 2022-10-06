@@ -23,7 +23,6 @@ setupDisplay()
 display(HTML('<p class="bookend">START: Loading telescope images</p>'))
 display(HTML('<ul class="step_container_2a"></ul>'))
 appendStepToContainer('.step_container_2a','Ensuring images are loaded...</li>')
-appendStepToContainer('.step_container_2a','<div class="attention"><b>Attention:</b> Be sure to "Permit this notebook to access your Google Drive files" if prompted.</div>')
 showProgress(1) 
 
 # TODO Do we need this? Verify in Beta2
@@ -52,10 +51,10 @@ def clean_input_filepath(p):
 fits_files_found = False
 while not fits_files_found:
   # Ask for inputs until we find ANY files
-  any_files_found = False
+  uploaded_files_found = False
   #appendStepToContainer('.step_container_2a','A valid Google Drive filepath should not include /drive/MyDrive/')
-  while not any_files_found:
-    input_filepath = input('Enter path to .FITS images in Google Drive (i.e. "EXOTIC/MyOwnImages")')
+  while not uploaded_files_found:
+    input_filepath = input('Enter path to .FITS images in Google Drive (i.e. "EXOTIC/MyOwnImages"): ')
     #display(HTML(f'<p class="output">input_filepath={input_filepath}</p>'))
     cleaned_filepath = clean_input_filepath(input_filepath)
     #display(HTML(f'<p class="output">cleaned_filepath={cleaned_filepath}</p>'))
@@ -71,7 +70,7 @@ while not fits_files_found:
         #display(HTML(f'<p class="output">sortedFiles={sorted_files}</p>'))
 
         if sorted_files:
-          any_files_found = True # exit inner loop and continue
+          uploaded_files_found = True # exit inner loop and continue
         else:
           display(HTML(f'<p class="error">Failed to find files at {verified_filepath}. You can click the folder icon in the left nav to browse your Google Drive directories.</p>'))
       else:
@@ -81,13 +80,13 @@ while not fits_files_found:
 
 
   # Directory full of files found, look for .fits and inits.json
-  files = [f for f in sorted_files if os.path.isfile(os.path.join(verified_filepath, f))]
+  uploaded_files = [f for f in sorted_files if os.path.isfile(os.path.join(verified_filepath, f))]
   fits_count, inits_count, first_image = 0, 0, ""
 
 
   # Identify .FITS and inits.json files in user-submitted folder
   inits = []    # array of paths to any inits files found in the directory
-  for f in files:
+  for f in uploaded_files:
     # Look for .fits images and keep count
     if re.search(r"\.f[itz]+s?\.?g?z?$", f, re.IGNORECASE):
       # Determine the first image
@@ -154,7 +153,7 @@ else:
 #appendStepToContainer('.step_container_2b','<p class="output">You have ' + str(fits_count) + ' telescope image (.FITS) files</p>')
 #appendStepToContainer('.step_container_2b','<p class="output">You have ' + str(inits_count) + ' inits (.json) files</p>')
 
-display(HTML('<p class="bookend">DONE: Loading telescope images.</p>'))
+display(HTML('<p class="bookend">DONE: Loading telescope images</p>'))
 
 
 ######################################################
@@ -164,6 +163,7 @@ if not inits_file_exists:
 
   display(HTML('<p class="bookend">START: Download planetary parameters</p>'))
 
+  appendStepToContainer('.step_container_2b','Loading NASA Exoplanet Archive')
   planetary_params = ""
   while not planetary_params:
     target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b"): ')
@@ -195,44 +195,12 @@ if not inits_file_exists:
       appendStepToContainer('.step_container_2b','Loading NASA Exoplanet Archive planetary parameters for ' + target)
       display(HTML(f'<pre class="output">{planetary_params}</pre>'))
 
-      # appendStepToContainer('.step_container_2b','Planetary parameters generated, creating inits.json file')      
-      # # Make the inits file
-      # inits = [make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
-      # appendStepToContainer('.step_container_2b','inits.json created')
-
   # Prompt for AAVSO code
   aavso_obs_code = input("Enter your AAVSO Observer code or press enter to skip: ")
 
-  display(HTML('<p class="bookend">DONE: Download planetary parameters.</p>'))
-
-
-  ######################################################
-
-
-  display(HTML('<p class="bookend">START: Load starchart</p>'))
-
-  display(HTML('<ul class="step_container_2c"></ul>'))
-  appendStepToContainer('.step_container_2c','Finding StarChart: Visit <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right">search for your star</a>, enter in the star name, and hit "plot chart". Click the image on the resulting page, and copy the URL from your browser to put in below.')
-  
-  appendStepToContainer('.step_container_2c','Please enter a valid AAVSO starchart image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28218AP.png") <span class="comment has_tooltip">(?)</span>')
-  appendToContainer('.comment','<div class="tooltip" style="display: none">TEST</div>')
-
-  starchart_url_is_legit = False
-  while not starchart_url_is_legit:
-    aavso_starchart_url = input("Enter starchart image URL: ")
-    if aavso_starchart_url.startswith('https://') and aavso_starchart_url.endswith('png'):
-      starchart_url_is_legit = True
-      display(HTML(f'<p class="output">Starchart URL is valid.</p>'))
-    else:
-      display(HTML(f'<p class="error">Starchart URL must begin with https:// and end with .png</p>'))
-
-
-  display(HTML('<p class="bookend">DONE: Find AAVSO StarChart. <b>You may move on to the next step.</b></p>'))
-
-
-  ######################################################
+  display(HTML('<p class="bookend">DONE: Download planetary parameters. <b>You may move on to the next step.</b></p>'))
 
 else: 
 
-  display(HTML('<p class="bookend">DONE: Inits.json file exists <b>You may move on to the next step.</b></p>'))
+  display(HTML('<p class="bookend">DONE: Inits.json file exists. <b>You may move on to step 4.</b></p>'))
 

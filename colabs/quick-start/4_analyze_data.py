@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze telescope images (developer's note, unstyled, real)</font>
+#@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8><b>Run EXOTIC to analyze telescope images</b></font>
 
 ##############################################################
 #
@@ -12,7 +12,7 @@
 #
 ##############################################################
 
-importCustomStyles()
+setupDisplay()
 
 # If the user presses enter to run the sample data, download sample data if needed and
 # put it into a sample-data directory at the top level of the user's Gdrive.  Count
@@ -40,13 +40,13 @@ sample_data = False
 
 print("Path to the inits file(s) that will be used:")
 
-for inits_file in inits:
-  print(inits_file)
+for inits_file in inits_file_path:
+  print("inits file: " + inits_file)
 
-num_inits = len(inits)
+num_inits = len(inits_file_path)
 
 commands = []
-for inits_file in inits:
+for inits_file in inits_file_path:
   with open(inits_file) as i_file:
     inits_data = i_file.read()
     d = json.loads(inits_data)
@@ -81,22 +81,41 @@ for inits_file in inits:
     hbox = HBox([imageB, imageA])
     # removing for "see it in action" - bm
     display(imageA)
-    #display(hbox)
-    #display(Image(filename=triangle))
+    display(hbox)
+    display(Image(filename=triangle))
+###
 
-display(HTML('<p>The data for the lightcurve you see here is downloading now in a format suitable to submit to AAVSO.'))
 
-# /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt
+display(HTML('''
+    <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">Click for a video to help you understand this lightcurve.</a>
 
-showProgress(2)
+    <p class="bookend">DONE: Analyzing telescope images. </p>
+'''))
 
-if os.path.isfile('/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
-  files.download('/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
-else: 
-  display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
+showProgress(3)
 
-display(HTML('</ul>'))
 
-display(HTML('<p class="bookend">DONE: Analyzing telescope images. <b>You may move on to the next step.</b></p>'))
+display(HTML('''
+  
+  <h2>Congratulations!</h2> 
+  <h3>You have successfully generated a lightcurve showing the possible transit of {target}</h3>
 
-    
+  <li class="step">If you choose to download the data to your hard drive, it will be in a format suitable for submission to AAVSO.</li>
+
+'''))
+
+
+# Allow download of lightcurve data
+def on_dl_button_clicked(b):
+  # Display the message within the output widget.
+  if os.path.isfile(output_dir + 'AAVSO_HAT-P-32 b_2017-12-19.txt'):
+    display(HTML('<p>Downloading lightcurve data...</p>'))
+    showProgress(2)
+    files.download(output_dir + 'AAVSO_HAT-P-32 b_2017-12-19.txt')
+  else: 
+    display(HTML('<p>Couldn\'t find output file.</p>'))
+
+dl_button = widgets.Button(description="Download data")
+dl_button.on_click(on_dl_button_clicked)
+display(HTML('<br /><hr /><br />'))
+display(dl_button)

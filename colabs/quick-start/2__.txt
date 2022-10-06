@@ -3,7 +3,7 @@
 ## Step 2: Load Telescope Images
 
 <font size=2>
-🕔&nbsp;&nbsp;<i>Estimated time: 2 minutes</i>
+🕔&nbsp;&nbsp;<i>Estimated time: 1 minute</i>
 <br /></font>
 
 <br />
@@ -11,16 +11,16 @@
 <font size=2>
 This step will:
 </font>
+
 <ol type="a"><font size=2>
-<li class="step">Prompt you to type in the path to your .FITS files on Google Drive <a href="">(more info)</a></li>
-<li class="step">Prompt you to type in your AAVSO Observer code, if you have one. <a href="">(more info)</a></li>
-<li class="step">Prompt you to type in your starchart URL <a href="">(more info)</a></li></ol>
-</font>
+<li class="step">Prompt you to type in the path to your .FITS files on Google Drive </li>
+<li class="step">Prompt you to type in your AAVSO Observer code, if you have one.</li>
+</font></ol>
 
 <font size=2>
 For more information: 
 </font>
-<ul><font size=2><li class="step"><a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/quick-start/">How to upload your .FITS files to Google Drive</a></li>
-<li class="step"><a href="https://www.aavso.org/new-observers#:~:text=If%20you%20do%20not%20yet,for%20%22Request%20an%20obscode%22.">Request an AAVSO Observer code</a></li>
-<li class="step"><a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/quick-start/">How to get a starchart URL</a></li></font></ul>
-</font>
+
+<ul><font size=2><li class="step"><a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/quick-start/">How do I upload .FITS images to Google Drive and determine the path?</a></li>
+<li class="step"><a href="https://www.aavso.org/new-observers#:~:text=If%20you%20do%20not%20yet,for%20%22Request%20an%20obscode%22.">How do I request an AAVSO Observer code?</a></li>
+</font></ul>

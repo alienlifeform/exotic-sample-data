@@ -1,5 +1,0 @@
----
-
-Any issues with this tutorial? <a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Let us know!</a>
-
-Ready for the next step?  [Use EXOTIC to upload your own data!](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/)

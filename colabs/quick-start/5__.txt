@@ -1,9 +1,13 @@
-# **Step 3:  Run EXOTIC to generate a lightcurve**
-
----
-> Estimated time: 1 minute 
-> 
-> (... on a real data set, will be 5-15 minutes)
 ---
 
-EXOTIC will analyze the brightness of the target star in each telescope image to identify if there was a transit. At the end of this step, you will see your lightcurve as an image, and you can download the lightcurve data to your hard drive for submission to AAVSO.
+## The End
+
+<font size=2>
+What would you like to do next?
+
+<a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/advanced-guide/">Learn how to submit a lightcurve</a>
+
+<a href="https://app.aavso.org/exosite/submit">Submit your lightcurve to Exoplanet Watch via AAVSO</a>
+
+<a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Provide feedback for this tutorial</a>
+</font>

@@ -11,8 +11,11 @@
 <font size=2>
 This step will:
 </font>
-<ol type="a"><font size=2><li class="step">Import required EXOTIC libraries</li>
-<li class="step">Connect to your Google Drive to access your .FITS images</li></font></ol>
+
+<ol type="a"><font size=2>
+<li class="step">Import required EXOTIC libraries</li>
+<li class="step">Connect to your Google Drive to access your .FITS images</li>
+</font></ol>
 
 <br />
 <table><tr><td bgcolor="#fee9e9">
