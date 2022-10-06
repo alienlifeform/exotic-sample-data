@@ -1,5 +1,17 @@
 #@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze telescope images (developer's note, unstyled, real)</font>
 
+##############################################################
+#
+# NOTE TO EXOTIC USER:
+#
+#   • To hide this code, double-click the title above the code,
+#     or click the arrow to the left of the title.
+#
+#   • Editing this code will only affect your local instance. 
+#     Reload to revert your changes.
+#
+##############################################################
+
 importCustomStyles()
 
 # If the user presses enter to run the sample data, download sample data if needed and

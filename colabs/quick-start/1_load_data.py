@@ -3,6 +3,19 @@
 ##############################################################
 %%capture step_capture --no-display
 # Comment the above statement out to see debugging information
+##############################################################
+
+##############################################################
+#
+# NOTE TO EXOTIC USER:
+#
+#   • To hide this code, double-click the title above ("Load telescope images"),
+#     or click the arrow to the left of the title.
+#
+#   • Editing this code will only affect your local instance. 
+#     Reload to revert your changes.
+#
+##############################################################
 
 # Import display libraries to allow html, css, and javascript for styling and interaction
 from IPython.display import display, HTML, Javascript

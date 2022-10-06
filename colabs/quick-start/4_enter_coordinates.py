@@ -1,5 +1,17 @@
 #@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8><b>2. Identify the target and comparison stars in a telescope image</b></font>
 
+##############################################################
+#
+# NOTE TO EXOTIC USER:
+#
+#   • To hide this code, double-click the title above the code,
+#     or click the arrow to the left of the title.
+#
+#   • Editing this code will only affect your local instance. 
+#     Reload to revert your changes.
+#
+##############################################################
+
 setupDisplay()
 
 # If the user presses enter to run the sample data, download sample data if needed and
