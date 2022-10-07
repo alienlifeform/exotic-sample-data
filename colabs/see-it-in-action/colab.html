@@ -1,14 +1,15 @@
 <script>
-  function show_or_hide(elem) {
+  function show_or_hide(more, less, elem) {
     var paragraph = elem.querySelector(".hidden");
     var expand_text = elem.querySelector(".expand_text");
+    if
     if (paragraph && paragraph.style) {
      if (paragraph.style.display == "none" || !paragraph.style.display) {
       paragraph.style.display = "block";
-      expand_text.innerHTML = "- LESS";
+      expand_text.innerHTML = less;
      } else {
       paragraph.style.display = "none";
-      expand_text.innerHTML = "+ MORE";
+      expand_text.innerHTML = more;
      }
     }
    }
