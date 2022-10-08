@@ -26,7 +26,7 @@ appendStepToContainer('.step_container_2a','Ensuring images are loaded...</li>')
 showProgress(1) 
 
 # TODO Do we need this? Verify in Beta2
-bokeh.io.output_notebook()
+# bokeh.io.output_notebook()
 #appendStepToContainer('.step_container_2a','Note: You can navigate your uploaded files by clicking the folder icon along the left nav.')
 
 ################# TEMPORARY #############################
@@ -46,6 +46,21 @@ def clean_input_filepath(p):
 
 ######################################################
 
+
+expandableSectionCustom('<u>+ How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</u>','<u>- Close</u>','''
+  <p>How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</p>
+  <blockquote>e.g. EXOTIC/HatP32Apr12022/</blockquote>
+  
+  <ol>
+  <li>In another window, <a href="https://drive.google.com/drive/my-drive" target="newGoogleDrive">go to Google Drive</a>.</li>
+  <li>In Google Drive, if you don't already have an EXOTIC folder in your drive, right click on "My Drive" (in the left nav) and click New Folder. Name the folder "EXOTIC".</li>
+  <li>Click the arrow next to "My Drive" to see the subfolders and click "EXOTIC".</li>
+  <li>On your computer, put your .FITS files into a single folder uniquely named for your observation (e.g. "HatP32Apr12022").</li>
+  <li>From your filesystem, drag this folder into Google Drive where it says "Drop files here".</li>
+  </ol>
+
+  <p>You will use this path (e.g. "EXOTIC/HatP32Apr12022") when loading your images into EXOTIC.</p>
+''')
 
 # Ask for inputs until we find .fits files
 fits_files_found = False

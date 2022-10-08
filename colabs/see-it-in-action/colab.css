@@ -102,7 +102,13 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
   margin: 1em 0;
 }
 
+.expandable {
+  margin:8px 80px 8px 80px;
+  font-family:Helvetica,sans-serif; color:#666;
+}
+
 .expand_text {
+  font-family:Helvetica,sans-serif; color:#666;
   font-weight: bold;
   cursor: pointer;
 }

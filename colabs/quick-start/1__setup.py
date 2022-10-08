@@ -24,7 +24,7 @@ display(HTML('<p class="hidden">Loading styles, please wait...</p>'))
 
 # Install EXOTIC Colab interface code to provide styling and interaction features
 !pip install git+https://github.com/alienlifeform/exotic-colab.git --upgrade
-from exoticcolab.display import setupDisplay, testImplementation, displayStep, makeContainer, downloadButton, appendToContainer, appendStepToContainer, expandableSection, hideWarning, showProgress, resize_colab_cell
+from exoticcolab.display import setupDisplay, testImplementation, displayStep, makeContainer, downloadButton, appendToContainer, appendStepToContainer, expandableSection, expandableSectionCustom, hideWarning, showProgress, resize_colab_cell
 
 # Set up custom Colab styles and interactions
 setupDisplay()
