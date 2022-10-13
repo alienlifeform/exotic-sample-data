@@ -1,5 +1,8 @@
 #@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8><b>2b. Identify the target and comparison stars in a telescope image</b></font>
 
+Telescope = 'MicroObservatory' #@param ["MicroObservatory"]
+Target = 'HAT-P-32' #@param ["HAT-P-32"]
+
 setupDisplay()
 
 #########################################################

@@ -57,7 +57,7 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
   text-align: center;
 }
 .button, .widget-button {
-  font-weight: 700;
+  font-weight: bold;
   display: inline-block;
   margin-bottom: 0.5em;
   margin-left: auto;
@@ -155,6 +155,7 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
   width: 380px;
 }
 
+// normal colab input() fields
 input.raw_input {
   width: 100%;
   padding: 12px 20px;
@@ -162,6 +163,57 @@ input.raw_input {
   box-sizing: border-box;
 }
 
+// Form elements in quickstart.enter_coordinates
+.display_data .widget-inline-hbox { 
+  width: 800px;
+  border:  1px;
+}
+.display_data .widget-inline-hbox .widget-label {
+  font-weight: normal;
+  width: 220px;
+  min-width: 220px;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.display_data .widget-inline-hbox input  {
+  width: 400px;
+  min-width: 300px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height:  auto;
+  padding: 4px 6px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  //background-color: white;
+}
+.display_data .widget-inline-hbox select  {
+  width: 400px;
+  min-width: 300px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height:  auto;
+  padding: 10px 6px;
+  margin: 0;
+  box-sizing: border-box;
+  //background-color: white;
+}
+
+/*.widget-text,.widget_dropdown .widget-label {
+  width: 250px;
+}
+
+.widget-text,.widget-dropdown  input,select {
+  width: 400px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin: 3px 0;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}*/
+
+// hide the input field that seems to always hang around when EXOTIC is thinking
 input.stdin-widget {
   border-color:  white;
 }

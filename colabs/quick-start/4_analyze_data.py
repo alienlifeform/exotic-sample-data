@@ -79,8 +79,6 @@ for inits_file in inits_file_path:
     imageA = widgets.Image(value=open(lightcurve, 'rb').read())
     imageB = widgets.Image(value=open(fov, 'rb').read())
     hbox = HBox([imageB, imageA])
-    # removing for "see it in action" - bm
-    display(imageA)
     display(hbox)
     display(Image(filename=triangle))
 ###
