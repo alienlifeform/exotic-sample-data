@@ -1,137 +1,221 @@
-#@title <font face="Helvetica" class="button" color='#702020'><b>&lt;- Click to load telescope images</b></font>
-#%%capture step_capture --no-display
+#@title <font size=3><img src="https://exoplanets.nasa.gov/system/exotic/leftdownarrow_tall.png" height=18 hspace=8><b>Step 2: Load telescope images</b></font>
 
 ##############################################################
 %%capture step_capture --no-display
-print("Starting application...")
-
-from IPython.display import display, HTML, Javascript
-import random
-
-# Grabs a stylesheet, call this before any html output in cell
-def importCustomStyles():
-  custom_stylesheet_url = 'https://exoplanets.nasa.gov/system/exotic/colab.css?i=' + str(random.random())
-  display(HTML('<link rel="stylesheet" href="' + custom_stylesheet_url + '">'))
-  #display(HTML('Getting stylesheet from ' + custom_stylesheet_url))
-
-importCustomStyles()
-
-display(HTML('''
-<p class="bookend">START: Importing necessary software libraries</p>
-<li class="step">Time, ProgressBar</li>
-'''))
-
-import time
-import progressbar
-
-# Creates a progress bar that just runs for `seconds` number of seconds
-def showProgress(seconds):
-  with progressbar.ProgressBar(max_value=100) as bar:
-    for idx, val in enumerate(range(100)):
-      time.sleep(seconds/100)
-      bar.update(idx)
-
-# Avoids scroll-in-the-scroll in the entire Notebook
-def resize_colab_cell():
-  display(Javascript('google.colab.output.setIframeHeight(0, true, {maxHeight: 5000})'))
-get_ipython().events.register('pre_run_cell', resize_colab_cell)
-
-
-display(HTML('<li class="step">IPython.display</li>'))
-
-display(HTML('<li class="step">Bokeh.io</li>'))
-import bokeh.io
-
-display(HTML('<li class="step">EXOTIC <span class="comment">(This will take up to a minute, please wait... and ignore any warning that may ask you to "RESTART RUNTIME")</span></li>'))
-!pip install exotic --upgrade
-display(HTML('<br /><br /><p class="step"><span class="comment">Reminder, if there is a "RESTART RUNTIME" warning button above, ignore it (or you\'ll have to re-run this step)!</span></p>'))
-
-# from exotic.api.plotting import plot_image
-display(HTML('<li class="step">NASAExoplanetArchive</li>'))
-from exotic.exotic import NASAExoplanetArchive, get_wcs, find_target
-
-display(HTML('<li class="step">Astropy</li>'))
-from astropy.time import Time
-
-display(HTML('<li class="step">Utils</li>'))
-from barycorrpy import utc_tdb
-import numpy as np
-from io import BytesIO
-from astropy.io import fits
-from scipy.ndimage import label
-from bokeh.plotting import figure, output_file, show
-from bokeh.palettes import Viridis256
-from bokeh.models import ColorBar, LinearColorMapper, LogColorMapper, LogTicker
-from bokeh.models import BoxZoomTool,WheelZoomTool,ResetTool,HoverTool,PanTool,FreehandDrawTool
-from bokeh.io import output_notebook
-from pprint import pprint
-from IPython.display import Image
-from ipywidgets import widgets, HBox
-from skimage.transform import rescale, resize, downscale_local_mean
-import copy
-
-display(HTML('<li class="step">Matlab</li>'))
-import matplotlib.pyplot as plt
-
-display(HTML('<li class="step">Scipy</li>'))
-from scipy.stats import gaussian_kde
-
-import os
-import re
-import json
-import subprocess
-
-display(HTML('<li class="step">Google Utils</li>'))
-from google.colab import drive, files
-
-display(HTML('<p class="bookend">DONE: Importing necessary software libraries</p>'))
-
+# Comment the above statement out to see debugging information
 ##############################################################
 
-display(HTML('''
-<p class="bookend">START: Loading telescope images</p>
-<li class="step">Ensuring sample images are loaded...</li>
-'''))
+##############################################################
+#
+# NOTE TO EXOTIC USER:
+#
+#   • To hide this code, double-click the title above ("Load telescope images"),
+#     or click the arrow to the left of the title.
+#
+#   • Editing this code will only affect your local instance. 
+#     Reload to revert your changes.
+#
+##############################################################
 
-#
-# Delete existing sample data by changing to `rebuild = "true"`
-#
-rebuild = "true"  
-if rebuild == "true":
-  if os.path.isdir("/content/EXOTIC/exotic-in-action"):
-    %rm -rf /content/EXOTIC/exotic-in-action
-    display(HTML('<p class="step">"Rebuild" flag is "true"... Removing old images at /content/EXOTIC/exotic-in-action</p>'))
+setupDisplay()
 
-#
-# Download sample files if necessary
-#
-#sample_data_source = "https://github.com/rzellem/EXOTIC_sampledata.git" # goes into sample_data_target_folder
-sample_data_source = "https://github.com/alienlifeform/exotic-sample-data.git" # goes into sample_data_target_parent
-sample_data_target_parent = "/content/EXOTIC/exotic-in-action"
-sample_data_target_folder = "/content/EXOTIC/exotic-in-action/sample-data"
-sample_data_target_child = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"
-sample_data_target_outputs = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output"
-if os.path.isdir(sample_data_target_child):
-  display(HTML('<li class="step">Skipping... Sample images already loaded</li>'))
+# Prepare user for loading of images
+display(HTML('<p class="bookend">START: Loading telescope images</p>'))
+display(HTML('<ul class="step_container_2a"></ul>'))
+appendStepToContainer('.step_container_2a','Ensuring images are loaded...</li>')
+showProgress(1) 
 
+# TODO Do we need this? Verify in Beta2
+# bokeh.io.output_notebook()
+#appendStepToContainer('.step_container_2a','Note: You can navigate your uploaded files by clicking the folder icon along the left nav.')
+
+################# TEMPORARY #############################
+
+# use this if you disable exotic for rapid development
+# def check_dir(p):
+#   p = p.replace("\\", "/")
+
+#   if not(os.path.isdir(p)):
+#     print(HTML(f'<p class="error">Problem: the directory {p} doesn\'t seem to exist on your Gdrive filesystem.</p>'))
+#     return("")
+#   return(p)
+
+def clean_input_filepath(p):
+  p = re.sub('^/', '', p)
+  return(p)
+
+######################################################
+
+
+expandableSectionCustom('<u>+ How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</u>','<u>- Close</u>','''
+  <p>How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</p>
+  <blockquote>e.g. EXOTIC/HatP32Apr12022/</blockquote>
+  
+  <ol>
+  <li>In another window, <a href="https://drive.google.com/drive/my-drive" target="newGoogleDrive">go to Google Drive</a>.</li>
+  <li>In Google Drive, if you don't already have an EXOTIC folder in your drive, right click on "My Drive" (in the left nav) and click New Folder. Name the folder "EXOTIC".</li>
+  <li>Click the arrow next to "My Drive" to see the subfolders and click "EXOTIC".</li>
+  <li>On your computer, put your .FITS files into a single folder uniquely named for your observation (e.g. "HatP32Apr12022").</li>
+  <li>From your filesystem, drag this folder into Google Drive where it says "Drop files here".</li>
+  </ol>
+
+  <p>You will use this path (e.g. "EXOTIC/HatP32Apr12022") when loading your images into EXOTIC.</p>
+''')
+
+# Ask for inputs until we find .fits files
+fits_files_found = False
+while not fits_files_found:
+  # Ask for inputs until we find ANY files
+  uploaded_files_found = False
+  #appendStepToContainer('.step_container_2a','A valid Google Drive filepath should not include /drive/MyDrive/')
+  while not uploaded_files_found:
+    input_filepath = input('Enter path to .FITS images in Google Drive (i.e. "EXOTIC/MyOwnImages"): ')
+    #display(HTML(f'<p class="output">input_filepath={input_filepath}</p>'))
+    cleaned_filepath = clean_input_filepath(input_filepath)
+    #display(HTML(f'<p class="output">cleaned_filepath={cleaned_filepath}</p>'))
+    if cleaned_filepath:
+      verified_filepath = check_dir(os.path.join("/content/drive/My Drive/", cleaned_filepath))
+      #display(HTML(f'<p class="output">verified_filepath={verified_filepath}</p>'))
+      
+      if verified_filepath:
+        output_dir = os.path.join(verified_filepath, "EXOTIC_output/")      
+        #display(HTML(f'<p class="output">output_dir={output_dir}</p>'))
+
+        sorted_files = sorted(os.listdir(verified_filepath)); 
+        #display(HTML(f'<p class="output">sortedFiles={sorted_files}</p>'))
+
+        if sorted_files:
+          uploaded_files_found = True # exit inner loop and continue
+        else:
+          display(HTML(f'<p class="error">Failed to find files at {verified_filepath}. You can click the folder icon in the left nav to browse your Google Drive directories.</p>'))
+      else:
+        display(HTML(f'<p class="error">Failed to find a folder at /content/drive/My Drive/{cleaned_filepath}. You can click the folder icon in the left nav to browse your Google Drive directories.</p>'))
+    else:
+      display(HTML(f'<p class="error">Filepath doesn\'t seem right: /content/drive/My Drive/{input_filepath}. You can click the folder icon in the left nav to browse your Google Drive directories.</p>'))
+
+
+  # Directory full of files found, look for .fits and inits.json
+  uploaded_files = [f for f in sorted_files if os.path.isfile(os.path.join(verified_filepath, f))]
+  fits_count, inits_count, first_image = 0, 0, ""
+
+
+  # Identify .FITS and inits.json files in user-submitted folder
+  inits = []    # array of paths to any inits files found in the directory
+  for f in uploaded_files:
+    # Look for .fits images and keep count
+    if re.search(r"\.f[itz]+s?\.?g?z?$", f, re.IGNORECASE):
+      # Determine the first image
+      if first_image == "":
+        first_image = os.path.join(verified_filepath, f)
+      fits_count += 1
+    # Look for inits.json file(s)
+    if re.search(r"\.json$", f, re.IGNORECASE):
+      inits.append(os.path.join(verified_filepath, f))
+  
+  inits_count = len(inits)
+  display(HTML(f'<p class="output">Found {fits_count} image files and {inits_count} initialization files in the directory.</p>'))
+
+
+  #appendStepToContainer('.step_container_2a','<p class="output">Found ' + str(fits_count) + ' telescope image (.FITS) files</p>')
+  #appendStepToContainer('.step_container_2a','<p class="output">Found ' + str(inits_count) + ' inits (.json) files</p>')
+
+  # Determine if folder has enough .FITS folders to move forward
+  # TODO: Is 19 an important number?
+  if fits_count >= 19:
+    fits_files_found = True # exit outer loop and continue
+
+    # Make the output directory if it does not exist already.
+    if not os.path.isdir(output_dir):    
+      os.mkdir(output_dir)
+      display(HTML(f'Creating output_dir at {output_dir}'))
+    output_dir_for_shell = output_dir.replace(" ", "\ ")
+  else: 
+    display(HTML(f'<p class="error">Failed to find a significant number of .FITS files at {verified_filepath}</p>'))
+
+# Read configuration from inits.json, if available
+if inits_count == 1:                 # one inits file exists
+  # Deal with inits.json file
+  inits_path = os.path.join(verified_filepath, inits[0])
+  inits_file_exists = True
+  #display(HTML(f'<p class="output">Got an inits.json file here: {inits_path}</p>'))
+  with open(inits_path) as i_file:
+    display(HTML(f'<p class="output">Loading coordinates and input/output directories from inits file</p>'))
+    inits_data = i_file.read()
+    d = json.loads(inits_data)
+    targ_coords = d["user_info"]["Target Star X & Y Pixel"]
+    comp_coords = d["user_info"]["Comparison Star(s) X & Y Pixel"]
+    input_dir = d["user_info"]["Directory with FITS files"]
+    if input_dir != verified_filepath:
+      display(HTML(f'<p class="output">The directory with fits files should be {verified_filepath} but your inits file says {input_dir}.</p>'))
+      display(HTML('<p class="output">This may or may not cause problems.  Just letting you know.<p>'))
+    display(HTML(f'<p class="output">Coordinates from your inits file:\ntarget: {targ_coords}\ncomps: {comp_coords}<p>'))
+    output_dir = d["user_info"]["Directory to Save Plots"]
 else:
-  display(HTML('<li class="step">Downloading images from ' + sample_data_source + '</li>'))
-  #git_rv = !git clone {sample_data_source} {sample_data_target_folder}
-  git_rv = !git clone {sample_data_source} {sample_data_target_parent}
-  git_co_rv = !cd {sample_data_target_parent} && !git checkout beta1
-  display(HTML('<li class="step">Telescope images successfully loaded for HAT-P-32 b</li>'))
+  display(HTML(f'<p class="output">No valid inits.json file was found, we\'ll create it in the next step.<p>'))
+  # TODO something here? - bergen
+  inits_file_exists = False
+  #inits = [make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
 
 #
 # Show files found
 #
-#!du -hd0 --exclude ".*" /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017
-numfiles_fits = !ls {sample_data_target_child} | grep -ci FITS
-numfiles_json = !ls {sample_data_target_child} | grep -ci json
+#!du -hd0 --exclude ".*" /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017
+#numfiles_fits = !ls {sample_data_target_child} | grep -ci FITS
+#numfiles_json = !ls {sample_data_target_child} | grep -ci json
 
-display(HTML('<p class="step">You have ' + str(numfiles_fits[0]) + ' telescope image (.FITS) files</p>'))
-display(HTML('<p class="step">You have ' + str(numfiles_json[0]) + ' inits (.json) files</p>'))
+#display(HTML('<ul class="step_container_2b"></ul>'))
 
-display(HTML('<p class="bookend">DONE: Loading telescope images. <b>You may move on to the next step.</b></p>'))
+#appendStepToContainer('.step_container_2b','<p class="output">You have ' + str(fits_count) + ' telescope image (.FITS) files</p>')
+#appendStepToContainer('.step_container_2b','<p class="output">You have ' + str(inits_count) + ' inits (.json) files</p>')
 
-# to mount the user's Google Drive... the original way
-#drive.mount('/content/drive', force_remount=True)
+display(HTML('<p class="bookend">DONE: Loading telescope images</p>'))
+
+
+######################################################
+
+# Load planetary params if inits.json file does not yet exist
+if not inits_file_exists:
+
+  display(HTML('<p class="bookend">START: Download planetary parameters</p>'))
+
+  appendStepToContainer('.step_container_2b','Loading NASA Exoplanet Archive')
+  planetary_params = ""
+  while not planetary_params:
+    target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b"): ')
+    #target="HAT-P-32 b"
+    display(HTML('<ul class="step_container_2b"></ul>'))
+    appendStepToContainer('.step_container_2b','Searching NASA Exoplanet Archive for "' + target + '"')
+    targ = NASAExoplanetArchive(planet=target)
+    #appendStepToContainer('.step_container_2','Loading planet info')
+    target = targ.planet_info()[0]
+    
+    if not targ.resolve_name():
+      appendStepToContainer('.step_container_2b','''
+      Sorry, we can\'t find your target in the Exoplanet Archive.  Unfortunately, this
+      isn't going to work until we can find it. Please try
+      different formats for your target name, until the target is located.
+      Looking it up in the NASA Exoplanet Archive at https://exoplanetarchive.ipac.caltech.edu/
+      might help you know where to put the spaces and hyphens and such.
+      ''')
+      appendStepToContainer('.step_container_2b','''
+      If your target is a candidate, you may need to create your own inits.json file in the
+      <a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/advanced-guide/">advanced EXOTIC edition</a>
+      ''')
+    else:
+      appendStepToContainer('.step_container_2b','Found target "' + target + '" in the NASA Exoplanet Archive')
+      p_param_string = targ.planet_info(fancy=True)
+      planetary_params = '"planetary_parameters": ' + p_param_string
+      p_param_dict = json.loads(p_param_string)
+      planetary_params = fix_planetary_params(p_param_dict)
+      appendStepToContainer('.step_container_2b','Loading NASA Exoplanet Archive planetary parameters for ' + target)
+      display(HTML(f'<pre class="output">{planetary_params}</pre>'))
+
+  # Prompt for AAVSO code
+  aavso_obs_code = input("Enter your AAVSO Observer code or press enter to skip: ")
+
+  display(HTML('<p class="bookend">DONE: Download planetary parameters. <b>You may move on to the next step.</b></p>'))
+
+else: 
+
+  display(HTML('<p class="bookend">DONE: Inits.json file exists. <b>You may move on to step 4.</b></p>'))
+

@@ -1,5 +1,17 @@
 ---
 
-Any issues with this tutorial? <a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Let us know!</a>
+## Done
 
-Ready for the next step?  [Use EXOTIC to upload your own data!](https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/)
+<font face="Helvetica, Arial, Sans-Serif">
+
+<font size=2>
+What would you like to do next?
+
+
+<font size=2>
+<a href="https://app.aavso.org/exosite/submit">Submit your lightcurve to Exoplanet Watch via AAVSO</a>
+
+<a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Provide feedback for this tutorial</a>
+</font>
+
+</font>

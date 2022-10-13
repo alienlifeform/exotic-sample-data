@@ -1,12 +1,24 @@
-# **Step 1: Load Telescope Images**
-
----
-> Estimated time: 2 minutes
 ---
 
+## Step 2: Load Telescope Images
 
-For this tutorial, we are using a known transit, that of HAT-P-32 b around the star HAT-P-32, taken on December 20, 2017. 
+<font face="Helvetica, Arial, Sans-Serif">
 
-When you run it yourself, you will do the same steps with images from your own telescope images (taken during the expected transit of an exoplanet).
+<font size=2>
+This step will:
+</font>
 
-**ATTENTION:** A popup will appear titled "**Warning: This notebook was not authored by Google.**". Read it, then click "**Run Anyway**"... we stand behind our code!
+<ol type="a"><font size=2>
+<li class="step">Prompt you to type in the path to your .FITS files on Google Drive </li>
+<li class="step">Prompt you to type in your AAVSO Observer code, if you have one.</li>
+</font></ol>
+
+<font size=2>
+For more information: 
+</font>
+
+<ul><font size=2><li class="step"><a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/quick-start/">How do I upload .FITS images to Google Drive and determine the path?</a></li>
+<li class="step"><a href="https://www.aavso.org/new-observers#:~:text=If%20you%20do%20not%20yet,for%20%22Request%20an%20obscode%22.">How do I request an AAVSO Observer code?</a></li>
+</font></ul>
+
+</font>
