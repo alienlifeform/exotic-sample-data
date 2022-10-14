@@ -50,9 +50,8 @@ if not inits_file_exists:
     display(HTML('<p class="bookend">START: Load starchart</p>'))
 
     display(HTML('<ul class="step_container_3a"></ul>'))
-    appendStepToContainer('.step_container_3a','Finding StarChart: Visit <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right">search for your star</a>, enter in the star name, and hit "plot chart". Click the image on the resulting page, and copy the URL from your browser to put in below.')
+    appendStepToContainer('.step_container_3a','Find an image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png") using the <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>.')
 
-    appendStepToContainer('.step_container_3a','Please enter a valid AAVSO starchart image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png") <span class="comment has_tooltip">(?)</span>')
     appendToContainer('.comment','<div class="tooltip" style="display: none">TEST</div>')
 
     #
@@ -210,7 +209,7 @@ if not inits_file_exists:
 
       display(HTML('<p class="output">Comparison star coordinates saved to inits.json</p>'))
 
-      inits_file_path = [make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
+      inits_file_path = make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)
       showProgress(1)
       
       if inits_file_path:

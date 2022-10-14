@@ -1,1 +1,3 @@
 # EXOTIC: Advanced Edition
+
+Need help? <a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/user-guide/" target="_blank">Consult the EXOTIC User Guide</a>.

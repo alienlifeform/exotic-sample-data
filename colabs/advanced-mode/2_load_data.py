@@ -47,20 +47,20 @@ def clean_input_filepath(p):
 ######################################################
 
 
-expandableSectionCustom('<u>+ How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</u>','<u>- Close</u>','''
-  <p>How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</p>
-  <blockquote>e.g. EXOTIC/HatP32Apr12022/</blockquote>
+# expandableSectionCustom('<u>+ Open user guide:</u> How to Upload your .FITS images into Google Drive in way that EXOTIC can use them','<u>- Close</u>','''
+#   <p>How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</p>
+#   <blockquote>e.g. EXOTIC/HatP32Apr12022/</blockquote>
   
-  <ol>
-  <li>In another window, <a href="https://drive.google.com/drive/my-drive" target="newGoogleDrive">go to Google Drive</a>.</li>
-  <li>In Google Drive, if you don't already have an EXOTIC folder in your drive, right click on "My Drive" (in the left nav) and click New Folder. Name the folder "EXOTIC".</li>
-  <li>Click the arrow next to "My Drive" to see the subfolders and click "EXOTIC".</li>
-  <li>On your computer, put your .FITS files into a single folder uniquely named for your observation (e.g. "HatP32Apr12022").</li>
-  <li>From your filesystem, drag this folder into Google Drive where it says "Drop files here".</li>
-  </ol>
+#   <ol>
+#   <li>In another window, <a href="https://drive.google.com/drive/my-drive" target="newGoogleDrive">go to Google Drive</a>.</li>
+#   <li>In Google Drive, if you don't already have an EXOTIC folder in your drive, right click on "My Drive" (in the left nav) and click New Folder. Name the folder "EXOTIC".</li>
+#   <li>Click the arrow next to "My Drive" to see the subfolders and click "EXOTIC".</li>
+#   <li>On your computer, put your .FITS files into a single folder uniquely named for your observation (e.g. "HatP32Apr12022").</li>
+#   <li>From your filesystem, drag this folder into Google Drive where it says "Drop files here".</li>
+#   </ol>
 
-  <p>You will use this path (e.g. "EXOTIC/HatP32Apr12022") when loading your images into EXOTIC.</p>
-''')
+#   <p>You will use this path (e.g. "EXOTIC/HatP32Apr12022") when loading your images into EXOTIC.</p>
+# ''')
 
 # Ask for inputs until we find .fits files
 fits_files_found = False
@@ -135,10 +135,10 @@ while not fits_files_found:
 # Read configuration from inits.json, if available
 if inits_count == 1:                 # one inits file exists
   # Deal with inits.json file
-  inits_path = os.path.join(verified_filepath, inits[0])
+  inits_file_path = os.path.join(verified_filepath, inits[0])
   inits_file_exists = True
-  #display(HTML(f'<p class="output">Got an inits.json file here: {inits_path}</p>'))
-  with open(inits_path) as i_file:
+  #display(HTML(f'<p class="output">Got an inits.json file here: {inits_file_path}</p>'))
+  with open(inits_file_path) as i_file:
     display(HTML(f'<p class="output">Loading coordinates and input/output directories from inits file</p>'))
     inits_data = i_file.read()
     d = json.loads(inits_data)
@@ -152,21 +152,7 @@ if inits_count == 1:                 # one inits file exists
     output_dir = d["user_info"]["Directory to Save Plots"]
 else:
   display(HTML(f'<p class="output">No valid inits.json file was found, we\'ll create it in the next step.<p>'))
-  # TODO something here? - bergen
   inits_file_exists = False
-  #inits = [make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)]
-
-#
-# Show files found
-#
-#!du -hd0 --exclude ".*" /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017
-#numfiles_fits = !ls {sample_data_target_child} | grep -ci FITS
-#numfiles_json = !ls {sample_data_target_child} | grep -ci json
-
-#display(HTML('<ul class="step_container_2b"></ul>'))
-
-#appendStepToContainer('.step_container_2b','<p class="output">You have ' + str(fits_count) + ' telescope image (.FITS) files</p>')
-#appendStepToContainer('.step_container_2b','<p class="output">You have ' + str(inits_count) + ' inits (.json) files</p>')
 
 display(HTML('<p class="bookend">DONE: Loading telescope images</p>'))
 

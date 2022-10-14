@@ -156,6 +156,13 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
 }
 
 // normal colab input() fields
+output-area input.raw_input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
 input.raw_input {
   width: 100%;
   padding: 12px 20px;
@@ -167,6 +174,11 @@ input.raw_input {
 .display_data .widget-inline-hbox { 
   width: 800px;
   border:  1px;
+}
+
+.display_data .widget-button {
+/*   left:  230px;
+   position: relative;*/
 }
 .display_data .widget-inline-hbox .widget-label {
   font-weight: normal;
@@ -184,7 +196,7 @@ input.raw_input {
   padding: 4px 6px;
   margin: 8px 0;
   box-sizing: border-box;
-  //background-color: white;
+  background-color: white;
 }
 .display_data .widget-inline-hbox select  {
   width: 400px;
@@ -193,9 +205,9 @@ input.raw_input {
   flex-shrink: 1;
   height:  auto;
   padding: 10px 6px;
-  margin: 0;
+  margin: 4px 0;
   box-sizing: border-box;
-  //background-color: white;
+  background-color: white;
 }
 
 /*.widget-text,.widget_dropdown .widget-label {
@@ -213,7 +225,11 @@ input.raw_input {
   text-decoration: none;
 }*/
 
-// hide the input field that seems to always hang around when EXOTIC is thinking
-input.stdin-widget {
+
+// (sometimes) hide the input field that seems to always hang around when EXOTIC is thinking
+#output-body input.stdin-widget {
+  border-color:  white;
+}
+#output-footer input.stdin-widget {
   border-color:  white;
 }

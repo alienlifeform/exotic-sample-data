@@ -225,7 +225,7 @@ if not inits_file_exists:
 
     display(HTML('<hr /><p><b>Option B:</b> Enter an AAVSO starchart image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png")</p>'))
 
-    display(HTML('<p>Go to the <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>, enter in the star name, fill in any other relevant info and click "Plot Chart. Click the image on the resulting page, and copy the URL from your browser to put in below.</p>'))
+    display(HTML('<p>Go to the <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>, enter in the star name, fill in any other relevant info and click "Plot Chart". Click the image on the resulting page, and copy the URL from your browser to put in below.</p>'))
 
     #### star image URL input ####
     image_url_widget = widgets.Text(value='',
