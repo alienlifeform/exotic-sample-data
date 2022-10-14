@@ -2,6 +2,20 @@
 
 ##############################################################
 %%capture step_capture --no-display
+# Comment the above statement out to see debugging information
+##############################################################
+
+##############################################################
+#
+# NOTE TO EXOTIC USER:
+#
+#   • To hide this code, double-click the title above ("Load telescope images"),
+#     or click the arrow to the left of the title.
+#
+#   • Editing this code will only affect your local instance. 
+#     Reload to revert your changes.
+#
+##############################################################
 
 from IPython.display import display, HTML, Javascript
 display(HTML('<p class="bookend">START: Importing necessary software libraries</p>'))
@@ -84,19 +98,19 @@ appendStepToContainer('.step_container_1b','Ensuring sample images are loaded...
 #
 rebuild = "false"  
 if rebuild == "true":
-  if os.path.isdir("/content/EXOTIC/exotic-in-action"):
-    %rm -rf /content/EXOTIC/exotic-in-action
-    display(HTML('<p class="step">"Rebuild" flag is "true"... Removing old images at /content/EXOTIC/exotic-in-action</p>'))
+  if os.path.isdir("/content/EXOTIC/tutorial"):
+    %rm -rf /content/EXOTIC/tutorial
+    display(HTML('<p class="step">"Rebuild" flag is "true"... Removing old images at /content/EXOTIC/tutorial</p>'))
 
 #
 # Download sample files if necessary
 #
 #sample_data_source = "https://github.com/rzellem/EXOTIC_sampledata.git" # goes into sample_data_target_folder
 sample_data_source = "https://github.com/alienlifeform/exotic-sample-data.git" # goes into sample_data_target_parent
-sample_data_target_parent = "/content/EXOTIC/exotic-in-action"
-sample_data_target_folder = "/content/EXOTIC/exotic-in-action/sample-data"
-sample_data_target_child = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"
-sample_data_target_outputs = "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output"
+sample_data_target_parent = "/content/EXOTIC/tutorial"
+sample_data_target_folder = "/content/EXOTIC/tutorial/sample-data"
+sample_data_target_child = "/content/EXOTIC/tutorial/sample-data/HatP32Dec202017"
+sample_data_target_outputs = "/content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output"
 if os.path.isdir(sample_data_target_child):
   appendStepToContainer('.step_container_1b','Skipping... Sample images already loaded')
 
@@ -110,7 +124,7 @@ else:
 #
 # Show files found
 #
-#!du -hd0 --exclude ".*" /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017
+#!du -hd0 --exclude ".*" /content/EXOTIC/tutorial/sample-data/HatP32Dec202017
 numfiles_fits = !ls {sample_data_target_child} | grep -ci FITS
 numfiles_json = !ls {sample_data_target_child} | grep -ci json
 

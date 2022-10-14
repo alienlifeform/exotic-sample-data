@@ -1,6 +1,6 @@
 Path to the inits file(s) that will be used:
-/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/inits.json
-!exotic -red "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/inits.json" -ov
+/content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/inits.json
+!exotic -red "/content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/inits.json" -ov
     Downloading __databases__.pickle_new...
     Done!
 Checking exotethys database...
@@ -28,7 +28,7 @@ Please wait....
 WCS file creation successful.
 Thinking ... DONE!
 
-Here is the path to your plate solution: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/wcs.fits
+Here is the path to your plate solution: /content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/wcs.fits
 
 Checking for variability in Comparison Star #1:
 	Pixel X: 493 Pixel Y: 304
@@ -795,6 +795,6 @@ End of Reduction Process
 EXOTIC has successfully run!!!
 It is now safe to close this window.
 ************************
-lightcurve: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/FinalLightCurve_HAT-P-32 b_2017-12-19.png
-fov: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/temp/FOV_HAT-P-32 b_2017-12-19_LinearStretch.png
-triangle: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/temp/Triangle_HAT-P-32 b_2017-12-19.png
+lightcurve: /content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/FinalLightCurve_HAT-P-32 b_2017-12-19.png
+fov: /content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/temp/FOV_HAT-P-32 b_2017-12-19_LinearStretch.png
+triangle: /content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/temp/Triangle_HAT-P-32 b_2017-12-19.png

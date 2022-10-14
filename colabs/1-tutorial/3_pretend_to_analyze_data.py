@@ -8,8 +8,8 @@ display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
 
 log_10 = """
 Path to the inits file(s) that will be used:
-/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/inits.json
-!exotic -red "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/inits.json" -ov
+/content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/inits.json
+!exotic -red "/content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/inits.json" -ov
     Downloading __databases__.pickle_new...
     Done!
 Checking exotethys database...
@@ -41,7 +41,7 @@ log_20 = """
 WCS file creation successful.
 Thinking ... DONE!
 
-Here is the path to your plate solution: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/wcs.fits
+Here is the path to your plate solution: /content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/wcs.fits
 
 Checking for variability in Comparison Star #1:
     Pixel X: 493 Pixel Y: 304
@@ -160,7 +160,7 @@ log_60 = """
 EXOTIC has successfully run!!!
 It is now safe to close this window.
 ************************
-lightcurve: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/FinalLightCurve_HAT-P-32 b_2017-12-19.png
+lightcurve: /content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/FinalLightCurve_HAT-P-32 b_2017-12-19.png
 """
 
 import time
@@ -205,10 +205,10 @@ display(HTML('''
 # Allow download of lightcurve data
 def on_dl_button_clicked(b):
   # Display the message within the output widget.
-  if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
+  if os.path.isfile('/content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
     display(HTML('<p>Downloading lightcurve data...</p>'))
     showProgress(2)
-    files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+    files.download('/content/EXOTIC/tutorial/sample-data/HatP32Dec202017_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
   else: 
     display(HTML('<p>Couldn\'t find output file. Alert the developers to ensure it is in the sample-data repo being used.</p>'))
 

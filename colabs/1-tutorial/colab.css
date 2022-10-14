@@ -7,7 +7,8 @@ body, td {
 }
 
 p.step {
-  font-family:Helvetica,sans-serif; color:#000;
+  font-family:Helvetica,sans-serif; 
+  color:#000;
   margin-top:3px;
   margin-bottom:3px;
   margin-left:30px;
@@ -18,7 +19,8 @@ p.bookend {
   border: 1px dotted #333;
 }
 li.step, li.step1, li.step2, li.step3, li.step4, li.step5  {
-  font-family:Helvetica,sans-serif; color:#666;
+  font-family:Helvetica,sans-serif; 
+  color:#666;
   margin-top:3px;
   margin-bottom:3px;
   margin-left:30px;
@@ -113,17 +115,6 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
   cursor: pointer;
 }
 
-.big_button {
-  background-color: #027;
-  padding: 5px 8px;
-  border-radius: 3px;
-  margin: 3px 0;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
 .tooltip {
   display: none;
   background: #eee;
@@ -170,7 +161,28 @@ input.raw_input {
   box-sizing: border-box;
 }
 
+// custom button
+// no longer needed? - bm oct 14
+.big_button {
+  background-color: #027;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin: 3px 0;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+// markdown/colab form elements
+// new oct 14 margin-bottom
+.formview-dropdown .formview-namelabel, .formview-input .formview-namelabel {
+  font-family:Helvetica,sans-serif; 
+  color:#000;
+}
+
 // Form elements in quickstart.enter_coordinates
+// no longer needed? - bm oct 14
 .display_data .widget-inline-hbox { 
   width: 800px;
   border:  1px;
