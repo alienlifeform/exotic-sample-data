@@ -47,19 +47,20 @@ def clean_input_filepath(p):
 ######################################################
 
 
-expandableSectionCustom('<u>+ How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</u>','<u>- Close</u>','''
+expandableSectionCustom('<u>+ EXOTIC Inline Help:</u> How to Upload your .FITS images into Google Drive in way that EXOTIC can use them','<u>- Close EXOTIC Inline Help</u>','''
   <p>How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</p>
-  <blockquote>e.g. EXOTIC/HatP32Apr12022/</blockquote>
+  <blockquote>e.g. EXOTIC/HatP32Dec202017/</blockquote>
   
-  <ol>
+  <ol style="line-height:135%">
   <li>In another window, <a href="https://drive.google.com/drive/my-drive" target="newGoogleDrive">go to Google Drive</a>.</li>
-  <li>In Google Drive, if you don't already have an EXOTIC folder in your drive, right click on "My Drive" (in the left nav) and click New Folder. Name the folder "EXOTIC".</li>
+  <li><u>In Google Drive</u>, <i>if you don't already have an EXOTIC folder</i>, right click on "My Drive" (in the left nav) and click New Folder. Name the folder "EXOTIC".</li>
   <li>Click the arrow next to "My Drive" to see the subfolders and click "EXOTIC".</li>
-  <li>On your computer, put your .FITS files into a single folder uniquely named for your observation (e.g. "HatP32Apr12022").</li>
+  <li><u>On your computer</u>, put your .FITS files into a single folder uniquely named for your observation (e.g. "HatP32Dec202017").</li>
   <li>From your filesystem, drag this folder into Google Drive where it says "Drop files here".</li>
   </ol>
 
-  <p>You will use this path (e.g. "EXOTIC/HatP32Apr12022") when loading your images into EXOTIC.</p>
+  <p>You will use this path (e.g. "EXOTIC/HatP32Dec202017") when loading your images into EXOTIC.</p>
+  <p>(Don't include "/drive/MyDrive/", which you may see when viewing your folders from Google Colab)</p>
 ''')
 
 # Ask for inputs until we find .fits files
@@ -78,7 +79,7 @@ while not fits_files_found:
       #display(HTML(f'<p class="output">verified_filepath={verified_filepath}</p>'))
       
       if verified_filepath:
-        output_dir = os.path.join(verified_filepath, "EXOTIC_output/")      
+        output_dir = verified_filepath + "_output/" 
         #display(HTML(f'<p class="output">output_dir={output_dir}</p>'))
 
         sorted_files = sorted(os.listdir(verified_filepath)); 
@@ -113,7 +114,7 @@ while not fits_files_found:
       inits.append(os.path.join(verified_filepath, f))
   
   inits_count = len(inits)
-  display(HTML(f'<p class="output">Found {fits_count} image files and {inits_count} initialization files in the directory.</p>'))
+  display(HTML(f'<p class="output"><br />Found {fits_count} image files and {inits_count} initialization files in the directory.</p>'))
 
 
   #appendStepToContainer('.step_container_2a','<p class="output">Found ' + str(fits_count) + ' telescope image (.FITS) files</p>')
@@ -127,7 +128,7 @@ while not fits_files_found:
     # Make the output directory if it does not exist already.
     if not os.path.isdir(output_dir):    
       os.mkdir(output_dir)
-      display(HTML(f'Creating output_dir at {output_dir}'))
+      display(HTML(f'<p class="output">Creating output_dir at {output_dir}</p>'))
     output_dir_for_shell = output_dir.replace(" ", "\ ")
   else: 
     display(HTML(f'<p class="error">Failed to find a significant number of .FITS files at {verified_filepath}</p>'))
@@ -154,6 +155,7 @@ else:
   display(HTML(f'<p class="output">No valid inits.json file was found, we\'ll create it in the next step.<p>'))
   inits_file_exists = False
 
+showProgress(1)
 display(HTML('<p class="bookend">DONE: Loading telescope images</p>'))
 
 
@@ -164,12 +166,11 @@ if not inits_file_exists:
 
   display(HTML('<p class="bookend">START: Download planetary parameters</p>'))
 
-  appendStepToContainer('.step_container_2b','Loading NASA Exoplanet Archive')
   planetary_params = ""
   while not planetary_params:
     target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b"): ')
     #target="HAT-P-32 b"
-    display(HTML('<ul class="step_container_2b"></ul>'))
+    display(HTML('<br /><ul class="step_container_2b"></ul>'))
     appendStepToContainer('.step_container_2b','Searching NASA Exoplanet Archive for "' + target + '"')
     targ = NASAExoplanetArchive(planet=target)
     #appendStepToContainer('.step_container_2','Loading planet info')
@@ -184,8 +185,8 @@ if not inits_file_exists:
       might help you know where to put the spaces and hyphens and such.
       ''')
       appendStepToContainer('.step_container_2b','''
-      If your target is a candidate, you may need to create your own inits.json file in the
-      <a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/advanced-guide/">advanced EXOTIC edition</a>
+      If your target is a candidate, you may need to create your own inits.json file and
+      add it to the folder with your FITS images.
       ''')
     else:
       appendStepToContainer('.step_container_2b','Found target "' + target + '" in the NASA Exoplanet Archive')

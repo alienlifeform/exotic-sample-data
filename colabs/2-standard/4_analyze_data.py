@@ -49,7 +49,7 @@ if 'inits_file_path' in globals():
     planet = d["planetary_parameters"]["Planet Name"]
     output_dir = d["user_info"]["Directory to Save Plots"]
     if not os.path.isdir(output_dir):
-      os.mkdir(output_dir)
+      os.makedirs(output_dir)
     inits_file_for_shell = inits_file_path.replace(" ", "\\ ")
     run_exotic = str(f"exotic -red {inits_file_for_shell} -ov")
     debug_exotic_run = str(f"!exotic -red \"{inits_file_path}\" -ov")
