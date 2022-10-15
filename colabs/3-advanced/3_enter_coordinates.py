@@ -50,67 +50,10 @@ if not inits_file_exists:
     display(HTML('<p class="bookend">START: Load starchart</p>'))
 
     display(HTML('<ul class="step_container_3a"></ul>'))
-    appendStepToContainer('.step_container_3a','Find an image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png") using the <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>.')
+    appendStepToContainer('.step_container_3a','Find an image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png") using the <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>. Press return if you have no starchart.')
 
     appendToContainer('.comment','<div class="tooltip" style="display: none">TEST</div>')
 
-    #
-    # Form for telescope/target star or aavso starchart image url
-    #
-    #display(HTML('<p>Either enter a telescope and target star, or type in the starchart image URL directly.'))
-
-    #### star image URL input ####
-    star_chart_url = widgets.Text(value='https://app.aavso.org/vsp/chart/X28247DI.png',
-                             placeholder = 'https://app.aavso.org/vsp/chart/X28247DI.png',
-                             description = 'AAVSO Star Chart image URL',
-                             disabled    = False)
-
-    #display(star_chart_url)
-
-    #display(HTML('<p>or</p>'))
-
-    #### telescope dropdown ####
-    telescope = widgets.Dropdown(
-        options=['Select a telescope', 'MicroObservatory', 'Exoplanet Watch .4 Meter'],
-        value='Select a telescope',
-        description='Telescope:',
-    )
-
-    def on_telescope_change(change):
-      if change['type'] == 'change' and change['name'] == 'value':
-        print("changed to %s" % change['new'])
-
-    telescope.observe(on_telescope_change)
-
-    #display(telescope)
-
-    #### star target input ####
-    star_target = widgets.Text(value='Hat-P-32',
-                             placeholder = 'Hat-P-32',
-                             description = 'Target Star:',
-                             disabled    = False)
-
-    #display(star_target)
-
-
-    #### submit button ####
-
-    button = widgets.Button(description="Submit")
-    
-    def on_telescope_submit_clicked(b):
-      star_chart_image_url = ''
-      # Display the message within the output widget.
-      if str(star_chart_url.value):
-        display('star_chart_url was selected ' + str(star_chart_url.value))
-        star_chart_image_url = star_chart_url.value
-      elif str(telescope.value) and str(telescope.value):
-        display('telescope was selected: ' + str(telescope.value))
-        display('star_target was selected: ' + str(star_target.value))
-        star_chart_image_url = get_star_chart_image_url(str(telescope.value),str(star_target.value))
-     
-    button.on_click(on_telescope_submit_clicked)
-
-    #display(button)
 
     #### orig starchart URL field ####
 
@@ -120,15 +63,14 @@ if not inits_file_exists:
       if aavso_starchart_url.startswith('https://') and aavso_starchart_url.endswith('png'):
         starchart_url_is_legit = True
         display(HTML(f'<p class="output">Starchart URL is valid.</p>'))
+      elif aavso_starchart_url == '':
+        starchart_url_is_legit = True
+        display(HTML(f'<p class="output">No Starchart URL entered.</p>'))
       else:
         display(HTML(f'<p class="error">Starchart URL must begin with https:// and end with .png</p>'))
 
 
     display(HTML('<p class="bookend">DONE: Find AAVSO StarChart. <b>You may move on to the next step.</b></p>'))
-
-
-    ######################################################
-
 
     #########################################################
 
@@ -138,12 +80,6 @@ if not inits_file_exists:
     # set up bokeh
     bokeh.io.output_notebook()
     sample_data = False
-
-    # set up image path
-    #p = "sample-data/HatP32Dec202017"
-    #p = os.path.join("/content/EXOTIC/exotic-in-action/", p)
-    #p = check_dir(os.path.join("/content/drive/My Drive/EXOTIC/MyOwnImages/", p))
-    #output_dir = os.path.join(p, "EXOTIC_output/")      
              
     #########################################################
 
@@ -151,23 +87,19 @@ if not inits_file_exists:
     if first_image:
       obs = ""
       # instructions for finding the target star
-      display(HTML(f'''
-      <h3>Data Entry 1 of 2: Enter coordinates for the target star</h3>
-      <ol class="step">
-        <li class="step">In the right image, find the <i>crosshairs</i> in the center - that represents your target star.</li>
-        <li class="step">On the left image, <i>find this target star and roll over it with your mouse</i>, note the X and Y coordinates.</li>
-        <li class="step">Put the X and Y coordinates in the box below in the format <code>[x,y]</code> and press return.</li>
-      </ol>
-      <p>Tip: Use the zoom feature. Click the magnifying glass and click-and-drag to draw a rectangle that matches the starchart.</p>
+      if aavso_starchart_url:
+        starchart_url_html = f'<img class="aavso_image" src="{aavso_starchart_url}">'
+      else:
+        starchart_url_html = ''
 
-      <br />
-      <div class="plots">
-      
-      <img class="aavso_image" src="{aavso_starchart_url}">
+      display(HTML(f'''
+      <div class="plots">      
+      {starchart_url_html}
       '''))
       display_image(first_image)
       display(HTML('</div><br clear="all"/>'))
 
+      display(HTML('<h3>Data Entry 1 of 2: Enter coordinates for the target star</h3><br />'))
       # request coordinates and verify the entries are valid
       success = False
       while not success:
@@ -186,12 +118,7 @@ if not inits_file_exists:
       # instructions for finding the comparison stars
       display(HTML('''
         <p class="output">Target star coordinates saved to inits.json</p>
-        <h3>Data Entry 2 of 2: Enter coordinates for at least two comparison stars.</h3>
-        <ol class="step">
-          <li class="step">In the right image, find the stars <i>with numbers</i> that represent suggested comparison stars.</li>
-          <li class="step">On the left image, <i>find and roll over each comparison star with your mouse</i> and note the coordinates.</li>
-          <li class="step">Put the X and Y coordinates in the box below in the format <code>[[x1,y1][x2,y2]]</code> and press return.</li>
-        </ol>
+        <h3>Data Entry 2 of 2: Enter coordinates for at least two comparison stars.</h3><br />
       '''))
       
       # request coordinates and verify the entries are valid
@@ -211,13 +138,11 @@ if not inits_file_exists:
 
       inits_file_path = make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)
       showProgress(1)
-      
-      if inits_file_path:
-        display(HTML('<p class="output">Images and inits.json set up. Ready for EXOTIC data reduction/analysis.</p>'))
-      else:
-        display(HTML('<p class="output">No inits.json file created.</p>'))
 
-      display(HTML('<p class="bookend">DONE: Compare telescope image and star chart. <b>You may move on to the next step.</b></p>'))
+      if inits_file_path:
+        display(HTML('<p class="bookend">DONE: Compare telescope image and starchart. <b>You may move on to the next step.</b></p>'))
+      else:
+        display(HTML('<p class="error">Warning: No inits.json path created. This is unexpected.</p>'))
 
     else:
 
@@ -229,6 +154,8 @@ if not inits_file_exists:
 
 else: 
 
-  display(HTML('<p class="bookend">DONE: Inits.json file exists <b>You may move on to step 4.</b></p>'))
-
+  display(HTML(f'''
+    <p class="bookend">No need to run this step, since your inits.json file already exists at {inits_file_path}.
+    <br /><b>Move on to step 4,</b> or remove the file and re-run steps 2 and 3 to generate a new one.</p>
+    '''))
 

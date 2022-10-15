@@ -61,11 +61,12 @@ if 'inits_file_path' in globals():
     print(f"{debug_exotic_run}")
     !eval "$run_exotic"
 
-    # Only show lightcurve for beginner - bm
+    file_for_submission = os.path.join(output_dir,"AAVSO_"+planet+"_"+date_obs+".txt")
     lightcurve = os.path.join(output_dir,"FinalLightCurve_"+planet+"_"+date_obs+".png")
     fov = os.path.join(output_dir,"temp/FOV_"+planet+"_"+date_obs+"_LinearStretch.png")
     triangle = os.path.join(output_dir,"temp/Triangle_"+planet+"_"+date_obs+".png")
-    print(f"lightcurve: {lightcurve}\nfov: {fov}\ntriangle: {triangle}\n")
+
+    print(f"aavso output: {file_for_submission}\nlightcurve: {lightcurve}\nfov: {fov}\ntriangle: {triangle}")
 
     if not (os.path.isfile(lightcurve) and os.path.isfile(fov) and os.path.isfile(triangle)):
       print(f"Something went wrong with {planet} {date_obs}.\nCopy the command below into a new cell and run to find the error:\n{debug_exotic_run}\n")
@@ -75,19 +76,13 @@ if 'inits_file_path' in globals():
     hbox = HBox([imageB, imageA])
     display(hbox)
     display(Image(filename=triangle))
-###
 
 
-  display(HTML('''
-      <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">Click for a video to help you understand this lightcurve.</a>
+  ###
 
-      <p class="bookend">DONE: Analyzing telescope images. </p>
-  '''))
+  display(HTML('<p class="bookend">DONE: Analyzing telescope images. </p>'))
 
   showProgress(3)
-
-  # Identify the lightcurve data file
-  file_for_submission = glob.glob(output_dir + "/AAVSO_*")[0]
 
   display(HTML(f'''
     

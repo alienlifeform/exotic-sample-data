@@ -213,4 +213,3 @@ else:
     <p class="bookend">No need to run this step, since your inits.json file already exists at {inits_file_path}.
     <br /><b>Move on to step 4,</b> or remove the file and re-run steps 2 and 3 to generate a new one.</p>
     '''))
-

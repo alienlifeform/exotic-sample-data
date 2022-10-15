@@ -101,4 +101,3 @@ drive.mount('/content/drive', force_remount=True)
 appendStepToContainer('.step_container_1b','Drive successfully mounted')
 
 display(HTML('<p class="bookend">DONE: Mounting Google Drive.  <b>You may move on to the next step.</b></p>'))
-

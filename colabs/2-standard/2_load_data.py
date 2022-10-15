@@ -25,21 +25,6 @@ display(HTML('<ul class="step_container_2a"></ul>'))
 appendStepToContainer('.step_container_2a','Ensuring images are loaded...</li>')
 showProgress(1) 
 
-# TODO Do we need this? Verify in Beta2
-# bokeh.io.output_notebook()
-#appendStepToContainer('.step_container_2a','Note: You can navigate your uploaded files by clicking the folder icon along the left nav.')
-
-################# TEMPORARY #############################
-
-# use this if you disable exotic for rapid development
-# def check_dir(p):
-#   p = p.replace("\\", "/")
-
-#   if not(os.path.isdir(p)):
-#     print(HTML(f'<p class="error">Problem: the directory {p} doesn\'t seem to exist on your Gdrive filesystem.</p>'))
-#     return("")
-#   return(p)
-
 def clean_input_filepath(p):
   p = re.sub('^/', '', p)
   return(p)
@@ -48,7 +33,7 @@ def clean_input_filepath(p):
 
 
 expandableSectionCustom('<u>+ EXOTIC Inline Help:</u> How to Upload your .FITS images into Google Drive in way that EXOTIC can use them','<u>- Close EXOTIC Inline Help</u>','''
-  <p>How to Upload your .FITS images into Google Drive in way that EXOTIC can use them</p>
+  <p><b>How to upload your .FITS images into Google Drive in way that EXOTIC can use them:</b></p>
   <blockquote>e.g. EXOTIC/HatP32Dec202017/</blockquote>
   
   <ol style="line-height:135%">
@@ -116,12 +101,7 @@ while not fits_files_found:
   inits_count = len(inits)
   display(HTML(f'<p class="output"><br />Found {fits_count} image files and {inits_count} initialization files in the directory.</p>'))
 
-
-  #appendStepToContainer('.step_container_2a','<p class="output">Found ' + str(fits_count) + ' telescope image (.FITS) files</p>')
-  #appendStepToContainer('.step_container_2a','<p class="output">Found ' + str(inits_count) + ' inits (.json) files</p>')
-
   # Determine if folder has enough .FITS folders to move forward
-  # TODO: Is 19 an important number?
   if fits_count >= 19:
     fits_files_found = True # exit outer loop and continue
 
@@ -171,7 +151,7 @@ if not inits_file_exists:
     target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b"): ')
     #target="HAT-P-32 b"
     display(HTML('<br /><ul class="step_container_2b"></ul>'))
-    appendStepToContainer('.step_container_2b','Searching NASA Exoplanet Archive for "' + target + '"')
+    appendStepToContainer('.step_container_2b','Searching NASA Exoplanet Archive for "' + target + '"...')
     targ = NASAExoplanetArchive(planet=target)
     #appendStepToContainer('.step_container_2','Loading planet info')
     target = targ.planet_info()[0]
@@ -197,6 +177,11 @@ if not inits_file_exists:
       appendStepToContainer('.step_container_2b','Loading NASA Exoplanet Archive planetary parameters for ' + target)
       display(HTML(f'<pre class="output">{planetary_params}</pre>'))
 
+
+  expandableSectionCustom('<u>+ EXOTIC Inline Help:</u> How to get an AAVSO Observer code','<u>- Close EXOTIC Inline Help</u>','''
+    <p><b>How to get an AAVSO Observer code:</b></p>
+    Follow the instructions at the <a href="https://www.aavso.org/new-observers#:~:text=If%20you%20do%20not%20yet,for%20%22Request%20an%20obscode%22." target="_blank">AAVSO "New Observers" page</a>.
+  ''')
   # Prompt for AAVSO code
   aavso_obs_code = input("Enter your AAVSO Observer code or press enter to skip: ")
 
@@ -205,4 +190,3 @@ if not inits_file_exists:
 else: 
 
   display(HTML('<p class="bookend">DONE: Inits.json file exists. <b>You may move on to step 4.</b></p>'))
-
