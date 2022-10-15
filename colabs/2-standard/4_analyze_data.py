@@ -87,7 +87,7 @@ if 'inits_file_path' in globals():
   display(HTML(f'''
     
     <h2>Congratulations!</h2> 
-    <h3>You have successfully generated a lightcurve showing the possible transit of {target}</h3>
+    <h3>You have successfully generated a lightcurve showing the possible transit of {planet}</h3>
 
     <li class="step">Click to download the data to your hard drive in a format suitable for submission to AAVSO, (or find it by clicking the folder icon in the left nav and navigating to {file_for_submission})</li>
 
