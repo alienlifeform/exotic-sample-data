@@ -187,7 +187,7 @@ display(HTML('''
     <p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>
 '''))
 
-showProgress(3)
+showProgress(2)
 
 
 display(HTML('''
