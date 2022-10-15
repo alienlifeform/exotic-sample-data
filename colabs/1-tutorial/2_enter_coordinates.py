@@ -120,7 +120,7 @@ if fits_count >= 2:
   # request coordinates and verify the entries are valid
   success = False
   while not success:
-    targ_coords = input("Enter coordinates for target star - [424,286] - and press return:  ")  
+    targ_coords = input("Enter coordinates for target star - in the format [424,286] - and press return:  ")  
 
     # check syntax and coords
     tc_syntax = re.search(r"\[\d+,\d+\]$", targ_coords)
@@ -144,7 +144,7 @@ if fits_count >= 2:
   # request coordinates and verify the entries are valid
   success = False
   while not success:
-    comp_coords = input("Enter coordinates for the comparison stars - [[326,365],[416,343]] - and press return:  ")  
+    comp_coords = input("Enter coordinates for the comparison stars - in the format [[326,365],[416,343]] - and press return:  ")  
 
     # check syntax
     cc_syntax = re.search(r"\[(\[\d+,\d+\],?)+\]$", comp_coords)

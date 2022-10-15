@@ -110,8 +110,8 @@ pre.output, p.output, p.error, div.output_text pre, div#output-area span pre {
 }
 
 .expand_text {
-  font-family:Helvetica,sans-serif; color:#666;
-  font-weight: bold;
+  font-family:Helvetica,sans-serif; color:#7090e0;
+  font-weight: normal;
   cursor: pointer;
 }
 
