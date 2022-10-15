@@ -1,4 +1,4 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run the data reduction for Hat-p-32 b</font> { vertical-output: true }
+#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run the data reduction for HAT-P-32 b</font> { vertical-output: true }
 
 importCustomStyles()
 
@@ -344,14 +344,14 @@ def make_inits_file(planetary_params, image_dir, output_dir, first_image, targ_c
 # p is the name of the folder entered by the user.  Decide what to do based on what
 # is found in the folder.
 display(HTML('<p class="bookend">START: Analyzing sample data</p>'))
-#display(HTML("<p class='warning'>NOTE: At this point in EXOTIC, you would have the opportunity choose where to temporarily save the sample data. For this exercise, we're downloading to /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"))
+#display(HTML("<p class='warning'>NOTE: At this point in EXOTIC, you would have the opportunity choose where to temporarily save the sample data. For this exercise, we're downloading to /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017"))
 display(HTML('<ul class="step5">'))
 
 
 bokeh.io.output_notebook()
 sample_data = False
 
-#p = input("Press enter to run the Hat-p-32b sample data, or enter a path as described above.")
+#p = input("Press enter to run the HAT-P-32 b sample data, or enter a path as described above.")
 
 # Is there a way to download this without a google drive? like a public but self-deleting google drive?
 p = ""
@@ -360,14 +360,14 @@ display(HTML('<li class="step5">Ensuring we have sample data</li>'))
 
 if p == "":
   sample_data = True
-  if os.path.isdir("/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017"):
+  if os.path.isdir("/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017"):
     print("It looks like you already have sample data, no need to download it again.")
   else:
-    !git clone https://github.com/rzellem/EXOTIC_sampledata.git /content/EXOTIC/exotic-in-action/sample-data
+    !git clone https://github.com/rzellem/EXOTIC_sampledata.git /content/EXOTIC/exotic-quick-start/sample-data
 
   p = "sample-data/HatP32Dec202017"
 
-p = check_dir(os.path.join("/content/EXOTIC/exotic-in-action/", p))
+p = check_dir(os.path.join("/content/EXOTIC/exotic-quick-start/", p))
 output_dir = os.path.join(p, "EXOTIC_output/")      
                                          
 inits = []    # array of paths to any inits files found in the directory
@@ -383,8 +383,7 @@ for f in files:
 
 display(HTML('<li class="step5">Found ' + str(fits_count) + ' image files and ' + str(len(inits)) + ' initialization files in the directory</li>'))
 
-#if fits_count >= 19:                  # more than 20 images in the folder --> run EXOTIC on these images
-if fits_count >= 2:                  # more than 3 images in the folder --> run EXOTIC on these images
+if fits_count >= 19:                  # more than 20 images in the folder --> run EXOTIC on these images
   if len(inits) == 1:                 # one inits file exists
     inits_path = os.path.join(p, inits[0])
     with open(inits_path) as i_file:

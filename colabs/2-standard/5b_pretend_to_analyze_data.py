@@ -1,4 +1,5 @@
-#@title <font face="Helvetica" class="button" color='#702020'>&lt;- Click to run EXOTIC to analyze telescope images (unstyled, simulated)</font>
+#@title <font face="Helvetica" color='#702020'><b>&lt;- Click to run EXOTIC to generate a lightcurve</b></font>
+# This generation is a simulation only using unstyled logging from a HAT-P-32 b EXOTIC run
 
 importCustomStyles()
 
@@ -7,8 +8,8 @@ display(HTML('<p class="bookend">START: Analyzing telescope images</p>'))
 
 log_10 = """
 Path to the inits file(s) that will be used:
-/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/inits.json
-!exotic -red "/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/inits.json" -ov
+/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/inits.json
+!exotic -red "/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/inits.json" -ov
     Downloading __databases__.pickle_new...
     Done!
 Checking exotethys database...
@@ -40,17 +41,17 @@ log_20 = """
 WCS file creation successful.
 Thinking ... DONE!
 
-Here is the path to your plate solution: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/wcs.fits
+Here is the path to your plate solution: /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/wcs.fits
 
 Checking for variability in Comparison Star #1:
-	Pixel X: 493 Pixel Y: 304
+    Pixel X: 493 Pixel Y: 304
  Warning: Your comparison star cannot be resolved in the SIMBAD star database; EXOTIC cannot check if it is variable or not. 
 EXOTIC will still include this star in the reduction. 
 Please proceed with caution as we cannot check for stellar variability.
 
 
 Checking for variability in Comparison Star #2:
-	Pixel X: 415 Pixel Y: 343
+    Pixel X: 415 Pixel Y: 343
  Warning: Your comparison star cannot be resolved in the SIMBAD star database; EXOTIC cannot check if it is variable or not. 
 EXOTIC will still include this star in the reduction. 
 Please proceed with caution as we cannot check for stellar variability.
@@ -159,31 +160,48 @@ log_60 = """
 EXOTIC has successfully run!!!
 It is now safe to close this window.
 ************************
-lightcurve: /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/FinalLightCurve_HAT-P-32 b_2017-12-19.png
+lightcurve: /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/FinalLightCurve_HAT-P-32 b_2017-12-19.png
 """
 
 import time
 print(log_10)
-showProgress(3)
+showProgress(1)
 print(log_20)
-showProgress(2)
+showProgress(1)
 print(log_30)
-showProgress(5)
+showProgress(1)
 print(log_40)
 showProgress(1)
 print(log_50)
-showProgress(4)
+showProgress(1)
 print(log_60)
 
-display(HTML('<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'))
-display(HTML('<p>Downloading now...</p>'))
+display(HTML('<h3>CONGRATULATIONS!</h3>'))
+display(HTML('<p>The data for the lightcurve you see here is at /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt. Click the folder icon in the left nav to navigate to it.'))
 
-showProgress(1)
+display(HTML('<div class="button">Download lightcurve data</div>'))
 
-if os.path.isfile('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
-  files.download('/content/EXOTIC/exotic-in-action/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
-else: 
-  display(HTML('<p>Couldn\'t find output file. Bergen will work with Rob to ensure it is in there.</p>'))
+do_download = input("Download lightcurve data? (y/N) ")
+if do_download in ['Y','y']:
+  if os.path.isfile('/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt'):
+    display(HTML('<p>Downloading now...</p>'))
+    showProgress(2)
+    files.download('/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/AAVSO_HAT-P-32 b_2017-12-19.txt')
+  else: 
+    display(HTML('<p>Couldn\'t find output file. Alert the developers to ensure it is in the sample-data repo being used.</p>'))
 
 
-display(HTML('<p class="bookend">DONE: Analyzing telescope images. <b>You may move on to the next step.</b></p>'))
+display(HTML('<p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>'))
+
+
+
+display(HTML('''
+<h2>You\'re done!</h2> 
+<h3>You have successfully generated a lightcurve showing the transit of HAT-P-32 b around HAT-P-32</h3>
+
+<p>If you downloaded the data to your hard drive (as "AAVSO_HAT-P-32 b_2017-12-19.txt"), it will be in a format suitable for submission to AAVSO, though please don't submit it! This exoplanet was actually discovered in 2011, and you can <a href="https://exoplanets.nasa.gov/exoplanet-catalog/1434/HAT-P-32-b/">view it in 3D on exoplanets.nasa.gov</a>.</p>
+
+<h3>Ready for the next step?</h3>
+
+<div class="buttonset"><a href="https://exoplanets.nasa.gov/exoplanet-watch/how-to-contribute/how-to-observe/" target="_parent" class="button" style="font-size:20px">Create your own telescope images</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/" target="_top" class="button" style="font-size:20px">Run EXOTIC on your telescope images</a></div>
+'''))

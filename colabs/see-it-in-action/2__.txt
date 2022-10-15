@@ -1,9 +1,0 @@
-# **Step 2: Load Telescope Images**
-
----
-> Estimated time: 10 seconds
----
-
-For this tutorial, we are using a known transit, that of Hat-p-32b around the star Hat-p-32, taken on December 20, 2017. 
-
-Next time, you will do the same steps with images from your own telescope images taken during the expected transit of a likely exoplanet.

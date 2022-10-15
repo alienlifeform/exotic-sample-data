@@ -1,0 +1,800 @@
+Path to the inits file(s) that will be used:
+/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/inits.json
+!exotic -red "/content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/inits.json" -ov
+    Downloading __databases__.pickle_new...
+    Done!
+Checking exotethys database...
+Checking ephemerides database...
+Checking photometry database...
+Checking catalogues database...
+
+*************************************************************
+Welcome to the EXOplanet Transit Interpretation Code (EXOTIC)
+Version 1.10.2
+*************************************************************
+
+
+**************************
+Complete Reduction Routine
+**************************
+
+**************************
+Starting Reduction Process
+**************************
+
+
+Getting the plate solution for your imaging file to translate pixel coordinates on the sky. 
+Please wait....
+WCS file creation successful.
+Thinking ... DONE!
+
+Here is the path to your plate solution: /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/wcs.fits
+
+Checking for variability in Comparison Star #1:
+	Pixel X: 493 Pixel Y: 304
+ Warning: Your comparison star cannot be resolved in the SIMBAD star database; EXOTIC cannot check if it is variable or not. 
+EXOTIC will still include this star in the reduction. 
+Please proceed with caution as we cannot check for stellar variability.
+
+
+Checking for variability in Comparison Star #2:
+	Pixel X: 415 Pixel Y: 343
+ Warning: Your comparison star cannot be resolved in the SIMBAD star database; EXOTIC cannot check if it is variable or not. 
+EXOTIC will still include this star in the reduction. 
+Please proceed with caution as we cannot check for stellar variability.
+
+
+Computing best comparison star, aperture, and sky annulus. Please wait.
+
+
+*********************************************
+Best Comparison Star: None
+Minimum Residual Scatter: 0.672%
+Optimal Aperture: 5.02
+Optimal Annulus: 7.54
+*********************************************
+
+No Barycentric Julian Dates (BJDs) in Image Headers for standardizing time format. Converting all JDs to BJD_TDBs.
+Please be patient- this step can take a few minutes.
+Thinking ... DONE!
+
+
+Output File Saved
+
+
+****************************************
+Fitting a Light Curve Model to Your Data
+****************************************
+
+[ultranest] Sampling 400 live points from prior ...
+
+
+Mono-modal Volume: ~exp(-3.81) * Expected Volume: exp(0.00) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -3.0|**********|     +3.0
+
+Z=-1659103.7(0.00%) | Like=-1655784.03..-111.41 [-8987932.8990..-176103.1770] | it/evals=80/494 eff=85.1064% N=400 
+
+Mono-modal Volume: ~exp(-3.96) * Expected Volume: exp(-0.23) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -3.0|********  |     +3.0
+
+Z=-338377.3(0.00%) | Like=-334422.26..-111.41 [-8987932.8990..-176103.1770] | it/evals=160/609 eff=76.5550% N=400 
+
+Mono-modal Volume: ~exp(-4.18) * Expected Volume: exp(-0.45) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -3.0|*******   |     +3.0
+
+Z=-202573.2(0.00%) | Like=-201882.30..-111.41 [-8987932.8990..-176103.1770] | it/evals=240/730 eff=72.7273% N=400 
+
+Mono-modal Volume: ~exp(-4.39) * Expected Volume: exp(-0.67) Quality: ok
+
+rprs:    +0.000|**********|   +0.186
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -3.0| ******   |     +3.0
+
+Z=-131288.4(0.00%) | Like=-130126.78..-95.34 [-175251.9755..-60759.2853] | it/evals=354/906 eff=69.9605% N=400 
+
+Mono-modal Volume: ~exp(-4.39)   Expected Volume: exp(-0.90) Quality: ok
+
+rprs:    +0.000|**********|   +0.186
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -3.0|  *****   |     +3.0
+
+Z=-93459.4(0.00%) | Like=-92966.32..-91.15 [-175251.9755..-60759.2853] | it/evals=440/1080 eff=64.7059% N=400 
+
+Mono-modal Volume: ~exp(-4.39)   Expected Volume: exp(-1.12) Quality: ok
+
+rprs:    +0.000|**********|   +0.186
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -3.0|  *****   |     +3.0
+
+Z=-64741.6(0.00%) | Like=-64600.67..-91.15 [-175251.9755..-60759.2853] | it/evals=520/1237 eff=62.1266% N=400 
+
+Mono-modal Volume: ~exp(-4.87) * Expected Volume: exp(-1.35) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -3.0|   ***    |     +3.0
+
+Z=-46938.8(0.00%) | Like=-46441.23..-91.15 [-60750.2064..-17031.5139] | it/evals=600/1378 eff=61.3497% N=400 
+
+Mono-modal Volume: ~exp(-5.32) * Expected Volume: exp(-1.57) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -1.0|********  |     +1.0
+
+Z=-28807.7(0.00%) | Like=-28747.83..-91.15 [-60750.2064..-17031.5139] | it/evals=708/1553 eff=61.4050% N=400 
+
+Mono-modal Volume: ~exp(-5.50) * Expected Volume: exp(-1.80) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -1.0| ******   |     +1.0
+
+
+
+Mono-modal Volume: ~exp(-5.73) * Expected Volume: exp(-2.02) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -1.0|  *****   |     +1.0
+
+
+
+Mono-modal Volume: ~exp(-6.29) * Expected Volume: exp(-2.25) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -1.0|  ****    |     +1.0
+
+Z=-6491.6(0.00%) | Like=-6478.72..-83.48 [-16961.8526..-4240.6559] | it/evals=989/2010 eff=61.4286% N=400 
+
+Mono-modal Volume: ~exp(-6.41) * Expected Volume: exp(-2.47) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :      -1.0|   ***    |     +1.0
+
+Z=-4232.2(0.00%) | Like=-4217.09..-83.02 [-4223.5601..-1043.0079] | it/evals=1077/2148 eff=61.6133% N=400 
+
+Mono-modal Volume: ~exp(-6.60) * Expected Volume: exp(-2.70) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|   ***    |    +1.00
+
+Z=-2648.7(0.00%) | Like=-2632.92..-76.18 [-4223.5601..-1043.0079] | it/evals=1160/2278 eff=61.7678% N=400 
+
+Mono-modal Volume: ~exp(-6.60)   Expected Volume: exp(-2.92) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|   ***    |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-7.11) * Expected Volume: exp(-3.15) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|   ***    |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-7.42) * Expected Volume: exp(-3.37) Quality: ok
+
+rprs:   +0.0000|**********|  +0.1861
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :    -1.000|   **     |   +1.000
+
+Z=-738.9(0.00%) | Like=-725.92..-76.18 [-1035.3975..-373.8092] | it/evals=1432/2695 eff=62.3965% N=400 
+
+Mono-modal Volume: ~exp(-7.50) * Expected Volume: exp(-3.60) Quality: ok
+
+rprs:    +0.000|**********|   +0.186
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|   **     |    +1.00
+
+Z=-515.3(0.00%) | Like=-502.82..-76.18 [-1035.3975..-373.8092] | it/evals=1520/2839 eff=62.3206% N=400 
+
+Mono-modal Volume: ~exp(-7.50)   Expected Volume: exp(-3.82) Quality: ok
+
+rprs:    +0.000|**********|   +0.186
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-8.04) * Expected Volume: exp(-4.05) Quality: ok
+
+rprs:    +0.000|**********|   +0.186
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-322.3(0.00%) | Like=-312.01..-75.84 [-373.6707..-228.6967] | it/evals=1703/3161 eff=61.6806% N=400 
+
+Mono-modal Volume: ~exp(-8.71) * Expected Volume: exp(-4.27) Quality: ok
+
+rprs:     +0.00|**********|    +0.19
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-288.0(0.00%) | Like=-278.50..-75.84 [-373.6707..-228.6967] | it/evals=1785/3309 eff=61.3613% N=400 
+
+Mono-modal Volume: ~exp(-8.71)   Expected Volume: exp(-4.50) Quality: ok
+
+rprs:     +0.00|  ********|    +0.19
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-249.1(0.00%) | Like=-239.64..-74.96 [-373.6707..-228.6967] | it/evals=1880/3469 eff=61.2577% N=400 
+
+Mono-modal Volume: ~exp(-8.97) * Expected Volume: exp(-4.73) Quality: ok
+
+rprs:     +0.00|   *******|    +0.19
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-222.3(0.00%) | Like=-211.75..-74.96 [-228.5280..-156.3306] | it/evals=1960/3628 eff=60.7187% N=400 
+
+Mono-modal Volume: ~exp(-9.38) * Expected Volume: exp(-4.95) Quality: ok
+
+rprs:     +0.00|    ******|    +0.19
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-197.5(0.00%) | Like=-187.70..-74.96 [-228.5280..-156.3306] | it/evals=2040/3768 eff=60.5701% N=400 
+
+Mono-modal Volume: ~exp(-9.38)   Expected Volume: exp(-5.18) Quality: ok
+
+rprs:     +0.00|     *****|    +0.19
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-168.8(0.00%) | Like=-158.95..-74.96 [-228.5280..-156.3306] | it/evals=2151/3958 eff=60.4553% N=400 
+
+Mono-modal Volume: ~exp(-9.64) * Expected Volume: exp(-5.40) Quality: ok
+
+rprs:      +0.0|     *****|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-154.9(0.00%) | Like=-145.41..-73.02 [-156.0913..-118.2632] | it/evals=2240/4132 eff=60.0214% N=400 
+
+Mono-modal Volume: ~exp(-9.64)   Expected Volume: exp(-5.63) Quality: ok
+
+rprs:      +0.0|     *****|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-142.5(0.00%) | Like=-132.92..-73.02 [-156.0913..-118.2632] | it/evals=2320/4306 eff=59.3958% N=400 
+
+Mono-modal Volume: ~exp(-10.12) * Expected Volume: exp(-5.85) Quality: ok
+
+rprs:      +0.0|      ****|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-10.19) * Expected Volume: exp(-6.08) Quality: ok
+
+rprs:      +0.0|      ****|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-122.3(0.00%) | Like=-112.71..-73.02 [-118.2045..-98.2431] | it/evals=2510/4674 eff=58.7272% N=400 
+
+Mono-modal Volume: ~exp(-10.58) * Expected Volume: exp(-6.30) Quality: ok
+
+rprs:      +0.0|      ****|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-10.63) * Expected Volume: exp(-6.53) Quality: ok
+
+rprs:      +0.0|      ****|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-111.2(0.00%) | Like=-101.38..-72.37 [-118.2045..-98.2431] | it/evals=2680/4973 eff=58.6049% N=400 
+
+Mono-modal Volume: ~exp(-11.33) * Expected Volume: exp(-6.75) Quality: ok
+
+rprs:      +0.0|      ****|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-106.5(0.00%) | Like=-97.11..-72.37 [-98.2258..-90.6675] | it/evals=2787/5175 eff=58.3665% N=400 
+
+Mono-modal Volume: ~exp(-11.56) * Expected Volume: exp(-6.98) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-103.9(0.00%) | Like=-94.10..-72.01 [-98.2258..-90.6675] | it/evals=2869/5327 eff=58.2302% N=400 
+
+Mono-modal Volume: ~exp(-11.70) * Expected Volume: exp(-7.20) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|**********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-101.3(0.00%) | Like=-91.58..-70.83 [-98.2258..-90.6675] | it/evals=2960/5517 eff=57.8464% N=400 
+
+Mono-modal Volume: ~exp(-11.98) * Expected Volume: exp(-7.43) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706| *********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-11.98)   Expected Volume: exp(-7.65) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706| *********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-96.8(0.00%) | Like=-86.65..-70.83 [-90.6465..-84.2032] | it/evals=3143/5911 eff=57.0314% N=400 
+
+Mono-modal Volume: ~exp(-12.24) * Expected Volume: exp(-7.88) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|  ********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-12.24)   Expected Volume: exp(-8.10) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706| *********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-12.79) * Expected Volume: exp(-8.33) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|  ********|+2458107.716
+ars :      +4.8|**********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-92.1(0.01%) | Like=-81.77..-70.47 [-84.2011..-79.8988] | it/evals=3400/6482 eff=55.9027% N=400 
+
+Mono-modal Volume: ~exp(-12.79)   Expected Volume: exp(-8.55) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|  ********|+2458107.716
+ars :      +4.8| *********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-13.15) * Expected Volume: exp(-8.78) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|   *******|+2458107.716
+ars :      +4.8| *********|     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-89.7(0.11%) | Like=-79.16..-70.47 [-79.8911..-76.8944] | it/evals=3582/6902 eff=55.0907% N=400 
+
+Mono-modal Volume: ~exp(-13.15)   Expected Volume: exp(-9.00) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|   *******|+2458107.716
+ars :      +4.8| ******** |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-13.55) * Expected Volume: exp(-9.23) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|   *******|+2458107.716
+ars :      +4.8| ******** |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-88.0(0.66%) | Like=-77.29..-70.47 [-79.8911..-76.8944] | it/evals=3760/7277 eff=54.6750% N=400 
+
+Mono-modal Volume: ~exp(-13.88) * Expected Volume: exp(-9.45) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|    ******|+2458107.716
+ars :      +4.8|  ******* |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-87.1(1.63%) | Like=-76.36..-70.47 [-76.8808..-74.9608] | it/evals=3868/7476 eff=54.6637% N=400 
+
+Mono-modal Volume: ~exp(-13.92) * Expected Volume: exp(-9.68) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|    ******|+2458107.716
+ars :      +4.8|  ******* |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-86.6(2.73%) | Like=-75.78..-70.47 [-76.8808..-74.9608] | it/evals=3946/7646 eff=54.4576% N=400 
+
+Mono-modal Volume: ~exp(-13.98) * Expected Volume: exp(-9.90) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|    ******|+2458107.716
+ars :      +4.8|  ******* |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-14.63) * Expected Volume: exp(-10.13) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|    ******|+2458107.716
+ars :      +4.8|  ******  |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-14.63)   Expected Volume: exp(-10.35) Quality: ok
+
+rprs:      +0.0|       ***|     +0.2
+tmid: +2458107.706|    ******|+2458107.716
+ars :      +4.8|  ******  |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-15.02) * Expected Volume: exp(-10.58) Quality: ok
+
+rprs:      +0.0|       ** |     +0.2
+tmid: +2458107.706|    ******|+2458107.716
+ars :      +4.8|  ******  |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-84.9(13.77%) | Like=-73.82..-70.47 [-73.8908..-73.7293] | it/evals=4307/8322 eff=54.3676% N=400 
+
+Mono-modal Volume: ~exp(-15.12) * Expected Volume: exp(-10.80) Quality: ok
+
+rprs:      +0.0|       ** |     +0.2
+tmid: +2458107.706|    ******|+2458107.716
+ars :      +4.8|   *****  |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-84.6(18.30%) | Like=-73.47..-70.34 [-73.4687..-73.4676]*| it/evals=4400/8477 eff=54.4757% N=400 
+
+Mono-modal Volume: ~exp(-15.52) * Expected Volume: exp(-11.02) Quality: ok
+
+rprs:      +0.0|        * |     +0.2
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   *****  |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-84.3(24.35%) | Like=-73.07..-70.34 [-73.0700..-73.0687]*| it/evals=4498/8672 eff=54.3762% N=400 
+
+Mono-modal Volume: ~exp(-15.75) * Expected Volume: exp(-11.25) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   *****  |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-84.1(29.80%) | Like=-72.82..-70.34 [-72.8185..-72.8176]*| it/evals=4581/8850 eff=54.2130% N=400 
+
+Mono-modal Volume: ~exp(-15.79) * Expected Volume: exp(-11.47) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   *****  |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-84.0(34.84%) | Like=-72.54..-70.21 [-72.5414..-72.5371]*| it/evals=4666/9020 eff=54.1299% N=400 
+
+Mono-modal Volume: ~exp(-15.90) * Expected Volume: exp(-11.70) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   ****   |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+Z=-83.8(40.60%) | Like=-72.32..-70.21 [-72.3159..-72.3120]*| it/evals=4760/9185 eff=54.1833% N=400 
+
+Mono-modal Volume: ~exp(-16.25) * Expected Volume: exp(-11.92) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   ****   |     +5.9
+a2  :     -1.00|    *     |    +1.00
+
+
+
+Mono-modal Volume: ~exp(-16.26) * Expected Volume: exp(-12.15) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   *****  |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.5(51.78%) | Like=-71.89..-70.21 [-71.8862..-71.8862]*| it/evals=4936/9575 eff=53.7984% N=400 
+
+Mono-modal Volume: ~exp(-16.34) * Expected Volume: exp(-12.37) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   *****  |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.4(56.71%) | Like=-71.75..-70.21 [-71.7517..-71.7486]*| it/evals=5022/9817 eff=53.3291% N=400 
+
+Mono-modal Volume: ~exp(-16.50) * Expected Volume: exp(-12.60) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   ****   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-16.77) * Expected Volume: exp(-12.82) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|     *****|+2458107.716
+ars :      +4.8|   ****   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.3(66.53%) | Like=-71.46..-70.21 [-71.4633..-71.4632]*| it/evals=5200/10229 eff=52.9047% N=400 
+
+Mono-modal Volume: ~exp(-17.25) * Expected Volume: exp(-13.05) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|      ****|+2458107.716
+ars :      +4.8|   ****   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.2(71.31%) | Like=-71.32..-70.14 [-71.3216..-71.3216]*| it/evals=5295/10488 eff=52.4881% N=400 
+
+Mono-modal Volume: ~exp(-17.59) * Expected Volume: exp(-13.27) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|      ****|+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-17.65) * Expected Volume: exp(-13.50) Quality: ok
+
+rprs:     +0.00|        * |    +0.19
+tmid: +2458107.706|      ****|+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.1(79.14%) | Like=-71.06..-70.14 [-71.0637..-71.0615]*| it/evals=5480/10965 eff=51.8694% N=400 
+
+Mono-modal Volume: ~exp(-17.70) * Expected Volume: exp(-13.72) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.1(82.65%) | Like=-70.98..-70.14 [-70.9772..-70.9770]*| it/evals=5578/11217 eff=51.5670% N=400 
+
+Mono-modal Volume: ~exp(-17.76) * Expected Volume: exp(-13.95) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-18.43) * Expected Volume: exp(-14.17) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.0(87.51%) | Like=-70.82..-70.14 [-70.8250..-70.8230]*| it/evals=5746/11641 eff=51.1164% N=400 
+
+Mono-modal Volume: ~exp(-18.44) * Expected Volume: exp(-14.40) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-18.49) * Expected Volume: exp(-14.62) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-18.93) * Expected Volume: exp(-14.85) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-83.0(92.82%) | Like=-70.65..-70.14 [-70.6485..-70.6477]*| it/evals=6019/12573 eff=49.4455% N=400 
+
+Mono-modal Volume: ~exp(-18.93)   Expected Volume: exp(-15.07) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-19.50) * Expected Volume: exp(-15.30) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    ***   |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-82.9(95.10%) | Like=-70.54..-70.13 [-70.5422..-70.5421]*| it/evals=6200/13144 eff=48.6503% N=400 
+
+Mono-modal Volume: ~exp(-19.50)   Expected Volume: exp(-15.52) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-19.50)   Expected Volume: exp(-15.75) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-20.01) * Expected Volume: exp(-15.97) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-20.37) * Expected Volume: exp(-16.20) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-82.9(97.81%) | Like=-70.38..-70.13 [-70.3814..-70.3814]*| it/evals=6560/14413 eff=46.8137% N=400 
+
+Mono-modal Volume: ~exp(-20.37)   Expected Volume: exp(-16.42) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|      *** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+
+
+Mono-modal Volume: ~exp(-20.47) * Expected Volume: exp(-16.65) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|       ** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-82.9(98.53%) | Like=-70.34..-70.12 [-70.3353..-70.3351]*| it/evals=6732/15184 eff=45.5357% N=400 
+
+Mono-modal Volume: ~exp(-20.47)   Expected Volume: exp(-16.87) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|       ** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+Z=-82.9(98.85%) | Like=-70.31..-70.12 [-70.3141..-70.3140]*| it/evals=6836/15545 eff=45.1370% N=400 
+
+Mono-modal Volume: ~exp(-20.47)   Expected Volume: exp(-17.10) Quality: ok
+
+rprs:    +0.000|        * |   +0.186
+tmid: +2458107.706|       ** |+2458107.716
+ars :      +4.8|    **    |     +5.9
+a2  :    -1.000|    *     |   +1.000
+
+[ultranest] Explored until L=-7e+01  
+[ultranest] Likelihood function evaluations: 15883
+[ultranest]   logZ = -82.92 +- 0.141
+[ultranest] Effective samples strategy satisfied (ESS = 2176.7, need >400)
+[ultranest] Posterior uncertainty strategy is satisfied (KL: 0.45+-0.05 nat, need <0.50 nat)
+[ultranest] Evidency uncertainty strategy is satisfied (dlogz=0.14, need <0.5)
+[ultranest]   logZ error budget: single: 0.16 bs:0.14 tail:0.01 total:0.14 required:<0.50
+[ultranest] done iterating.
+
+*********************************************************
+FINAL PLANETARY PARAMETERS
+
+          Mid-Transit Time [BJD_TDB]: 2458107.7136 +/- 0.001
+  Radius Ratio (Planet/Star) [Rp/Rs]: 0.1587 +/- 0.0037
+           Transit depth [(Rp/Rs)^2]: 2.52 +/- 0.12 [%]
+ Semi Major Axis/ Star Radius [a/Rs]: 5.36 +/- 0.11
+               Airmass coefficient 1: 1.1645 +/- 0.0078
+               Airmass coefficient 2: -0.1222 +/- 0.0028
+                    Residual scatter: 0.67 %
+                 Best Comparison Star: None
+                    Optimal Aperture: 5.02
+                     Optimal Annulus: 7.54
+              Transit Duration [day]: 0.1311 +/- 0.0028
+*********************************************************
+Output Files Saved
+
+************************
+End of Reduction Process
+************************
+
+
+************************
+EXOTIC has successfully run!!!
+It is now safe to close this window.
+************************
+lightcurve: /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/FinalLightCurve_HAT-P-32 b_2017-12-19.png
+fov: /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/temp/FOV_HAT-P-32 b_2017-12-19_LinearStretch.png
+triangle: /content/EXOTIC/exotic-quick-start/sample-data/HatP32Dec202017/EXOTIC_output/temp/Triangle_HAT-P-32 b_2017-12-19.png

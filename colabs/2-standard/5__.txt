@@ -1,0 +1,19 @@
+---
+
+## Done
+
+<font face="Helvetica, Arial, Sans-Serif">
+
+<font size=2>
+What would you like to do next?
+
+<a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/advanced-guide/">Learn how to submit a lightcurve</a>
+</font>
+
+<font size=2>
+<a href="https://app.aavso.org/exosite/submit">Submit your lightcurve to Exoplanet Watch via AAVSO</a>
+
+<a href="https://exoplanets.nasa.gov/exoplanet-watch/about-exoplanet-watch/contact-us/">Provide feedback for this tutorial</a>
+</font>
+
+</font>

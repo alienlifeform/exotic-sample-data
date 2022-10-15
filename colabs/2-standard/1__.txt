@@ -1,0 +1,29 @@
+---
+
+## Step 1: Load EXOTIC and mount Google Drive
+
+<font face="Helvetica, Arial, Sans-Serif">
+
+<font size=2>
+🕔&nbsp;&nbsp;<i>Estimated time: 2 minutes</i>
+<br /></font>
+
+<br />
+
+<font size=2>
+This step will:
+</font>
+
+<ol type="a"><font size=2>
+<li class="step">Import required EXOTIC libraries</li>
+<li class="step">Connect to your Google Drive to access your .FITS images</li>
+</font></ol>
+
+<table><tr><td bgcolor="#fee9e9">
+  <font size=2 color="#c02020">Important: there will be two popups you must agree to.</font>
+  <ul><li><font size=2>First popup is titled "Warning: This notebook was not authored by Google.". Click "Run Anyway".</font></li>
+  <li><font size=2>Second popup is asking for permission to access your Google Drive files. Click "Connect to Google Drive".</font></li></ul>
+</td></tr></table>
+<br />
+
+</font>

@@ -1,7 +1,0 @@
-# **Step 5:  Run EXOTIC**
-
----
-> Estimated time: 5 minutes
----
-
-EXOTIC will analyze the brightness of the target star in each telescop image to identify if there was a transit. At the end of this step, you will see your lightcurve as an image, and the lightcurve data will be downloaded to your hard drive for submission to AAVSO.
