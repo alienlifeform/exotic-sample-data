@@ -4,30 +4,29 @@
 
 <font face="Helvetica, Arial, Sans-Serif">
 
-<font size=2>
+
 🕔&nbsp;&nbsp;Estimated time: 3 minutes
-<br /></font>
+<br />
 
 <br />
 
-<font size=2>
-This step will:
-</font>
 
-<ol type="a"><font size=2>
+This step will:
+
+
+<ol type="a">
 <li class="step">Prompt you to type in your starchart image URL</li>
 <li class="step">Ask you to identify coordinates for your target star and comparison stars</li>
-</font></ol>
+</ol>
 
 
-<font size=2>
+
 For more information: 
-</font>
 
-<ul><font size=2>
+<ul>
 <li class="step"><a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/user-guide/">How do I get a starchart image URL?</a></li>
 <li class="step"><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">How do I identify coordinates for my target and comparison stars?</a>
 </li>
-</font></ul>
+</ul>
 
 </font>

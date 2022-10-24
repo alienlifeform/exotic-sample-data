@@ -4,16 +4,16 @@
 
 <font face="Helvetica, Arial, Sans-Serif">
 
-<font size=2>
+
 🕔&nbsp;&nbsp;<i>Estimated time: < 1 minute (this would take longer with a real data set ~2 minutes)</i>
 
 For this tutorial, we are using sample images from a known transit. When you run it yourself, you will upload your own images.
-</font>
+
 
 <table><tr><td bgcolor="#fee9e9">
-  <font size=2 color="#c02020">Important:</font>
-  <ul><li><font size=2>A popup will appear titled "Warning: This notebook was not authored by Google.". Read it, then click "Run Anyway".</font></li>
-  <li><font size=2>If you click the blue <font size=2 color="#7090e0">Show code</b></font> links, you can re-hide the code by double-clicking the title just above it.</font></li></ul>
+  <font size=2 color="#c02020">Important:
+  <ul><li>A popup will appear titled "Warning: This notebook was not authored by Google.". Read it, then click "Run Anyway".</li>
+  <li>If you click the blue <font color="#7090e0">Show code</b> links, you can re-hide the code by double-clicking the title just above it.</li></ul>
 </td></tr></table>
 <br />
 
