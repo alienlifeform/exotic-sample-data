@@ -50,7 +50,7 @@ if not inits_file_exists:
     display(HTML('<p class="bookend">START: Load starchart</p>'))
 
     display(HTML('<ul class="step_container_3a"></ul>'))
-    appendStepToContainer('.step_container_3a','Find an image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png") using the <a href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>. Press return if you have no starchart.')
+    appendStepToContainer('.step_container_3a','Find an image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png") using the <a target="blank" href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>. Press return if you have no starchart.')
 
     appendToContainer('.comment','<div class="tooltip" style="display: none">TEST</div>')
 
