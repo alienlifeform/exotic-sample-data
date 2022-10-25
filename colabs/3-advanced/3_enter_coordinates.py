@@ -35,6 +35,10 @@ setupDisplay()
 
 #########################################################
 
+import urllib
+from urllib.request import urlopen
+from urllib.error import HTTPError
+
 def get_star_chart_urls(telescope, star_target):
   t_resolution=150
   if telescope == 'MicroObservatory':
@@ -83,172 +87,136 @@ def get_star_chart_image_url(json_url):
     display(HTML(f'<p class="output">Pulling starchart JSON to find image url... found: {image_uri}</p>'))
     return(image_uri)
 
-def OLD_get_star_chart_image_url(telescope, star_target):
-  if telescope == 'MicroObservatory':
-    fov='450.0'
-  elif telescope == 'Exoplanet Watch .4 Meter':
-    fov='250.0'
-  else:
-    fov='300.0'
-  with urllib.request.urlopen("https://app.aavso.org/vsp/api/chart/?star={star_target}&scale=AB&orientation=visual&type=chart&fov={fov}&maglimit=10.0&resolution=150&north=down&east=left&format=json") as url:
-    data = json.load(url)
-    print(data)
-
-
-if not inits_file_exists:
-  if Telescope == 'Select a Telescope' or not Target:
-    display(HTML('<span class="error">You must enter a Telescope and Target Star (e.g. "HAT-P-32") to run this step.</span>'))
-  else:
-    display(HTML('<p class="bookend">START: Generate AAVSO StarChart</p>'))
-
-    #display(HTML('<br /><p><b>Option A:</b> Enter a telescope and target star to generate an AAVSO starchart image URL.'))
-
-
-    starchart_image_url = ''
-    starchart_image_url_is_valid = False
-    prompt_for_url = True
-
-    display(HTML(f'<p class="output">Telescope was selected: {Telescope}</p>'))
-    display(HTML(f'<p class="output">Target was selected: {Target}</p>'))
-
-    starchart_urls = get_star_chart_urls(Telescope,Target)
-    if Telescope != "Other":
-      try:
-        # Generate the starchart image url
-        starchart_image_url = get_star_chart_image_url(starchart_urls[0])
-        #display(HTML(f'<p class="output">starchart_image_url: {starchart_image_url}</p>'))
-        starchart_image_url_is_valid = True
-        prompt_for_url = False
-      except HTTPError:
-        display(HTML('<p class="error">Could not find a starchart matching that target star.</p>'))
-        display(HTML(f'<p class="error">Try a different target (make sure it\'s a star, not a planet) and click "run" once to stop, and again to re-run this step.</p>'))
-        display(HTML(f'<p class="output">Or... <a href="{starchart_urls[1]}" target="_blank">use the advanced search on AAVSO</a> to find the URL of the image associated with your starchart.</p>'))
-        prompt_for_url = True
-
-    else:
-      display(HTML(f'<p class="output"><a href="{starchart_urls[1]}" target="_blank">Use the advanced search on AAVSO</a> to find the URL of the image associated with your starchart.</p'))
-
-    while prompt_for_url:
-
-      #while not starchart_image_url_is_valid:
-      starchart_image_url = input('Enter a valid starchart image URL: ')
-      if starchart_image_url.startswith('https://') and starchart_image_url.endswith('png'):
-        display(HTML(f'<p class="output">Starchart Image URL is valid: {starchart_image_url}</p>'))
-        starchart_image_url_is_valid = True
-        prompt_for_url = False
-      else:
-        display(HTML(f'<p class="error">Starchart Image URL must begin with https:// and end with .png: {starchart_image_url}</p>'))
-        display(HTML(f'<p class="output">If you found a starchart, click on the image and then grab the URL from your browser\'s URL bar.</p>'))
-        starchart_image_url_is_valid = False
-
-
-
 if not inits_file_exists:
   if fits_files_found:
 
-    ######################################################
-
-
-    display(HTML('<p class="bookend">START: Load starchart</p>'))
-
-    display(HTML('<ul class="step_container_3a"></ul>'))
-    appendStepToContainer('.step_container_3a','Find an image URL for your star (i.e. "https://app.aavso.org/vsp/chart/X28194FDL.png") using the <a target="blank" href="https://app.aavso.org/vsp/?star=Enter%20Your%20Star%20Here&scale=E&orientation=reversed&type=chart&fov=30.0&maglimit=16.5&resolution=150&north=up&east=right&chartid=">AAVSO variable star plotter</a>. Press return if you have no starchart.')
-
-    appendToContainer('.comment','<div class="tooltip" style="display: none">TEST</div>')
-
-
-    #### orig starchart URL field ####
-
-    starchart_url_is_legit = False
-    while not starchart_url_is_legit:
-      aavso_starchart_url = input("Enter starchart image URL: ")
-      if aavso_starchart_url.startswith('https://') and aavso_starchart_url.endswith('png'):
-        starchart_url_is_legit = True
-        display(HTML(f'<p class="output">Starchart URL is valid.</p>'))
-      elif aavso_starchart_url == '':
-        starchart_url_is_legit = True
-        display(HTML(f'<p class="output">No Starchart URL entered.</p>'))
-      else:
-        display(HTML(f'<p class="error">Starchart URL must begin with https:// and end with .png</p>'))
-
-
-    display(HTML('<p class="bookend">DONE: Find AAVSO StarChart. <b>You may move on to the next step.</b></p>'))
-
-    #########################################################
-
-    display(HTML('<p class="bookend">START: Compare telescope image and star chart</p>'))
-    display(HTML('<ul class="step_container_3b">'))
-
-    # set up bokeh
-    bokeh.io.output_notebook()
-    sample_data = False
-             
-    #########################################################
-
-    # show images
-    if first_image:
-      obs = ""
-      # instructions for finding the target star
-      if aavso_starchart_url:
-        starchart_url_html = f'<img class="aavso_image" src="{aavso_starchart_url}">'
-      else:
-        starchart_url_html = ''
-
-      display(HTML(f'''
-      <div class="plots">      
-      {starchart_url_html}
-      '''))
-      display_image(first_image)
-      display(HTML('</div><br clear="all"/>'))
-
-      display(HTML('<h3>Data Entry 1 of 2: Enter coordinates for the target star</h3><br />'))
-      # request coordinates and verify the entries are valid
-      success = False
-      while not success:
-        targ_coords = input("Enter coordinates for target star - in the format [424,286] - and press return:  ")  
-
-        # check syntax and coords
-        tc_syntax = re.search(r"\[\d+, ?\d+\]$", targ_coords)
-        if tc_syntax:
-            success = True
-        else:
-          display(HTML('<p class="error">Try again, your syntax is not quite right: ' + targ_coords + ' needs to look like [424,286]</p>'))
-
-
-      showProgress(2)
-
-      # instructions for finding the comparison stars
-      display(HTML('''
-        <p class="output">Target star coordinates saved to inits.json</p>
-        <h3>Data Entry 2 of 2: Enter coordinates for at least two comparison stars.</h3><br />
-      '''))
-      
-      # request coordinates and verify the entries are valid
-      success = False
-      while not success:
-        comp_coords = input("Enter coordinates for the comparison stars - in the format [[326,365],[416,343]] - and press return:  ")  
-
-        # check syntax
-        cc_syntax = re.search(r"\[(\[\d+, ?\d+\],? ?)+\]$", comp_coords)
-        if cc_syntax:
-          #display(HTML('<p class="output">Syntax OK:  [[x1,y1],[x2,y2]] e.g. ' + comp_coords + '</p>'))
-          success = True
-        else:
-          display(HTML('<p class="error">Try again, your syntax is not quite right: ' + comp_coords + ' needs to look more like [[326,365],[416,343]]</p>'))
-
-      display(HTML('<p class="output">Comparison star coordinates saved to inits.json</p>'))
-
-      inits_file_path = make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sample_data)
-      showProgress(1)
-
-      if inits_file_path:
-        display(HTML('<p class="bookend">DONE: Compare telescope image and starchart. <b>You may move on to the next step.</b></p>'))
-      else:
-        display(HTML('<p class="error">Warning: No inits.json path created. This is unexpected.</p>'))
-
+    if Telescope == 'Select a Telescope' or not Target:
+      display(HTML('<span class="error">You must enter a Telescope and Target Star (e.g. "HAT-P-32") to run this step.</span>'))
     else:
+      display(HTML('<p class="bookend">START: Generate AAVSO StarChart</p>'))
 
-      display(HTML('<p class="bookend">DONE: First .FITS image not found. <b>Please go back to step 2 and load your .FITS images.</b></p>'))
+      #display(HTML('<br /><p><b>Option A:</b> Enter a telescope and target star to generate an AAVSO starchart image URL.'))
+
+
+      starchart_image_url = ''
+      starchart_image_url_is_valid = False
+      prompt_for_url = True
+
+      display(HTML(f'<p class="output">Telescope was selected: {Telescope}</p>'))
+      display(HTML(f'<p class="output">Target was selected: {Target}</p>'))
+
+      starchart_urls = get_star_chart_urls(Telescope,Target)
+      if Telescope != "Other":
+        try:
+          # Generate the starchart image url
+          starchart_image_url = get_star_chart_image_url(starchart_urls[0])
+          #display(HTML(f'<p class="output">starchart_image_url: {starchart_image_url}</p>'))
+          starchart_image_url_is_valid = True
+          prompt_for_url = False
+        except HTTPError:
+          display(HTML('<p class="error">Could not find a starchart matching that target star.</p>'))
+          display(HTML(f'<p class="error">Try a different target (make sure it\'s a star, not a planet) and click "run" once to stop, and again to re-run this step.</p>'))
+          display(HTML(f'<p class="output">Or... <a href="{starchart_urls[1]}" target="_blank">use the advanced search on AAVSO</a> to find the URL of the image associated with your starchart.</p>'))
+          prompt_for_url = True
+
+      else:
+        display(HTML(f'<p class="output"><a href="{starchart_urls[1]}" target="_blank">Use the advanced search on AAVSO</a> to find the URL of the image associated with your starchart.</p'))
+
+      while prompt_for_url:
+
+        #while not starchart_image_url_is_valid:
+        starchart_image_url = input('Enter a valid starchart image URL: ')
+        if starchart_image_url.startswith('https://') and starchart_image_url.endswith('png'):
+          display(HTML(f'<p class="output">Starchart Image URL is valid: {starchart_image_url}</p>'))
+          starchart_image_url_is_valid = True
+          prompt_for_url = False
+        else:
+          display(HTML(f'<p class="error">Starchart Image URL must begin with https:// and end with .png: {starchart_image_url}</p>'))
+          display(HTML(f'<p class="output">If you found a starchart, click on the image and then grab the URL from your browser\'s URL bar.</p>'))
+          starchart_image_url_is_valid = False
+
+
+
+
+      ######################################################
+
+      #appendToContainer('.comment','<div class="tooltip" style="display: none">TEST</div>')
+
+      #########################################################
+
+      display(HTML('<p class="bookend">START: Compare telescope image and star chart</p>'))
+      display(HTML('<ul class="step_container_3b">'))
+
+      # set up bokeh
+      bokeh.io.output_notebook()
+      sample_data = False
+               
+      #########################################################
+
+      # show images
+      if first_image:
+        obs = ""
+        # instructions for finding the target star
+        if starchart_image_url:
+          starchart_url_html = f'<img class="aavso_image" src="{starchart_image_url}">'
+        else:
+          starchart_url_html = ''
+
+        display(HTML(f'''
+        <div class="plots">      
+        {starchart_url_html}
+        '''))
+        display_image(first_image)
+        display(HTML('</div><br clear="all"/>'))
+
+        display(HTML('<h3>Data Entry 1 of 2: Enter coordinates for the target star</h3><br />'))
+        # request coordinates and verify the entries are valid
+        success = False
+        while not success:
+          targ_coords = input("Enter coordinates for target star - in the format [424,286] - and press return:  ")  
+
+          # check syntax and coords
+          tc_syntax = re.search(r"\[\d+, ?\d+\]$", targ_coords)
+          if tc_syntax:
+              success = True
+          else:
+            display(HTML('<p class="error">Try again, your syntax is not quite right: ' + targ_coords + ' needs to look like [424,286]</p>'))
+
+
+        showProgress(2)
+
+        # instructions for finding the comparison stars
+        display(HTML('''
+          <p class="output">Target star coordinates saved to inits.json</p>
+          <h3>Data Entry 2 of 2: Enter coordinates for at least two comparison stars.</h3><br />
+        '''))
+        
+        # request coordinates and verify the entries are valid
+        success = False
+        while not success:
+          comp_coords = input("Enter coordinates for the comparison stars - in the format [[326,365],[416,343]] - and press return:  ")  
+
+          # check syntax
+          cc_syntax = re.search(r"\[(\[\d+, ?\d+\],? ?)+\]$", comp_coords)
+          if cc_syntax:
+            #display(HTML('<p class="output">Syntax OK:  [[x1,y1],[x2,y2]] e.g. ' + comp_coords + '</p>'))
+            success = True
+          else:
+            display(HTML('<p class="error">Try again, your syntax is not quite right: ' + comp_coords + ' needs to look more like [[326,365],[416,343]]</p>'))
+
+        display(HTML('<p class="output">Comparison star coordinates saved to inits.json</p>'))
+
+        inits_file_path = make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sec_obs_code, sample_data)
+        showProgress(1)
+
+        if inits_file_path:
+          display(HTML('<p class="bookend">DONE: Compare telescope image and starchart. <b>You may move on to the next step.</b></p>'))
+        else:
+          display(HTML('<p class="error">Warning: No inits.json path created. This is unexpected.</p>'))
+
+      else:
+
+        display(HTML('<p class="bookend">DONE: First .FITS image not found. <b>Please go back to step 2 and load your .FITS images.</b></p>'))
 
   else: 
 

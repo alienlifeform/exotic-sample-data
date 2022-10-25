@@ -162,10 +162,18 @@ if not inits_file_exists:
 
   planetary_params = ""
   while not planetary_params:
-    target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b"): ')
-    #target="HAT-P-32 b"
+    target_is_valid = False
+    while not target_is_valid:
+      target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b"): ')
+      if target != "":
+        target_is_valid = True
+      else:
+        display(HTML(f'<p class="error">Exoplanet target may not be blank.</p>'))
+        starchart_image_url_is_valid = False
+
     display(HTML('<br /><ul class="step_container_2b"></ul>'))
     appendStepToContainer('.step_container_2b','Searching NASA Exoplanet Archive for "' + target + '"...')
+
     targ = NASAExoplanetArchive(planet=target)
     #appendStepToContainer('.step_container_2','Loading planet info')
     target = targ.planet_info()[0]
