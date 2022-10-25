@@ -6,7 +6,7 @@
 
 What would you like to do next?
 
-<a href="https://colab.research.google.com/drive/1bN5SUOF76cDl63qERjnmoscxILPBW7LT#scrollTo=ai_HqHhfy6DD">Try using EXOTIC with your own observation data</a>
+<a href="https://colab.research.google.com/drive/1bN5SUOF76cDl63qERjnmoscxILPBW7LT#scrollTo=ai_HqHhfy6DD">Try using EXOTIC with observation data from an Exoplanet Watch telescope</a>
 
 
 <a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/how-to-contribute/how-to-observe/">Learn how to observe exoplanets</a>

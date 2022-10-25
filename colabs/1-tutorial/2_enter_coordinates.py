@@ -126,7 +126,7 @@ if fits_count >= 2:
     tc_syntax = re.search(r"\[\d+,\d+\]$", targ_coords)
     if tc_syntax:
       tc_coords = re.findall("\d+", targ_coords)
-      if 422 <= int(tc_coords[0]) <= 426 and 284 <= int(tc_coords[1]) <= 288:
+      if 418 <= int(tc_coords[0]) <= 430 and 280 <= int(tc_coords[1]) <= 292:
         success = True
       else:
         display(HTML('<p class="error">Try again, your coordinates are a bit off: ' + targ_coords + ' should be closer to [424,286]</p>'))

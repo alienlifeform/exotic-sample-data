@@ -26,6 +26,8 @@ appendStepToContainer('.step_container_2a','Ensuring images are loaded...</li>')
 showProgress(1) 
 
 def clean_input_filepath(p):
+  p = re.sub('^/content', '', p)
+  p = re.sub('^/drive/MyDrive', '', p)
   p = re.sub('^/', '', p)
   return(p)
 
@@ -45,7 +47,19 @@ expandableSectionCustom('<u>+ EXOTIC Inline Help:</u> How to Upload your .FITS i
   </ol>
 
   <p>You will use this path (e.g. "EXOTIC/HatP32Dec202017") when loading your images into EXOTIC.</p>
-  <p>(Don't include "/drive/MyDrive/", which you may see when viewing your folders from Google Colab)</p>
+''')
+
+
+expandableSectionCustom('<u>+ EXOTIC Inline Help:</u> How to find your .FITS images','<u>- Close EXOTIC Inline Help</u>','''
+  <p><b>How to find your .FITS images:</b></p>
+  
+  <ol style="line-height:135%">
+  <li>In the left nav, click on the folder icon.</li>
+  <li>Navigate to your images, likely in /drive/MyDrive/ or /content/drive/MyDrive/.</li>
+  <li>Right-click on the folder with your .FITS images and click "Copy Path".</li>
+  </ol>
+
+  <p>You will use this path (e.g. "EXOTIC/HatP32Dec202017" or "/content/drive/MyDrive/EXOTIC/HatP32Dec202017") when loading your images into EXOTIC.</p>
 ''')
 
 # Ask for inputs until we find .fits files
@@ -182,8 +196,13 @@ if not inits_file_exists:
     <p><b>How to get an AAVSO Observer code:</b></p>
     Follow the instructions at the <a href="https://www.aavso.org/new-observers#:~:text=If%20you%20do%20not%20yet,for%20%22Request%20an%20obscode%22." target="_blank">AAVSO "New Observers" page</a>.
   ''')
+
   # Prompt for AAVSO code
   aavso_obs_code = input("Enter your AAVSO Observer code or press enter to skip: ")
+  if aavso_obs_code:
+    sec_obs_code = input("Enter a secondary AAVSO Observer code or press enter to skip: ")
+  else: 
+    sec_obs_code = ""
 
   display(HTML('<p class="bookend">DONE: Download planetary parameters. <b>You may move on to the next step.</b></p>'))
 

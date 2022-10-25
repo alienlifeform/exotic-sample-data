@@ -1,5 +1,5 @@
-# EXOTIC Advanced Edition
+# EXOTIC Advanced
 
-<font face="Helvetica, Arial, Sans-Serif" size=2>
+<font face="Helvetica, Arial, Sans-Serif">
 Need help? <a href="https://exoplanets-5.client.mooreboeck.com/exoplanet-watch/exotic/user-guide/" target="_blank">Consult the EXOTIC User Guide</a>.
 </font>

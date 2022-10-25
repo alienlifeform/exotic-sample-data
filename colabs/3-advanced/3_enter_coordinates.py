@@ -12,6 +12,13 @@
 #
 ##############################################################
 
+
+#@markdown <font face="Helvetica, Arial, Sans-Serif" size=2>
+#@markdown Select your telescope and target star (e.g. "HAT-P-32"), then press <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAABV2lDQ1BJQ0MgUHJvZmlsZQAAKJFjYGBiSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8bAycABhEIMbInJxQWOAQE+QCUMMBoVfLvGwAiiL+uCzJr3s/Z77Blu8WhFRuc9VUV3MNWjAK6U1OJkIP0HiLWSC4pKGBgYNYDsgPKSAhC7AsgWKQI6CsjuAbHTIewFIHYShL0FrCYkyBnIPgFkCyRnJKYA2TeAbJ0kJPF0JHZuTmky1A0g1/Ok5oUGA2k+IJZh8GAIYFBgMALCSoYMYNhgV2sCVuvMkM9QAFRXxJDJkA5UXQLU6QgUKWDIYUgFsj0Z8hiSGfQYdMAmGoBMBYUxetghxPIXMTBYfGVgYJ6AEEuaycCwvZWBQeIWQkwFGAb8LQwM284XJBYlwkOU8RtLcZqxEYTN48TAwHrv///PagwM7JMZGP5O+P//96L///8uBpoPjJsDeQDaFGLQdABjBAAAAFZlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA5KGAAcAAAASAAAARKACAAQAAAABAAAAFaADAAQAAAABAAAAFQAAAABBU0NJSQAAAFNjcmVlbnNob3TrIl/MAAAB1GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyI+CiAgICAgICAgIDxleGlmOlBpeGVsWURpbWVuc2lvbj4yMTwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj4yMTwvZXhpZjpQaXhlbFhEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlVzZXJDb21tZW50PlNjcmVlbnNob3Q8L2V4aWY6VXNlckNvbW1lbnQ+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqn5DzTAAABCUlEQVQ4Ea2UQQ6EIAxFdTIXYu1tdOtx2OptXHukmflkPmkrQklsQoAOffyWjuPnZ8PD9nqYl3Bu6HmeA4bH3rVD27YlkIWFEAaMZVmK4WOppoDt+14MsM4YY7pA+i/QHiBB8zwr1aqmSNOrkEDMiIEYmlI6TRP9akb9bF3Vgf/mOI60ykrlTTYAD4IUW0ZGhraUAFx6FHkRGW4oglGGGlhBuZG31tYtcFIKBT2G2t0JASv/ozwvDFit5Sgu15SOO8UtIOLIcPXp3UXWf+lTHPD0ogVxj8ej5fTh8DY5gzlDDFOHT6XPQ3jZdV25rc72Y4LDRSgpbB3bPlCF0fU9JVTOBMs05e9y/QUaNJJ8hZpK/QAAAABJRU5ErkJggg=="> to the left (or shift-return).
+#@markdown </font>
+Telescope = 'Select a Telescope' #@param ["Select a Telescope", "MicroObservatory", "Exoplanet Watch .4 Meter", "FOV: 900 arcmin", "FOV: 450 arcmin", "FOV: 180 arcmin", "FOV: 120 arcmin", "FOV: 60 arcmin", "FOV: 30 arcmin", "FOV: 18.5 arcmin", "FOV: 7.5 arcmin", "Other"]
+Target = '' #@param {type:"string"}
+
 setupDisplay()
 
 # If the user presses enter to run the sample data, download sample data if needed and
@@ -28,8 +35,55 @@ setupDisplay()
 
 #########################################################
 
+def get_star_chart_urls(telescope, star_target):
+  t_resolution=150
+  if telescope == 'MicroObservatory':
+    t_fov=56.44
+    t_maglimit=15
+  elif telescope == 'Exoplanet Watch .4 Meter':
+    t_fov=38.42
+    t_maglimit=15
+  elif telescope == 'FOV: 900 arcmin':
+    t_fov=900
+    t_maglimit=7.5
+  elif telescope == 'FOV: 450 arcmin':
+    t_fov=450
+    t_maglimit=9
+  elif telescope == 'FOV: 180 arcmin':
+    t_fov=180
+    t_maglimit=10.5
+  elif telescope == 'FOV: 120 arcmin':
+    t_fov=120
+    t_maglimit=12
+  elif telescope == 'FOV: 60 arcmin':
+    t_fov=60
+    t_maglimit=13.5
+  elif telescope == 'FOV: 30 arcmin':
+    t_fov=30
+    t_maglimit=15.5
+  elif telescope == 'FOV: 18.5 arcmin':
+    t_fov=18.5
+    t_maglimit=16
+  elif telescope == 'FOV: 7.5 arcmin':
+    t_fov=7.5
+    t_maglimit=20
+  else:
+    # Should not get here
+    t_fov=56.44
+    t_maglimit=15
+  json_url = f"https://app.aavso.org/vsp/api/chart/?star={star_target}&scale=D&orientation=CCD&type=chart&fov={t_fov}&maglimit={t_maglimit}&resolution={t_resolution}&north=down&east=left&format=json"
+  starchart_url = f"https://app.aavso.org/vsp/?star={star_target}&scale=D&orientation=CCD&type=chart&fov={t_fov}&maglimit={t_maglimit}&resolution={t_resolution}&north=down&east=left"
+  return [json_url, starchart_url]
 
-def get_star_chart_image_url(telescope, star_target):
+def get_star_chart_image_url(json_url):
+  display(HTML(f'<p class="output">Searching for startchart at {json_url}</p>'))
+  with urllib.request.urlopen(json_url) as url:
+    starchart_data = json.load(url)
+    image_uri = starchart_data["image_uri"].split('?')[0]
+    display(HTML(f'<p class="output">Pulling starchart JSON to find image url... found: {image_uri}</p>'))
+    return(image_uri)
+
+def OLD_get_star_chart_image_url(telescope, star_target):
   if telescope == 'MicroObservatory':
     fov='450.0'
   elif telescope == 'Exoplanet Watch .4 Meter':
@@ -39,6 +93,54 @@ def get_star_chart_image_url(telescope, star_target):
   with urllib.request.urlopen("https://app.aavso.org/vsp/api/chart/?star={star_target}&scale=AB&orientation=visual&type=chart&fov={fov}&maglimit=10.0&resolution=150&north=down&east=left&format=json") as url:
     data = json.load(url)
     print(data)
+
+
+if not inits_file_exists:
+  if Telescope == 'Select a Telescope' or not Target:
+    display(HTML('<span class="error">You must enter a Telescope and Target Star (e.g. "HAT-P-32") to run this step.</span>'))
+  else:
+    display(HTML('<p class="bookend">START: Generate AAVSO StarChart</p>'))
+
+    #display(HTML('<br /><p><b>Option A:</b> Enter a telescope and target star to generate an AAVSO starchart image URL.'))
+
+
+    starchart_image_url = ''
+    starchart_image_url_is_valid = False
+    prompt_for_url = True
+
+    display(HTML(f'<p class="output">Telescope was selected: {Telescope}</p>'))
+    display(HTML(f'<p class="output">Target was selected: {Target}</p>'))
+
+    starchart_urls = get_star_chart_urls(Telescope,Target)
+    if Telescope != "Other":
+      try:
+        # Generate the starchart image url
+        starchart_image_url = get_star_chart_image_url(starchart_urls[0])
+        #display(HTML(f'<p class="output">starchart_image_url: {starchart_image_url}</p>'))
+        starchart_image_url_is_valid = True
+        prompt_for_url = False
+      except HTTPError:
+        display(HTML('<p class="error">Could not find a starchart matching that target star.</p>'))
+        display(HTML(f'<p class="error">Try a different target (make sure it\'s a star, not a planet) and click "run" once to stop, and again to re-run this step.</p>'))
+        display(HTML(f'<p class="output">Or... <a href="{starchart_urls[1]}" target="_blank">use the advanced search on AAVSO</a> to find the URL of the image associated with your starchart.</p>'))
+        prompt_for_url = True
+
+    else:
+      display(HTML(f'<p class="output"><a href="{starchart_urls[1]}" target="_blank">Use the advanced search on AAVSO</a> to find the URL of the image associated with your starchart.</p'))
+
+    while prompt_for_url:
+
+      #while not starchart_image_url_is_valid:
+      starchart_image_url = input('Enter a valid starchart image URL: ')
+      if starchart_image_url.startswith('https://') and starchart_image_url.endswith('png'):
+        display(HTML(f'<p class="output">Starchart Image URL is valid: {starchart_image_url}</p>'))
+        starchart_image_url_is_valid = True
+        prompt_for_url = False
+      else:
+        display(HTML(f'<p class="error">Starchart Image URL must begin with https:// and end with .png: {starchart_image_url}</p>'))
+        display(HTML(f'<p class="output">If you found a starchart, click on the image and then grab the URL from your browser\'s URL bar.</p>'))
+        starchart_image_url_is_valid = False
+
 
 
 if not inits_file_exists:
