@@ -12,7 +12,7 @@ Steps:
  <ul><li>Find the target star (HAT-P-32) and several comparison stars that have stable brightness</li>
  <li>Enter their coordinates to calibrate the baseline brightness</li></ul></li>
 <li>Run EXOTIC to generate a lightcurve
- <ul><li>Watch EXOTIC determine if the brightness of your target star changes, signifying a transit. A transit is when an exoplanet passes in front of its host star, momentarily dimming out the star's light. <a href="https://exoplanets.nasa.gov/alien-worlds/ways-to-find-a-planet/#/2">(See an animation of a transit)</a></li></ul></li></ol>
+ <ul><li>Watch EXOTIC determine if the brightness of your target star changes, signifying a transit. A transit is when an exoplanet passes in front of its host star, momentarily dimming out the star's light. <a href="https://exoplanets.nasa.gov/alien-worlds/ways-to-find-a-planet/#/2">(View an animation of a transit)</a></li></ul></li></ol>
 
 
 
