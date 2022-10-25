@@ -69,7 +69,7 @@ while not fits_files_found:
   uploaded_files_found = False
   #appendStepToContainer('.step_container_2a','A valid Google Drive filepath should not include /drive/MyDrive/')
   while not uploaded_files_found:
-    input_filepath = input('Enter path to .FITS images in Google Drive (i.e. "EXOTIC/HatP32Dec202017"): ')
+    input_filepath = input('Enter path to .FITS images in Google Drive (i.e. "EXOTIC/HatP32Dec202017") and press return:  ')
     #display(HTML(f'<p class="output">input_filepath={input_filepath}</p>'))
     cleaned_filepath = clean_input_filepath(input_filepath)
     #display(HTML(f'<p class="output">cleaned_filepath={cleaned_filepath}</p>'))
@@ -164,7 +164,7 @@ if not inits_file_exists:
   while not planetary_params:
     target_is_valid = False
     while not target_is_valid:
-      target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b"): ')
+      target=input('Please enter the name of your exoplanet target (i.e. "HAT-P-32 b") and press return: ')
       if target != "":
         target_is_valid = True
       else:
@@ -206,9 +206,9 @@ if not inits_file_exists:
   ''')
 
   # Prompt for AAVSO code
-  aavso_obs_code = input("Enter your AAVSO Observer code or press enter to skip: ")
+  aavso_obs_code = input("Enter your AAVSO Observer code or press return to skip: ")
   if aavso_obs_code:
-    sec_obs_code = input("Enter a secondary AAVSO Observer code or press enter to skip: ")
+    sec_obs_code = input("Enter a secondary AAVSO Observer code or press return to skip: ")
   else: 
     sec_obs_code = ""
 

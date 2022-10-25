@@ -88,7 +88,7 @@ if not inits_file_exists:
 
     while prompt_for_url:
       #while not starchart_image_url_is_valid:
-      starchart_image_url = input('Enter a valid starchart image URL: ')
+      starchart_image_url = input('Enter a valid starchart image URL and press return: ')
       if starchart_image_url.startswith('https://') and starchart_image_url.endswith('png'):
         display(HTML(f'<p class="output">Starchart Image URL is valid: {starchart_image_url}</p>'))
         starchart_image_url_is_valid = True

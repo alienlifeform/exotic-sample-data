@@ -22,7 +22,7 @@ This step will:
 <table><tr><td bgcolor="#fee9e9">
   <font size=2 color="#c02020">Important: there will be two popups you must agree to.
   <ul><li><font size=2>First popup is titled "Warning: This notebook was not authored by Google.". Click "Run Anyway".</font></li>
-  <li><font size=2>Second popup is asking for permission to access your Google Drive files. Click "Connect to Google Drive".</font></li></ul></font>
+  <li><font size=2>Second popup is asking for permission to access your Google Drive files. Click "Connect to Google Drive" and follow the prompts.</font></li></ul></font>
 </td></tr></table>
 <br />
 
