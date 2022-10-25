@@ -116,7 +116,7 @@ while not fits_files_found:
   display(HTML(f'<p class="output"><br />Found {fits_count} image files and {inits_count} initialization files in the directory.</p>'))
 
   # Determine if folder has enough .FITS folders to move forward
-  if fits_count >= 19:
+  if fits_count >= 1:
     fits_files_found = True # exit outer loop and continue
 
     # Make the output directory if it does not exist already.

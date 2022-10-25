@@ -123,6 +123,7 @@ if fits_count >= 2:
     targ_coords = input("Enter coordinates for target star - in the format [424,286] - and press return:  ")  
 
     # check syntax and coords
+    targ_coords = targ_coords.strip()
     tc_syntax = re.search(r"\[\d+,\d+\]$", targ_coords)
     if tc_syntax:
       tc_coords = re.findall("\d+", targ_coords)
@@ -147,6 +148,7 @@ if fits_count >= 2:
     comp_coords = input("Enter coordinates for the comparison stars - in the format [[326,365],[416,343]] - and press return:  ")  
 
     # check syntax
+    comp_coords = comp_coords.strip()
     cc_syntax = re.search(r"\[(\[\d+,\d+\],?)+\]$", comp_coords)
     if cc_syntax:
       #display(HTML('<p class="output">Syntax OK:  [[x1,y1],[x2,y2]] e.g. ' + comp_coords + '</p>'))

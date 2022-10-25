@@ -157,6 +157,7 @@ if not inits_file_exists:
           targ_coords = input("Enter coordinates for target star - in the format [424,286] - and press return:  ")  
 
           # check syntax and coords
+          targ_coords = targ_coords.strip()
           tc_syntax = re.search(r"\[\d+, ?\d+\]$", targ_coords)
           if tc_syntax:
               success = True
@@ -183,6 +184,7 @@ if not inits_file_exists:
           comp_coords = input("Enter coordinates for the comparison stars - in the format [[326,365],[416,343]] - and press return:  ")  
 
           # check syntax
+          comp_coords = comp_coords.strip()
           cc_syntax = re.search(r"\[(\[\d+, ?\d+\],? ?)+\]$", comp_coords)
           if cc_syntax:
             #display(HTML(f'<p class="output">Syntax OK:  [[x1,y1],[x2,y2]] e.g. {comp_coords}</p>'))
