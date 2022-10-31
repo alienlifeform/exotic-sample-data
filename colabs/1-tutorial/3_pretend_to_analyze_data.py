@@ -182,7 +182,7 @@ display(HTML('''
 '''))
 
 display(HTML('''
-    <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">Click for a video to help you understand this lightcurve.</a>
+    <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-understand-lightcurve.html" target="_blank">Click for a video to help you understand this lightcurve.</a>
 
     <p class="bookend">DONE: Analyzing telescope images. <b>Tutorial completed!</b></p>
 '''))

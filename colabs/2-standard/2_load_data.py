@@ -56,6 +56,7 @@ expandableSectionCustom('<u>+ EXOTIC Inline Help:</u> How to find your .FITS ima
   <ol style="line-height:135%">
   <li>In the left nav, click on the folder icon.</li>
   <li>Navigate to your images, likely in /drive/MyDrive/ or /content/drive/MyDrive/.</li>
+  <li class="error">If you click the "up one directory" icon, you will see a long list of folders. Click "content"</li>
   <li>Right-click on the folder with your .FITS images and click "Copy Path".</li>
   </ol>
 
