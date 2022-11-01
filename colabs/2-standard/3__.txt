@@ -24,7 +24,7 @@ This step will:
 For more information: 
 
 <ul>
-<li class="step"><a href="https://exoplanets.nasa.gov/exoplanet-watch/exotic/user-guide/">How do I get a starchart image URL?</a></li>
+<li class="step"><a href="https://exoplanets.nasa.gov/exoplanet-watch/exotic/user-guide/#2-2">How do I get a starchart image URL?</a></li>
 <li class="step"><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">How do I identify coordinates for my target and comparison stars?</a>
 </li>
 </ul>
