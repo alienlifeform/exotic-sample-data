@@ -7,7 +7,7 @@
 
 What would you like to do next?
 
-<a href="https://exoplanets.nasa.gov/exoplanet-watch/exotic/user-guide/">Learn how to submit a lightcurve</a>
+<a href="https://exoplanets.nasa.gov/exoplanet-watch/exotic/user-guide/#5-1">Learn how to submit a lightcurve</a>
 
 
 
