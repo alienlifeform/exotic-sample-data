@@ -11,3 +11,12 @@
 # file based  on those (save this new inits file in the folder with the output files 
 # so that the student can consult it later).  Finally, run EXOTIC with the newly-made 
 # or pre-existing inits file, plus any other inits files in the directory.
+
+
+# Allow download of lightcurve data
+def on_clear_button_clicked(b):
+    clear_output()
+
+clear_button = widgets.Button(description="Click to clear this output")
+clear_button.on_click(on_clear_button_clicked)
+display(clear_button)

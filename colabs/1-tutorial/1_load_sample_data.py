@@ -96,7 +96,7 @@ appendStepToContainer('.step_container_1b','Ensuring sample images are loaded...
 #
 # Delete existing sample data by changing to `rebuild = "true"`
 #
-rebuild = "false"  
+rebuild = "true"  
 if rebuild == "true":
   if os.path.isdir("/content/EXOTIC/tutorial"):
     %rm -rf /content/EXOTIC/tutorial
@@ -129,6 +129,6 @@ numfiles_fits = !ls {sample_data_target_child} | grep -ci FITS
 numfiles_json = !ls {sample_data_target_child} | grep -ci json
 
 display(HTML('<p class="step">You have ' + str(numfiles_fits[0]) + ' telescope image (.FITS) files.</p>'))
-#display(HTML('<p class="step">You have ' + str(numfiles_json[0]) + ' inits (.json) files</p>'))
+display(HTML('<p class="step">You have ' + str(numfiles_json[0]) + ' inits (.json) files</p>'))
 
 display(HTML('<p class="bookend">DONE: Loading telescope images. <b>You may move on to the next step.</b></p>'))

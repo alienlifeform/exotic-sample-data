@@ -1,6 +1,7 @@
+#@title Testbed, please ignore
+
 setupDisplay()
 display(HTML('<p>Either enter a telescope and target star, or type in the starchart image URL directly.'))
-
 
 #### star image URL input ####
 

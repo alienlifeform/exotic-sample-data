@@ -4,10 +4,9 @@
 
 <font face="Helvetica, Arial, Sans-Serif">
 
-<font size=2>
+
 🕔&nbsp;&nbsp;<i>Estimated time: < 1 minute (this would take longer with a real data set ~5-15 minutes)</i>
 
 EXOTIC will analyze the brightness of the target star in each telescope image to identify if there was a transit. At the end of this step, you will see your lightcurve as an image, and you could (if this wasn't just sample data) download the lightcurve data to your hard drive for submission to AAVSO.
-</font>
 
 </font>

@@ -49,7 +49,7 @@ if 'inits_file_path' in globals():
     planet = d["planetary_parameters"]["Planet Name"]
     output_dir = d["user_info"]["Directory to Save Plots"]
     if not os.path.isdir(output_dir):
-      os.mkdir(output_dir)
+      os.makedirs(output_dir)
     inits_file_for_shell = inits_file_path.replace(" ", "\\ ")
     run_exotic = str(f"exotic -red {inits_file_for_shell} -ov")
     debug_exotic_run = str(f"!exotic -red \"{inits_file_path}\" -ov")
@@ -61,11 +61,12 @@ if 'inits_file_path' in globals():
     print(f"{debug_exotic_run}")
     !eval "$run_exotic"
 
-    # Only show lightcurve for beginner - bm
+    file_for_submission = os.path.join(output_dir,"AAVSO_"+planet+"_"+date_obs+".txt")
     lightcurve = os.path.join(output_dir,"FinalLightCurve_"+planet+"_"+date_obs+".png")
     fov = os.path.join(output_dir,"temp/FOV_"+planet+"_"+date_obs+"_LinearStretch.png")
     triangle = os.path.join(output_dir,"temp/Triangle_"+planet+"_"+date_obs+".png")
-    print(f"lightcurve: {lightcurve}\nfov: {fov}\ntriangle: {triangle}\n")
+
+    print(f"aavso output: {file_for_submission}\nlightcurve: {lightcurve}\nfov: {fov}\ntriangle: {triangle}")
 
     if not (os.path.isfile(lightcurve) and os.path.isfile(fov) and os.path.isfile(triangle)):
       print(f"Something went wrong with {planet} {date_obs}.\nCopy the command below into a new cell and run to find the error:\n{debug_exotic_run}\n")
@@ -75,24 +76,18 @@ if 'inits_file_path' in globals():
     hbox = HBox([imageB, imageA])
     display(hbox)
     display(Image(filename=triangle))
-###
 
 
-  display(HTML('''
-      <p><a href="https://exoplanets.nasa.gov/system/exotic/exotic-identify-stars.html" target="_blank">Click for a video to help you understand this lightcurve.</a>
+  ###
 
-      <p class="bookend">DONE: Analyzing telescope images. </p>
-  '''))
+  display(HTML('<p class="bookend">DONE: Analyzing telescope images. </p>'))
 
   showProgress(3)
-
-  # Identify the lightcurve data file
-  file_for_submission = glob.glob(output_dir + "/AAVSO_*")[0]
 
   display(HTML(f'''
     
     <h2>Congratulations!</h2> 
-    <h3>You have successfully generated a lightcurve showing the possible transit of {target}</h3>
+    <h3>You have successfully generated a lightcurve showing the possible transit of {planet}</h3>
 
     <li class="step">Click to download the data to your hard drive in a format suitable for submission to AAVSO, (or find it by clicking the folder icon in the left nav and navigating to {file_for_submission})</li>
 

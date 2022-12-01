@@ -45,8 +45,8 @@ showProgress(.3)
 # Import EXOTIC
 appendStepToContainer('.step_container_1a','(2/5) EXOTIC <span class="comment">(This will take up to a minute, please wait...)</span>')
 
-#!pip install exotic --upgrade
-!pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
+!pip install exotic --upgrade
+#!pip install git+https://github.com/alienlifeform/exotic-prototype.git --upgrade
 # This suppresses the "RESTART RUNTIME" button
 hideWarning()
 from exotic.api.colab import *
@@ -101,4 +101,3 @@ drive.mount('/content/drive', force_remount=True)
 appendStepToContainer('.step_container_1b','Drive successfully mounted')
 
 display(HTML('<p class="bookend">DONE: Mounting Google Drive.  <b>You may move on to the next step.</b></p>'))
-

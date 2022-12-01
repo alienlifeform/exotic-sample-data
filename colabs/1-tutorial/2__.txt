@@ -4,14 +4,14 @@
 
 <font face="Helvetica, Arial, Sans-Serif">
 
-<font size=2>
+
 🕔&nbsp;&nbsp;<i>Estimated time: 6 minutes</i>
 
 In this multi-part step, you will use your stargazing skills to identify coordinates for your target star (HAT-P-32). You will:
-</font>
 
 
-<ol type="a"><font size=2><li>Watch the Video: "How to determine a star's coordinates" (3 minutes)</li>
-<li>Try it yourself: Enter the coordinates for the target and comparison stars (3 minutes)</li></font></ol>
+
+<ol type="a"><li>Watch the Video: "How to determine a star's coordinates" (3 minutes)</li>
+<li>Try it yourself: Enter the coordinates for the target and comparison stars (3 minutes)</li></ol>
 
 </font>
